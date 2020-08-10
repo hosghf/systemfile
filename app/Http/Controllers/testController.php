@@ -12,7 +12,7 @@ use App\Models\Heating;
 use App\Models\Meter;
 use App\Models\Sanad;
 use App\Models\Street;
-use App\Models\Type_of_land;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Customer_street;
 use App\Models\Floor;
@@ -46,7 +46,7 @@ class testController extends Controller
 //
 //        $x = File::find(1);
 //        echo $x->type_of_land->title;
-//        $z = Type_of_land::find(1);
+//        $z = Category::find(1);
 //        echo $z->files[0]->family;
 //
 //        $x = User::find(1);

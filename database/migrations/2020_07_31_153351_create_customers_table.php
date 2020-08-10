@@ -17,13 +17,13 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('family');
             $table->string('phone');
-            $table->bigInteger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->tinyInteger('rahn')->nullable();
             $table->tinyInteger('ejare')->nullable();
-            $table->tinyInteger('price')->nullable();
-            $table->tinyInteger('metr')->nullable();
-            $table->tinyInteger('room')->nullable();
-            $table->tinyInteger('tabaghe')->nullable();
+            $table->bigInteger('price')->nullable();
+            $table->integer('metr')->nullable();
+            $table->tinyInteger('street_id')->unsigned()->nullable();
+            $table->text('tozihat')->nullable();
             $table->tinyInteger('forosh')->nullable();
             $table->tinyInteger('maskoni')->nullable();
             $table->timestamps();
@@ -31,6 +31,12 @@ class CreateCustomersTable extends Migration
 
         Schema::table('customers', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
+        });
+        Schema::table('customers', function (Blueprint $table){
+            $table->foreign('room_id')->references('id')->on('rooms');
+        });
+        Schema::table('customers', function (Blueprint $table){
+            $table->foreign('street_id')->references('id')->on('streets');
         });
     }
 

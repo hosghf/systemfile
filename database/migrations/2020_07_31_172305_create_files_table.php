@@ -18,27 +18,28 @@ class CreateFilesTable extends Migration
             $table->string('family');
             $table->string('phone');
             $table->tinyInteger('street_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('address')->nullable();
-            $table->tinyInteger('type_id')->unsigned()->default(1);
-            $table->tinyInteger('metr')->unsigned()->nullable();
-            $table->integer('price')->nullable();
+            $table->tinyInteger('cat_id')->unsigned()->default(1);
+            $table->integer('metr')->unsigned()->nullable();
+            $table->bigInteger('price')->nullable();
             $table->tinyInteger('forosh')->default('1');
             $table->tinyInteger('maskoni')->nullable();
-            $table->tinyInteger('year')->nullable();
+            $table->integer('year')->nullable();
             $table->tinyInteger('cabinet_id')->nullable()->unsigned();
             $table->tinyInteger('floor_id')->unsigned()->nullable();
-            $table->tinyInteger('room')->unsigned()->nullable();
-            $table->tinyInteger('tabaghe')->unsigned()->nullable();
+            $table->tinyInteger('room_id')->unsigned()->nullable();
+            $table->tinyInteger('tabaghe_id')->unsigned()->nullable();
             $table->tinyInteger('heating_id')->unsigned()->nullable();
             $table->tinyInteger('cooling_id')->unsigned()->nullable();
             $table->tinyInteger('sanad_id')->unsigned()->nullable();
             $table->tinyInteger('direction_id')->unsigned()->nullable();
-            $table->tinyInteger('parking')->unsigned()->nullable();
-            $table->tinyInteger('anbari')->unsigned()->nullable();
-            $table->tinyInteger('asansor')->unsigned()->nullable();
-            $table->tinyInteger('vahed_dar_tabaghe')->unsigned()->nullable();
-            $table->string('tozihat')->nullable();
+            $table->tinyInteger('parking')->nullable();
+            $table->tinyInteger('anbari')->nullable();
+            $table->tinyInteger('asansor')->nullable();
+            $table->tinyInteger('archive')->default('0');
+            $table->tinyInteger('kole_tabaghat')->unsigned()->nullable();
+            $table->text('tozihat')->nullable();
             $table->timestamps();
         });
         Schema::table('files', function (Blueprint $table){
@@ -51,7 +52,7 @@ class CreateFilesTable extends Migration
             $table->foreign('cabinet_id')->references('id')->on('cabinets');
         });
         Schema::table('files', function (Blueprint $table){
-            $table->foreign('type_id')->references('id')->on('type_of_lands');
+            $table->foreign('cat_id')->references('id')->on('categories');
         });
         Schema::table('files', function (Blueprint $table){
             $table->foreign('floor_id')->references('id')->on('floors');
@@ -67,6 +68,12 @@ class CreateFilesTable extends Migration
         });
         Schema::table('files', function (Blueprint $table){
             $table->foreign('direction_id')->references('id')->on('building_directions');
+        });
+        Schema::table('files', function (Blueprint $table){
+            $table->foreign('tabaghe_id')->references('id')->on('tabaghe');
+        });
+        Schema::table('files', function (Blueprint $table){
+            $table->foreign('room_id')->references('id')->on('rooms');
         });
     }
 
