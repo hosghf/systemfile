@@ -21,6 +21,25 @@ use App\Models\Role;
 
 class testController extends Controller
 {
+    public function test2(Request $request)
+    {
+        $v = $request->validate([
+            'test' => 'required',
+            'test2' => 'required',
+        ],[
+            'test.required' => "<h1>message required</h1>",
+            'test2.required' => 'message required',
+        ]);
+
+        return view('test');
+    }
+
+    public function test(Request $request)
+    {
+        $new = 1;
+        return view('test', ['new' => $new]);
+    }
+
     public function index(){
 //        $x = Customer_street::find(1)->get();
 //

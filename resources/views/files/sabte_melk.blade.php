@@ -2,16 +2,9 @@
 
 @section('title2', 'ثبت ملک')
 
-@section('content')
+@section('pagetitle', $pagetitle)
 
-    <script src="plugins/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: '#mytextarea',
-            language: 'fa',
-            directionality : 'rtl'
-        });
-    </script>
+@section('content')
 
     {{--flush message--}}
     @foreach ($errors->all() as $error)
@@ -38,6 +31,8 @@
                     <div class="col-sm-12 col-md-11 m-auto">
                         <form method="post" action="" class="col-sm-12 col-md-8 mt-3">
                             @csrf
+                            <input type="hidden" name="forosh" value="{{$forosh}}">
+                            <input type="hidden" name="maskoni" value="{{$maskoni}}">
                             <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات صاحب ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
@@ -79,19 +74,31 @@
                                     <label>متراژ</label>
                                     <input name="metr" value="{{ old('metr') }}" type="text" class="form-control">
                                 </div>
-                                <div class="form-group mt-3">
-                                    <label>سند</label>
-                                    <select name="sanad" class="form-control">
-                                        <option></option>
-                                       @foreach($sanads as $sanad)
-                                          <option value="{{ $sanad->id }}" {{(old("sanad") == $sanad->id ? "selected":"")}}> {{ $sanad->title }} </option>
-                                       @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label>قیمت</label>
-                                    <input name="gheymat" value="{{old('gheymat')}}" type="text" class="form-control">
-                                </div>
+                                @if($forosh == 1)
+                                    <div class="form-group mt-3">
+                                        <label>سند</label>
+                                        <select name="sanad" class="form-control">
+                                            <option></option>
+                                           @foreach($sanads as $sanad)
+                                              <option value="{{ $sanad->id }}" {{(old("sanad") == $sanad->id ? "selected":"")}}> {{ $sanad->title }} </option>
+                                           @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label>قیمت</label>
+                                        <input name="gheymat" value="{{old('gheymat')}}" type="text" class="form-control">
+                                    </div>
+                                @endif
+                                @if($forosh == 0)
+                                    <div class="form-group mt-3">
+                                        <label>رهن</label>
+                                        <input name="rahn" value="{{old('rahn')}}" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label>اجاره</label>
+                                        <input name="ejare" value="{{old('ejare')}}" type="text" class="form-control">
+                                    </div>
+                                @endif
                             </div>
 
                             <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات ساختمان </h5>
@@ -158,7 +165,7 @@
                                     <select name="sarmayesh" class="form-control">
                                         <option></option>
                                         @foreach($coolings as $c)
-                                            <option value="{{ $c->id }}" {{(old("sarmayesh") == $c->id ? "selected":"")}}>{{ $c->title }} >{{ $c->title }}</option>
+                                            <option value="{{ $c->id }}" {{(old("sarmayesh") == $c->id ? "selected":"")}}>{{ $c->title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -251,7 +258,9 @@
                             </div>
 
                             <h5 class="mb-3 title col-sm-12 col-md-11"> توضیحات </h5>
-                            <textarea name="tozihat" id="mytextarea">{{ old('tozihat') }}</textarea>
+                            <div class="col-sm-12 col-md-10 m-auto">
+                                 <textarea name="tozihat" class="form-control" >{{ old('tozihat') }}</textarea>
+                            </div>
 
                             <div class="space2"></div>
                             <div class="row"></div>
@@ -260,14 +269,10 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
     </div>
-
 @endsection
 
 @section('js')

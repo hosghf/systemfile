@@ -22,7 +22,7 @@ class usersController extends Controller
             'family' => 'required',
             'phone' => 'required',
             'role' => 'required',
-            'username' => 'required|min:3',
+            'username' => 'required|min:3|unique:users',
             'password' => 'required|min:3',
         ],[
             'name.required' => 'لطفا نام را وارد کنید.',
@@ -33,6 +33,7 @@ class usersController extends Controller
             'role.required' => ' سمت مشاور را وارد کنید. ',
             'password.required' => 'لطفا پسوورد را وارد کنید.',
             'password.min' => 'پسوورد حداقل 3 کاراکتر باشد.',
+            'username.unique' => 'نام کاربری تکراری میباشد.',
         ]);
 
         $user = new User;

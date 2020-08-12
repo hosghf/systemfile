@@ -2,6 +2,8 @@
 
 @section('title2', 'ثبت مشتری')
 
+@section('pagetitle', $pagetitle)
+
 @section('content')
 
     {{--flush message--}}
@@ -29,6 +31,7 @@
 
                         <form method="post" action="/registercustomer" class="col-sm-12 col-md-8 mt-3">
                             @csrf
+                            <input type="hidden" name="forosh" value="{{$forosh}}">
                             <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات مشتری</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
@@ -56,26 +59,25 @@
                                     <label>متراژ</label>
                                     <input type="text" name="metr" value="{{ old('metr') }}" class="form-control">
                                 </div>
-                                <div class="form-group mt-3">
-                                    <label>تعداد خواب</label>
-                                    <select name="room" class="form-control">
-                                        <option></option>
-                                        @foreach($rooms as $room)
-                                            <option value="{{$room->id}}" {{($room->id == old('room') ? 'selected' : '')}} > {{ $room->title }} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label> دسته بندی </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label>قیمت</label>
-                                    <input type="text" name="gheymat" value="{{ old('gheymat') }}" class="form-control">
-                                </div>
+                                @if($forosh == 1)
+                                    <div class="form-group mt-3">
+                                        <label>قیمت</label>
+                                        <input type="text" name="gheymat" value="{{ old('gheymat') }}" class="form-control">
+                                    </div>
+                                @endif
+                                @if($forosh == 0)
+                                    <div class="form-group mt-3">
+                                        <label>رهن</label>
+                                        <input type="text" name="rahn" value="{{ old('rahn') }}" class="form-control">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label>اجاره</label>
+                                        <input type="text" name="ejare" value="{{ old('ejare') }}" class="form-control">
+                                    </div>
+                                @endif
                                 <div class="form-group mt-3">
                                     <label>توضیحات</label>
-                                    <textarea name="tozihat" class="form-control">{{ old('tozihat') }}</textarea>
+                                    <textarea name="tozihat" class="form-control"></textarea>
                                 </div>
                             </div>
 

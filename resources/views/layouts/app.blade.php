@@ -11,23 +11,14 @@
     <link rel="stylesheet" href="/dashbord/plugins/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dashbord/dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {{--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
 
     <!-- bootstrap rtl -->
     <link rel="stylesheet" href="/dashbord/dist/css/bootstrap-rtl.min.css">
+    @yield('css')
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dashbord/dist/css/custom-style.css">
     <link rel="stylesheet" href="/dashbord/dist/css/lastcss.css">
-
-    <script src="/dashbord/plugins/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: '#mytextarea',
-            language: 'fa',
-            directionality : 'rtl'
-        });
-    </script>
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -97,8 +88,8 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview {{ Route::currentRouteName() == 'listfile' ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link {{ Route::currentRouteName() == 'listfile' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
                                     جستجوی فایل
@@ -107,33 +98,33 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/listfile" class="nav-link active">
+                                    <a href="/listfile?forosh=1&maskoni=1" class="nav-link {{ Route::currentRouteName() == 'listfile' && $forosh == 1 && $maskoni == 1 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>فروش مسکونی</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/listfile?forosh=1&maskoni=0" class="nav-link {{ Route::currentRouteName() == 'listfile' && $forosh == 1 && $maskoni == 0 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>فروش تجاری</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/listfile?forosh=0&maskoni=1" class="nav-link {{ Route::currentRouteName() == 'listfile' && $forosh == 0 && $maskoni == 1 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>اجاره مسکونی</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/listfile?forosh=0&maskoni=0" class="nav-link {{ Route::currentRouteName() == 'listfile' && $forosh == 0 && $maskoni == 0 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>اجاره تجاری</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/registerfile" class="nav-link ">
+                        <li class="nav-item has-treeview {{ Route::currentRouteName() == 'registerfile' ? 'menu-open' : '' }}">
+                            <a href="/registerfile" class="nav-link {{ Route::currentRouteName() == 'registerfile' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
                                     ثبت فایل
@@ -142,46 +133,76 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/registerfile" class="nav-link ">
+                                    <a href="/registerfile?forosh=1&maskoni=1" class="nav-link {{ Route::currentRouteName() == 'registerfile' && $forosh == 1 && $maskoni == 1 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>فروش مسکونی</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/registerfile?forosh=1&maskoni=0" class="nav-link {{ Route::currentRouteName() == 'registerfile' && $forosh == 1 && $maskoni == 0 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>فروش تجاری</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/registerfile?forosh=0&maskoni=1" class="nav-link {{  Route::currentRouteName() == 'registerfile' && $forosh == 0 && $maskoni == 1 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>اجاره مسکونی</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/registerfile?forosh=0&maskoni=0" class="nav-link {{  Route::currentRouteName() == 'registerfile' && $forosh == 0 && $maskoni == 0 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>اجاره تجاری</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="/listmoshtari" class="nav-link">
-                                <i class="nav-icon fa fa-th"></i>
+                        <li class="nav-item has-treeview {{ Route::currentRouteName() == 'listmoshtari' ? 'menu-open' : '' }}">
+                            <a href="/listmoshtari" class="nav-link {{ Route::currentRouteName() == 'listmoshtari' ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
                                     جستجوی مشتری
+                                    <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/listmoshtari?forosh=1" class="nav-link {{ Route::currentRouteName() == 'listmoshtari' && $forosh == 1 ? 'active' : '' }}">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p> جستجو در فروش </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/listmoshtari?forosh=0" class="nav-link {{ Route::currentRouteName() == 'listmoshtari' && $forosh == 0 ? 'active' : '' }}">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p> جستجو در رهن و اجاره </p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="/registercustomer" class="nav-link">
-                                <i class="nav-icon fa fa-th"></i>
+                        <li class="nav-item has-treeview {{ Route::currentRouteName() == 'registercustomer' ? 'menu-open' : '' }}">
+                            <a href="/registercustomer" class="nav-link {{ Route::currentRouteName() == 'registercustomer' ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
                                     ثبت مشتری
+                                    <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/registercustomer?forosh=1" class="nav-link {{ Route::currentRouteName() == 'registercustomer' && $forosh == 1 ? 'active' : '' }}">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p> ثبت در فروش </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/registercustomer?forosh=0" class="nav-link {{ Route::currentRouteName() == 'registercustomer' && $forosh == 0 ? 'active' : '' }}">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p> ثبت در رهن و اجاره </p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -231,12 +252,11 @@
                     <div class="col-sm-6 row">
                         <h5 class="m-0 text-dark page-title"> @yield('title2') </h5>
                         <ol class="breadcrumb float-sm-left text-sm mr-3">
-                            <li class="breadcrumb-item"><a href="#">فروش</a></li>
-                            <li class="breadcrumb-item active">مسکونی</li>
+                            <li class="breadcrumb-item">@yield('pagetitle')</li>
+                            {{--<li class="breadcrumb-item active">@yield('maskoni')</li>--}}
                         </ol>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -260,13 +280,16 @@
     </footer>
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
 <script src="/dashbord/plugins/jquery/jquery.min.js"></script>
 @yield('js')
-
 <!-- Bootstrap 4 -->
 <script src="/dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+{{--bootstrap select cdn--}}
+
+
 <!-- AdminLTE App -->
 <script src="/dashbord/dist/js/adminlte.min.js"></script>
 

@@ -60,7 +60,7 @@
                             </div>
 
                             <h5 class="mb-3 mt-5 mb-4 title col-sm-12 col-md-11"> توضیحات </h5>
-                            <div class="col-sm-12 col-md-10 m-auto mt-2" style="white-space: pre-wrap">
+                            <div class="col-sm-12 col-md-10 m-auto mt-2 post-description">
                                 {{$customer->tozihat}}
                             </div>
                         </form>

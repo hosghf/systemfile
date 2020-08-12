@@ -10,10 +10,18 @@ use Illuminate\Http\Request;
 
 class customerController extends Controller
 {
-    public function registerIndex(){
+    public function registerIndex(Request $request){
         $streets = Street::all();
         $rooms = Room::all();
-        return view('moshtari.sabte_moshtari', ['streets' => $streets, 'rooms' => $rooms]);
+        $forosh = $request->forosh;
+        $pagetitle = '';
+        if($forosh == 1){
+            $pagetitle = 'فروش';
+        } elseif($forosh ==0){
+            $pagetitle = 'رهن و اجاره';
+        }
+        return view('moshtari.sabte_moshtari', ['streets' => $streets, 'rooms' => $rooms,
+                                        'pagetitle' => $pagetitle,'forosh' => $forosh]);
     }
 
     public function store(Request $request){
@@ -29,11 +37,11 @@ class customerController extends Controller
         $customer->family = $request->family;
         $customer->phone = $request->phone;
         $customer->price = $request->gheymat;
+        $customer->rahn = $request->rahn;
+        $customer->ejare = $request->ejare;
         $customer->metr = $request->metr;
-        $customer->tozihat = $request->tozihat;
-        $customer->room_id = $request->room;
-        $customer->forosh = 1;
-        $customer->maskoni = 1;
+        $customer->tozihat = trim($request->tozihat);
+        $customer->forosh = $request->forosh;
         $customer->user_id = 1;
         $customer->save();
 
@@ -67,7 +75,7 @@ class customerController extends Controller
         $customer->phone = $request->phone;
         $customer->price = $request->gheymat;
         $customer->metr = $request->metr;
-        $customer->tozihat = $request->tozihat;
+        $customer->tozihat = trim($request->tozihat);
         $customer->room_id = $request->room;
         $customer->forosh = 1;
         $customer->maskoni = 1;
@@ -78,9 +86,16 @@ class customerController extends Controller
         return redirect('updatecustomer/' . $id);
     }
 
-    public function list(){
-        $customers = Customer::paginate(10);
-        return view('moshtari.list_moshtari', ['customers' => $customers]);
+    public function list(Request $request){
+        $forosh = $request->forosh;
+        $pagetitle = '';
+        if($forosh == 1){
+            $pagetitle = 'فروش';
+        } elseif($forosh ==0){
+            $pagetitle = 'رهن و اجاره';
+        }
+        $customers = Customer::where('forosh', $forosh)->paginate(10);
+        return view('moshtari.list_moshtari', ['customers' => $customers, 'forosh' => $forosh, 'pagetitle' => $pagetitle]);
     }
 
     public function archive(){

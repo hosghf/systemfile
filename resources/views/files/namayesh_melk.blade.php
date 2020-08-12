@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title2', 'نمایش ملک')
+@section('title2', 'نمایش فایل')
 
 @section('content')
-
+    <div class="d-none">{{$forosh = 5}} {{$maskoni = 5}}</div>
     <div class="row">
         <div class="col-lg-12">
 
@@ -12,6 +12,7 @@
                     <div class="float-right  mt-3 mr-4 text-bold text-sm">
                         شماره فایل:
                         <span> {{$file->id}} </span>
+                        @if($file->archive == 1)<span class="badge badge-danger"> آرشیو </span>@endif
                     </div>
                     <span class="float-left mt-3 ml-4 text-bold text-sm">تاریخ:
                   <span>{{ $file->created_at }}</span>
@@ -142,9 +143,8 @@
                             @endif
 
                             <h5 class="mb-3 mt-5 mb-4 title col-sm-12 col-md-11"> توضیحات </h5>
-                            <div class="col-sm-12 col-md-10 m-auto mt-2">
-                                <p>این متن تست میباشد.</p>
-                                <p>این متن تست میباشد.این متن تست میباشد.این متن تست میباشد.</p>
+                            <div class="col-sm-12 col-md-10 m-auto mt-2 post-description">
+                                {{$file->tozihat}}
                             </div>
                         </form>
 

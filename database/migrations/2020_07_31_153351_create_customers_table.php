@@ -18,22 +18,18 @@ class CreateCustomersTable extends Migration
             $table->string('family');
             $table->string('phone');
             $table->integer('user_id')->unsigned();
-            $table->tinyInteger('rahn')->nullable();
-            $table->tinyInteger('ejare')->nullable();
+            $table->integer('rahn')->nullable();
+            $table->integer('ejare')->nullable();
             $table->bigInteger('price')->nullable();
             $table->integer('metr')->nullable();
             $table->tinyInteger('street_id')->unsigned()->nullable();
             $table->text('tozihat')->nullable();
             $table->tinyInteger('forosh')->nullable();
-            $table->tinyInteger('maskoni')->nullable();
             $table->timestamps();
         });
 
         Schema::table('customers', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
-        });
-        Schema::table('customers', function (Blueprint $table){
-            $table->foreign('room_id')->references('id')->on('rooms');
         });
         Schema::table('customers', function (Blueprint $table){
             $table->foreign('street_id')->references('id')->on('streets');

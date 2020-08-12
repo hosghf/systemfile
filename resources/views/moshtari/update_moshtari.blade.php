@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label>توضیحات</label>
-                                    <textarea name="tozihat" class="form-control">{{ $customer->tozihat }}</textarea>
+                                    <textarea name="tozihat" class="form-control">{{$customer->tozihat}}</textarea>
                                 </div>
                             </div>
 

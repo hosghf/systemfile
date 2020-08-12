@@ -21,9 +21,33 @@ use Illuminate\Http\Request;
 
 class fileController extends Controller
 {
-    public function registerIndex(){
+    public function registerIndex(Request $request){
 
-        $category = Category::where('tejary', 0)->get();//forosh maskony only
+        $maskoni = $request->maskoni;
+        $forosh = $request->forosh;
+        $pagetitle = '';
+        $category = '';
+        if( $forosh == 1 ) {
+            $pagetitle = "فروش";
+        } elseif($forosh == 0){
+            $pagetitle = "رهن و اجاره";
+        }
+        $pagetitle = $pagetitle . " / ";
+        if( $maskoni == 1 ) {
+            $pagetitle = $pagetitle . " مسکونی ";
+            if($forosh == 0){
+                $category = Category::where('tejary', 0)->where('ejare', '1')->get();//forosh maskony only
+            } else {
+                $category = Category::where('tejary', 0)->get();//forosh maskony only
+            }
+        } elseif($maskoni == 0){
+            $pagetitle = $pagetitle ." تجاری ";
+            if($forosh == 0){
+              $category = Category::where('tejary', 1)->where('ejare', '1')->get();//forosh maskony only
+            }else{
+              $category = Category::where('tejary', 1)->get();//forosh maskony only
+            }
+        }
         $street = Street::all();
         $sanad = Sanad::all();
         $directions = BuildingDirection::all();
@@ -37,7 +61,8 @@ class fileController extends Controller
         return view('files.sabte_melk', ['category' => $category, 'street' => $street, 'sanads' => $sanad,
                                             'directions' => $directions, 'year' => $year, 'rooms' => $rooms,
                                             'tabaghe' => $tabaghe, 'heatings' => $heatings, 'coolings' => $coolings,
-                                            'kaf' => $kaf, 'cabinets' => $cabinet ]);
+                                            'kaf' => $kaf, 'cabinets' => $cabinet,'maskoni' => $maskoni,
+                                                'forosh' => $forosh, 'pagetitle' => $pagetitle]);
     }
 
     public function registerStore(Request $request){
@@ -52,6 +77,9 @@ class fileController extends Controller
             'street.required' => ' محدوده را انتخاب کنید.',
         ]);
 
+        $maskoni = $request->maskoni;
+        $forosh = $request->forosh;
+
         $file = new File;
         $file->family = $request->family;
         $file->phone = $request->phone;
@@ -61,8 +89,10 @@ class fileController extends Controller
         $file->cat_id = $request->daste;
         $file->metr = $request->metr;
         $file->price = $request->gheymat;
-        $file->forosh = 1;
-        $file->maskoni = 1;
+        $file->rahn = $request->rahn;
+        $file->ejare = $request->ejare;
+        $file->forosh = $forosh;
+        $file->maskoni = $maskoni;
         $file->year = $request->year;
         $file->cabinet_id = $request->cabinet;
         $file->floor_id = $request->kaf;
@@ -77,7 +107,7 @@ class fileController extends Controller
         $file->anbari = $request->anbari;
         $file->asansor = $request->asansor;
         $file->tozihat = $request->tozihat;
-//        $file->save();
+        $file->save();
 
         $fArr = $request->facility;
         if(!is_null($fArr)){
@@ -91,7 +121,7 @@ class fileController extends Controller
         }
 
         $request->session()->flash('message', 'فایل با موفقیت اضافه شد.');
-        return redirect('/registerfile');
+        return redirect('/registerfile?forosh='.$forosh .'&maskoni=' . $maskoni);
 
     }
 
@@ -132,6 +162,9 @@ class fileController extends Controller
             'street.required' => ' محدوده را انتخاب کنید.',
         ]);
 
+        $forosh = $request->forosh;
+        $maskoni = $request->maskoni;
+
         $file = File::find($id);
         $file->family = $request->family;
         $file->phone = $request->phone;
@@ -141,8 +174,10 @@ class fileController extends Controller
         $file->cat_id = $request->daste;
         $file->metr = $request->metr;
         $file->price = $request->gheymat;
-        $file->forosh = 1;
-        $file->maskoni = 1;
+        $file->rahn = $request->rahn;
+        $file->ejare = $request->ejare;
+        $file->forosh = $forosh;
+        $file->maskoni = $maskoni;
         $file->year = $request->year;
         $file->cabinet_id = $request->cabinet;
         $file->floor_id = $request->kaf;
@@ -187,4 +222,6 @@ class fileController extends Controller
         session()->flash('message', 'فایل حذف شد.');
         return redirect('/listfile');
     }
+
+
 }

@@ -15,9 +15,12 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->integer('price_title');
-            $table->integer('ejare_title');
-            $table->integer('rahn_title');
+            $table->float('price_value');
+            $table->string('price_title');
+            $table->float('rahn_value');
+            $table->string('rahn_title');
+            $table->float('ejare_value');
+            $table->string('ejare_title');
             $table->timestamps();
         });
     }

@@ -22,7 +22,9 @@ class CreateFilesTable extends Migration
             $table->string('address')->nullable();
             $table->tinyInteger('cat_id')->unsigned()->default(1);
             $table->integer('metr')->unsigned()->nullable();
-            $table->bigInteger('price')->nullable();
+            $table->float('price')->nullable();
+            $table->float('rahn')->nullable();
+            $table->float('ejare')->nullable();
             $table->tinyInteger('forosh')->default('1');
             $table->tinyInteger('maskoni')->nullable();
             $table->integer('year')->nullable();

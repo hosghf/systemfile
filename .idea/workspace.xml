@@ -2,26 +2,237 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0d65684-8cc4-4b50-b7f8-57a6e2580792" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/systemfile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/systemfile.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/testController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/testController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/File.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Type_of_land.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_11_133336_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_11_133336_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_31_152924_create_type_of_lands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_31_152924_create_categories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_31_160423_create_prices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_31_160423_create_prices_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/initializeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/initializeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/Chart.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/Chart.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/Chart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/Chart.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/cartesian/category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/cartesian/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/cartesian/linear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/cartesian/logarithmic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/cartesian/time.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/labelling.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/radial/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/radial/linear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/axes/styling.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/area.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/bar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/bubble.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/doughnut.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/line.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/mixed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/polar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/radar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/charts/scatter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/configuration/animations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/configuration/elements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/configuration/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/configuration/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/configuration/legend.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/configuration/title.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/configuration/tooltip.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/developers/api.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/developers/axes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/developers/charts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/developers/contributing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/developers/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/developers/plugins.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/developers/updates.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/colors.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/device-pixel-ratio.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/fonts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/interactions/events.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/interactions/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/interactions/modes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/options.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/general/responsive.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/getting-started/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/getting-started/installation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/getting-started/integration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/getting-started/usage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-anchorjs/anchor-style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-fontsettings/fontsettings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-fontsettings/website.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-ga/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-highlight/ebook.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-highlight/website.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/jquery.mark.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/search.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-sharing/buttons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/gitbook.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/images/apple-touch-icon-precomposed-152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/gitbook/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/notes/comparison.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/notes/extensions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/notes/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/notes/license.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/search_plus_index.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/js/plugins/chartjs2/docs/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/bootstrap-datepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/datepicker3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.az.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.cy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.et.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.gl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.kk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.kr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.mk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.nb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.nl-BE.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.no.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.rs-latin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.rs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.sq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.sw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.ua.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/datepicker/locales/bootstrap-datepicker.zh-TW.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/icons/default/icons.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/jquery.tinymce.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/langs/fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/langs/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/advlist/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/anchor/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/autolink/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/autoresize/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/autosave/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/bbcode/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/charmap/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/code/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/codesample/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/colorpicker/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/contextmenu/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/directionality/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/emoticons/js/emojis.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/emoticons/js/emojis.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/emoticons/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/fullpage/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/fullscreen/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/help/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/hr/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/image/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/imagetools/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/importcss/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/insertdatetime/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/legacyoutput/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/link/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/lists/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/media/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/nonbreaking/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/noneditable/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/pagebreak/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/paste/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/preview/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/print/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/quickbars/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/save/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/searchreplace/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/spellchecker/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/tabfocus/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/table/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/template/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/textcolor/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/textpattern/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/toc/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/visualblocks/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/visualchars/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/plugins/wordcount/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/content/dark/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/content/default/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/content/document/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/content/writer/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide-dark/content.inline.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide-dark/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide-dark/content.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide-dark/fonts/tinymce-mobile.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide-dark/skin.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide-dark/skin.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide/content.inline.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide/content.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide/fonts/tinymce-mobile.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide/skin.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/skins/ui/oxide/skin.mobile.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/themes/mobile/theme.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/themes/silver/theme.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/plugins/tinymce/tinymce.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/files/update_melk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/update_melk.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/moshtari/update_moshtari.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moshtari/update_moshtari.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,62 +249,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="37" column="25" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="25" />
+            <state relative-caret-position="373">
+              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+            <state relative-caret-position="360">
+              <caret line="156" column="35" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="35" />
               <folding>
-                <element signature="e#3525#3558#0#HTML" expanded="true" />
+                <element signature="e#45#81#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="98" column="38" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
-              <folding>
-                <element signature="e#49#85#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Customer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Room.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="e#7#52#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="220">
+              <caret line="14" column="101" selection-start-line="14" selection-start-column="101" selection-end-line="14" selection-end-column="101" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/files/list_melk.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-640">
+              <caret line="49" column="79" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5500">
+              <caret line="275" column="24" selection-start-line="275" selection-start-column="24" selection-end-line="275" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -116,6 +312,10 @@
       <find>ghe</find>
       <find>sanad</find>
       <find>dire</find>
+      <find>test</find>
+      <find>$forosh</find>
+      <find>echo</find>
+      <find>$d</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,13 +324,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="F:/admin-lte-template/system_file/dist/css/lastcss.css" />
-        <option value="F:/admin-lte-template/system_file/namayesh_melk.html" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_07_31_152924_create_type_of_categories_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/Ctegory.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_07_31_152924_create_categories_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_08_05_205602_create_comments_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
         <option value="F:/admin-lte-template/system_file/sabte_file2.html" />
@@ -146,35 +339,42 @@
         <option value="$PROJECT_DIR$/app/Models/Tabaghe.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_08_125904_create_room_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_08_130109_create_rooms_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_11_133336_create_roles_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Role.php" />
         <option value="$PROJECT_DIR$/resources/views/user_management/sabte_personel.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/database/seeds/initializeSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/user_management/update_personel.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/settings/changepassword.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/moshtari/update_moshtari.blade.php" />
         <option value="$PROJECT_DIR$/public/dashbord/dist/js/jquery/sabte_melk_add_emkanat.js" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php" />
         <option value="$PROJECT_DIR$/resources/views/user_management/list_personel.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" />
-        <option value="$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/File.php" />
-        <option value="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/files/update_melk.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php" />
-        <option value="$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Customer.php" />
         <option value="$PROJECT_DIR$/app/Models/Room.php" />
+        <option value="$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/moshtari/update_moshtari.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/test.blade.php" />
+        <option value="$PROJECT_DIR$/public/dashbord/dist/js/jquery/jqtest.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/testController.php" />
+        <option value="F:/laravel_kheirie/kheirie/resources/views/dashbordLayout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php" />
+        <option value="$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php" />
+        <option value="$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_07_31_160423_create_prices_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/initializeSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/files/update_melk.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" />
+        <option value="$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php" />
+        <option value="$USER_HOME$/Desktop/New folder/index.html" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php" />
+        <option value="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" />
       </list>
     </option>
   </component>
@@ -327,18 +527,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="file" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
@@ -356,7 +545,7 @@
               <item name="systemfile" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="moshtari" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -372,16 +561,16 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\laravel_systemfile\systemfile\public\dashbord\plugins" />
-      <recent name="F:\laravel_systemfile\systemfile\public\dashbord" />
-      <recent name="F:\laravel_systemfile\systemfile\resources\views\auth" />
-      <recent name="F:\laravel_systemfile\systemfile\public" />
-      <recent name="F:\laravel_systemfile\systemfile\resources\views\auth\passwords" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\laravel_systemfile\systemfile\resources\views\auth" />
       <recent name="F:\laravel_systemfile\systemfile\app\Models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\laravel_systemfile\systemfile\public\dashbord\dist\css" />
+      <recent name="F:\laravel_systemfile\systemfile\public\dashbord\dist\js\plugins" />
+      <recent name="F:\laravel_systemfile\systemfile\public\dashbord\plugins" />
+      <recent name="F:\laravel_systemfile\systemfile\public\dashbord" />
+      <recent name="F:\laravel_systemfile\systemfile\resources\views\auth" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -418,12 +607,14 @@
       <workItem from="1596714431524" duration="533000" />
       <workItem from="1596812016863" duration="56743000" />
       <workItem from="1596991666324" duration="16624000" />
-      <workItem from="1597053004050" duration="4937000" />
+      <workItem from="1597053004050" duration="20660000" />
+      <workItem from="1597095700408" duration="3793000" />
+      <workItem from="1597129442855" duration="63950000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201128000" />
+    <option name="totallyTimeSpent" value="284594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -431,7 +622,7 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2289644" />
+      <window_info content_ui="combo" id="Project" order="2" weight="0.2289644" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32919255" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -455,77 +646,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://F:/admin-lte-template/system_file/sabte_moshaver.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="201" column="5" selection-start-line="201" selection-start-column="5" selection-end-line="262" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/admin-lte-template/system_file/change_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="201" column="8" selection-start-line="201" selection-start-column="8" selection-end-line="233" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_171433_create_heatings_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Heating.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Meter.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Tabaghe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_171757_create_tabaghe_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="67" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_08_125904_create_room_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_152809_create_rooms_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Sanad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/laravel_kheirie/kheirie/public/dashbordResources/dist/js/modirvarizpg.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://F:/laravel_kheirie/kheirie/public/loginRegisterResources/js/page2jq.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="32" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/laravel_kheirie/kheirie/app/Http/Controllers/registerationrequest/RegisterRequestController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -578,26 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding>
-            <element signature="e#7#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/initializeSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="94" column="125" lean-forward="true" selection-start-line="94" selection-start-column="125" selection-end-line="94" selection-end-column="144" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/settings/changepassword.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -605,46 +705,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="63" column="120" selection-end-line="97" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/update_moshtari.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="73" column="96" selection-start-line="73" selection-start-column="96" selection-end-line="73" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="102" column="81" selection-end-line="274" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/js/jquery/sabte_melk_add_emkanat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Facility.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
-          <folding>
-            <element signature="e#7#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user_management/update_personel.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -667,23 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
-          <folding>
-            <element signature="e#55#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="196" column="56" selection-start-line="196" selection-start-column="56" selection-end-line="196" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -691,95 +736,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2180">
-          <caret line="109" column="54" selection-start-line="109" selection-start-column="54" selection-end-line="109" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/files/list_melk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="58" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="175" lean-forward="true" selection-start-line="175" selection-end-line="175" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/files/update_melk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="274" column="107" selection-start-line="274" selection-start-column="107" selection-end-line="274" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="98" column="38" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
-          <folding>
-            <element signature="e#49#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
-          <folding>
-            <element signature="e#3525#3558#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="37" column="25" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -797,13 +757,243 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/update_moshtari.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="359">
+          <caret line="77" column="102" lean-forward="true" selection-start-line="77" selection-start-column="102" selection-end-line="77" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="62" column="72" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/js/jquery/sabte_melk_add_emkanat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/testController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/laravel_kheirie/kheirie/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1" />
+      </provider>
+    </entry>
+    <entry file="file://F:/laravel_kheirie/kheirie/resources/views/dashbordLayout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="68" column="111" selection-start-line="68" selection-start-column="103" selection-end-line="68" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/js/jquery/jqtest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="18" selection-start-line="4" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="96" column="54" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
+          <folding>
+            <element signature="e#49#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="92" column="47" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
           <folding>
             <element signature="e#7#52#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+          <folding>
+            <element signature="e#55#91#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+          <folding>
+            <element signature="e#7#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="85" column="15" selection-start-line="85" selection-start-column="15" selection-end-line="85" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_155944_create_ejare_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="58" lean-forward="true" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="e#7#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_07_31_160423_create_prices_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/initializeSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="219" column="150" selection-start-line="219" selection-start-column="150" selection-end-line="219" selection-end-column="150" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/files/update_melk.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="95" column="58" selection-start-line="95" selection-start-column="58" selection-end-line="95" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+          <folding>
+            <element signature="e#45#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="167" column="122" selection-start-line="167" selection-start-column="122" selection-end-line="167" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/New folder/persian-datepicker.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/New folder/persian-datepicker.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/New folder/persian-date.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/New folder/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/js/plugins/select2.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/css/select2.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5500">
+          <caret line="275" column="24" selection-start-line="275" selection-start-column="24" selection-end-line="275" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/files/list_melk.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-640">
+          <caret line="49" column="79" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="156" column="35" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="35" />
+          <folding>
+            <element signature="e#45#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="101" selection-start-line="14" selection-start-column="101" selection-end-line="14" selection-end-column="101" />
         </state>
       </provider>
     </entry>
