@@ -22,7 +22,6 @@ class CreateCustomersTable extends Migration
             $table->integer('ejare')->nullable();
             $table->bigInteger('price')->nullable();
             $table->integer('metr')->nullable();
-            $table->tinyInteger('street_id')->unsigned()->nullable();
             $table->text('tozihat')->nullable();
             $table->tinyInteger('forosh')->nullable();
             $table->timestamps();
@@ -30,9 +29,6 @@ class CreateCustomersTable extends Migration
 
         Schema::table('customers', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
-        });
-        Schema::table('customers', function (Blueprint $table){
-            $table->foreign('street_id')->references('id')->on('streets');
         });
     }
 

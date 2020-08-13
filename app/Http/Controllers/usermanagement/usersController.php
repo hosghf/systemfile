@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class usersController extends Controller
 {
     public function registerIndex(){
-
-        $role = Role::all();
+        $role = Role::all()->except(1);
         return view('user_management.sabte_personel', ['roles' => $role]);
     }
 
@@ -52,7 +51,7 @@ class usersController extends Controller
 
     public function showUpdate($id){
         $user = User::find($id);
-        $role = Role::all();
+        $role = Role::all()->except(1);
         return view('user_management.update_personel', ['user' => $user, 'roles' => $role]);
     }
 
@@ -94,7 +93,7 @@ class usersController extends Controller
     }
 
     public function list(){
-        $users = User::all();
+        $users = User::all()->except(1);
         return view('user_management.list_personel', ['users' => $users]);
     }
 

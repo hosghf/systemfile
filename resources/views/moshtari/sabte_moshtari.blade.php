@@ -4,6 +4,10 @@
 
 @section('pagetitle', $pagetitle)
 
+@section('css')
+    <link rel="stylesheet" href="/dashbord/dist/css/select2.min.css">
+@endsection
+
 @section('content')
 
     {{--flush message--}}
@@ -48,7 +52,7 @@
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
                                     <label>محدوده ها</label>
-                                    <select name="streets" class="form-control">
+                                    <select name="streets[]" multiple class="street form-control">
                                         <option></option>
                                         @foreach($streets as $street)
                                             <option value="{{$street->id}}"> {{ $street->title }} </option>
@@ -97,4 +101,13 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+    <script src="/dashbord/dist/js/plugins/select2.min.js"></script>
+    <script>
+        $(function (){
+            $('.street').select2();
+        })
+    </script>
 @endsection

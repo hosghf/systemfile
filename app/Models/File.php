@@ -49,9 +49,6 @@ class File extends Model
         return $this->hasMany('App\Models\Facility');
     }
 
-    public function ejare(){
-        return $this->hasOne('App\Models\Ejare');
-    }
     public function user(){
         return $this->belongsTo('App\Models\User');
     }

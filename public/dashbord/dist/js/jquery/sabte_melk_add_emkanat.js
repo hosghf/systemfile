@@ -1,5 +1,5 @@
 var id = 0;
-var id = $('#countFacility').val();
+// var id = $('#countFacility').val();
 console.log(id);
 
 $('#add').click(function () {

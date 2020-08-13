@@ -2,6 +2,10 @@
 
 @section('title2', 'ویرایش مشتری')
 
+@section('css')
+    <link rel="stylesheet" href="/dashbord/dist/css/select2.min.css">
+@endsection
+
 @section('content')
 
     {{--flush message--}}
@@ -29,6 +33,7 @@
 
                         <form method="post" action="/updatecustomer/{{$customer->id}}" class="col-sm-12 col-md-8 mt-3">
                             @csrf
+                            <input type="hidden" name="forosh" value="{{$customer->forosh}}">
                             <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات مشتری</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
@@ -45,29 +50,22 @@
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
                                     <label>محدوده ها</label>
-                                    <select name="streets" class="form-control">
+                                    <select name="streets[]" multiple class="street form-control">
                                         <option></option>
                                         @foreach($streets as $street)
-                                            <option value="{{$street->id}}"> {{ $street->title }} </option>
+                                            <option value="{{$street->id}}"
+                                                @if(count($customer->streets) > 0)
+                                                    @foreach($customer->streets as $cst)
+                                                         {{$cst->id == $street->id ? 'selected' : ''}}
+                                                    @endforeach
+                                                @endif
+                                            > {{ $street->title }} </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group mt-3">
                                     <label>متراژ</label>
                                     <input type="text" name="metr" value="{{ $customer->metr }}" class="form-control">
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label>تعداد خواب</label>
-                                    <select name="room" class="form-control">
-                                        <option></option>
-                                        @foreach($rooms as $room)
-                                            <option value="{{$room->id}}" {{($room->id == $customer->room_id ? 'selected' : '')}} > {{ $room->title }} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label> دسته بندی </label>
-                                    <input type="text" class="form-control">
                                 </div>
                                 <div class="form-group mt-3">
                                     <label>قیمت</label>
@@ -95,4 +93,13 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+    <script src="/dashbord/dist/js/plugins/select2.min.js"></script>
+    <script>
+        $(function (){
+            $('.street').select2();
+        })
+    </script>
 @endsection

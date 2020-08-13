@@ -31,7 +31,7 @@
                             @csrf
                             <input type="hidden" name="forosh" value="{{$file->forosh}}">
                             <input type="hidden" name="maskoni" value="{{$file->maskoni}}">
-                            <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات صاحب ملک</h5>
+                            <h5 class="mb-3 mt-5 title2 col-sm-12 col-md-11">مشخصات صاحب ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
                                     <label><span class="text-danger">*</span>
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-3 title col-sm-12 col-md-11">مشخصات ملک</h5>
+                            <h5 class="mb-3 title2 col-sm-12 col-md-11">مشخصات ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
                                     <label>دسته بندی</label>
@@ -98,7 +98,7 @@
                                 @endif
                             </div>
 
-                            <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات ساختمان </h5>
+                            <h5 class="mb-3 mt-5 title2 col-sm-12 col-md-11">مشخصات ساختمان </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group mt-3">
                                     <label>جهت ساختمان</label>
@@ -146,7 +146,7 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-3 mt-5 title col-sm-12 col-md-11"> امکانات </h5>
+                            <h5 class="mb-3 mt-5 title2 col-sm-12 col-md-11"> امکانات </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
                                     <label> گرمایش </label>
@@ -233,7 +233,7 @@
 
                             </div>
 
-                            <h5 class="mb-3 title col-sm-12 col-md-11">افزودن سایر امکانات </h5>
+                            <h5 class="mb-3 title2 col-sm-12 col-md-11">افزودن سایر امکانات </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
 
                                 <div class="row">
@@ -270,7 +270,7 @@
 
                             </div>
 
-                            <h5 class="mb-3 title col-sm-12 col-md-11"> توضیحات </h5>
+                            <h5 class="mb-3 title2 col-sm-12 col-md-11"> توضیحات </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <textarea class="form-control" name="tozihat" id="mytextarea">{{ $file->tozihat }}</textarea>
                             </div>

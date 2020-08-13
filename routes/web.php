@@ -37,6 +37,9 @@ Route::post('/searchfile', 'file\fileSearchController@filter')->name('searchfile
 
 //moshtari
 Route::get('/listmoshtari', 'customer\customerController@list')->name('listmoshtari');
+Route::post('/searchmoshtari', 'customer\customerController@list')->name('searchmoshtari');
+Route::post('/filtermoshtari', 'customer\customerController@list')->name('filtermoshtari');
+
 Route::get('/showcustomer/{id}', 'customer\customerController@show')->name('');
 Route::get('/registercustomer', 'customer\customerController@registerIndex')->name('registercustomer');
 Route::post('/registercustomer', 'customer\customerController@store');

@@ -11,6 +11,6 @@ class Customer extends Model
     }
 
     public function streets(){
-        return $this->hasMany('App\Models\Street');
+        return $this->belongsToMany('App\Models\Street');
     }
 }

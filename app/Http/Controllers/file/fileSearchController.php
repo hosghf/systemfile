@@ -14,49 +14,6 @@ use Carbon\Carbon;
 
 class fileSearchController extends Controller
 {
-    public function list(Request $request){
-
-        $maskoni = $request->maskoni;
-        $forosh = $request->forosh;
-        $pagetitle = '';
-        $category = '';
-        if( $forosh == 1 ) {
-            $pagetitle = "فروش";
-        } elseif($forosh == 0){
-            $pagetitle = "رهن و اجاره";
-        }
-        $pagetitle = $pagetitle . " / ";
-        if( $maskoni == 1 ) {
-            $pagetitle = $pagetitle . " مسکونی ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 0)->where('ejare', '1')->get();//forosh maskony only
-            } else {
-                $category = Category::where('tejary', 0)->get();//forosh maskony only
-            }
-        } elseif($maskoni == 0){
-            $pagetitle = $pagetitle ." تجاری ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 1)->where('ejare', '1')->get();//forosh maskony only
-            }else{
-                $category = Category::where('tejary', 1)->get();//forosh maskony only
-            }
-        }
-
-        $files = File::where('forosh', $forosh)->where('maskoni', $maskoni)->paginate(12);
-
-        $metr = Meter::all();
-        $street = Street::all();
-        $now  = \verta();
-        foreach ($files as $f){
-            $f->tarikh = verta($f->created_at);
-            $f->tarikh = $f->tarikh->formatDifference($now);
-        }
-        return view('files.list_melk', ['files' => $files, 'forosh' => $forosh,
-                                    'maskoni' => $maskoni, 'pagetitle' => $pagetitle, 'category' => $category,
-                                    'street' => $street, 'metr' => $metr ]);
-
-    }
-
     public function filter(Request $request){
         $maskoni = $request->maskoni;
         $forosh = $request->forosh;
@@ -88,6 +45,11 @@ class fileSearchController extends Controller
         $cat_id = $request->category;
         $price1 = $request->price1;
         $price2 = $request->price2;
+        $rahn1 = $request->rahn1;
+        $rahn2 = $request->rahn2;
+        $ejare1 = $request->ejare1;
+        $ejare2 = $request->ejare2;
+
         $date1 = $request->date1;
         $date2 = $request->date2;
         $yeardif = $request->year;
@@ -145,6 +107,21 @@ class fileSearchController extends Controller
                 $files->where('created_at', '<=', $date2);
             }
 
+            if($rahn1 != null and $rahn2 != null){
+                $files->whereBetween('rahn', [$rahn1, $rahn2]);
+            }elseif($rahn1 != null and $rahn2 == null){
+                $files->where('rahn', '>=', $rahn1);
+            }elseif($rahn1 == null and $rahn2 != null){
+                $files->where('rahn', '<=', $rahn2);
+            }
+            if($ejare1 != null and $ejare2 != null){
+                $files->whereBetween('ejare', [$ejare1, $ejare2]);
+            }elseif($ejare1 != null and $ejare2 == null){
+                $files->where('ejare', '>=', $ejare1);
+            }elseif($ejare1 == null and $ejare2 != null){
+                $files->where('ejare', '<=', $ejare2);
+            }
+
             if($yeardif != null){
                 $thisyear = verta()->year;
                 $yeardif = $thisyear - $yeardif;
@@ -157,7 +134,6 @@ class fileSearchController extends Controller
                         $query->orWhere('street_id', $street);
                     }
                 });
-
             }
 
             if($cat_id != null){
@@ -183,6 +159,8 @@ class fileSearchController extends Controller
         }
 
         $prices = Price::all('price_title', 'price_value');
+        $rahn4select = Price::all('rahn_title', 'rahn_value');
+        $ejare4select = Price::all('ejare_title', 'ejare_value');
         $street = Street::all();
         $now  = \verta();
         $metr = Meter::all();
@@ -193,58 +171,8 @@ class fileSearchController extends Controller
 
         return view('files.list_melk', ['files' => $files, 'forosh' => $forosh,
             'maskoni' => $maskoni, 'pagetitle' => $pagetitle, 'category' => $category,
-            'street' => $street,'metr' => $metr, 'prices' => $prices]);
-    }
-
-    public function search(Request $request){
-        $maskoni = $request->maskoni;
-        $forosh = $request->forosh;
-        $pagetitle = '';
-        $category = '';
-        if( $forosh == 1 ) {
-            $pagetitle = "فروش";
-        } elseif($forosh == 0){
-            $pagetitle = "رهن و اجاره";
-        }
-        $pagetitle = $pagetitle . " / ";
-        if( $maskoni == 1 ) {
-            $pagetitle = $pagetitle . " مسکونی ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 0)->where('ejare', '1')->get();//forosh maskony only
-            } else {
-                $category = Category::where('tejary', 0)->get();//forosh maskony only
-            }
-        } elseif($maskoni == 0){
-            $pagetitle = $pagetitle ." تجاری ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 1)->where('ejare', '1')->get();//forosh maskony only
-            }else{
-                $category = Category::where('tejary', 1)->get();//forosh maskony only
-            }
-        }
-
-        $searchbox = $request->searchbox;
-        $cat_id = $request->category;
-
-        $files = File::where(function ($query) use($forosh, $maskoni){
-            $query->where('forosh', $forosh)
-                ->where('maskoni', $maskoni);
-        })->where(function ($query) use($searchbox,$cat_id){
-            $query->orWhere('phone', $searchbox)
-                ->orWhere('family', $searchbox)
-                ->orWhere('address', 'LIKE', "%{$searchbox}%")
-                ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-        })->paginate(12);
-
-        $street = Street::all();
-        $now  = \verta();
-        foreach ($files as $f){
-            $f->tarikh = verta($f->created_at);
-            $f->tarikh = $f->tarikh->formatDifference($now);
-        }
-        return view('files.list_melk', ['files' => $files, 'forosh' => $forosh,
-            'maskoni' => $maskoni, 'pagetitle' => $pagetitle, 'category' => $category,
-            'street' => $street, ]);
+            'street' => $street,'metr' => $metr, 'prices' => $prices,
+            'rahn4select' => $rahn4select,'ejare4select' => $ejare4select]);
     }
 
 }

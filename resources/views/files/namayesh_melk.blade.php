@@ -26,7 +26,7 @@
 
                         <form class="col-sm-12 col-md-8">
 
-                            <h5 class="mb-3 mt-5 mb-4 title col-sm-12 col-md-11">مشخصات صاحب ملک</h5>
+                            <h5 class="mb-3 mt-5 mb-4 title2 col-sm-12 col-md-11">مشخصات صاحب ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto mt-2">
                                 <div class="form-group row">
                                     <label class="col-6 col-sm-4 col-md-6">نام خانوادگی مالک:</label>
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-3 title col-sm-12 col-md-11">مشخصات ملک</h5>
+                            <h5 class="mb-3 title2 col-sm-12 col-md-11">مشخصات ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group row">
                                     <label class="col-6 col-sm-4 col-md-6">دسته بندی:</label>
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات ساختمان </h5>
+                            <h5 class="mb-3 mt-5 title2 col-sm-12 col-md-11">مشخصات ساختمان </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">جهت ساختمان:</label>
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-3 mt-5 title col-sm-12 col-md-11"> امکانات </h5>
+                            <h5 class="mb-3 mt-5 title2 col-sm-12 col-md-11"> امکانات </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6"> گرمایش:</label>
@@ -131,7 +131,7 @@
                             </div>
 
                             @if(count($file->facilities) > 0)
-                                <h5 class="mt-5 mb-2 title col-sm-12 col-md-11"> سایر امکانات </h5>
+                                <h5 class="mt-5 mb-2 title2 col-sm-12 col-md-11"> سایر امکانات </h5>
                                 <div class="col-sm-12 col-md-10 m-auto mt-2 clearfix">
                                     @foreach($file->facilities as $faci)
                                         <div class="float-right mt-4 ml-4">
@@ -142,7 +142,7 @@
                                 </div>
                             @endif
 
-                            <h5 class="mb-3 mt-5 mb-4 title col-sm-12 col-md-11"> توضیحات </h5>
+                            <h5 class="mb-3 mt-5 mb-4 title2 col-sm-12 col-md-11"> توضیحات </h5>
                             <div class="col-sm-12 col-md-10 m-auto mt-2 post-description">
                                 {{$file->tozihat}}
                             </div>

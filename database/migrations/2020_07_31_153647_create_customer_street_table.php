@@ -17,7 +17,6 @@ class CreateCustomerStreetTable extends Migration
             $table->id();
             $table->bigInteger('street_id');
             $table->bigInteger('customer_id');
-            $table->timestamps();
         });
     }
 

@@ -28,7 +28,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars fa-lg"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="index3.html" class="nav-link">خانه</a>
@@ -54,7 +54,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                    <i class="fa fa-sign-out"></i>
+                    <i class="fa fa-sign-out fa-lg"></i>
                 </a>
             </li>
         </ul>
@@ -176,7 +176,7 @@
                                 <li class="nav-item">
                                     <a href="/listmoshtari?forosh=0" class="nav-link {{ Route::currentRouteName() == 'listmoshtari' && $forosh == 0 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p> جستجو در رهن و اجاره </p>
+                                        <p> جستجو در اجاره </p>
                                     </a>
                                 </li>
                             </ul>
@@ -199,7 +199,7 @@
                                 <li class="nav-item">
                                     <a href="/registercustomer?forosh=0" class="nav-link {{ Route::currentRouteName() == 'registercustomer' && $forosh == 0 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p> ثبت در رهن و اجاره </p>
+                                        <p> ثبت در اجاره </p>
                                     </a>
                                 </li>
                             </ul>
@@ -285,11 +285,6 @@
 @yield('js')
 <!-- Bootstrap 4 -->
 <script src="/dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-{{--bootstrap select cdn--}}
-
-
 <!-- AdminLTE App -->
 <script src="/dashbord/dist/js/adminlte.min.js"></script>
 

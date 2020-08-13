@@ -35,16 +35,7 @@
                             <input type="hidden" name="forosh" value="{{$forosh}}">
                             <input type="hidden" name="maskoni" value="{{$maskoni}}">
                             <div class="row">
-                                <div class="form-group col-6 col-sm-3 col-md-3">
-                                    <label>دسته بندی</label>
-                                    <select name="category" class="form-control">
-                                        <option></option>
-                                        @foreach($category as $cat)
-                                            <option value="{{$cat->id}}">{{$cat->title}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group col-6 col-sm-3 col-md-6">
+                                <div class="form-group col-12 col-sm-3 col-md-6">
                                     <label> محدوده </label>
                                     <div class="input-group mb-3">
                                         <select multiple id="st" name="street[]" class="street col-md-12">
@@ -54,6 +45,15 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                </div>
+                                <div class="form-group col-6 col-sm-3 col-md-3">
+                                    <label>دسته بندی</label>
+                                    <select name="category" class="form-control">
+                                        <option></option>
+                                        @foreach($category as $cat)
+                                            <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group col-3 col-6 col-md-3">
                                     <label> سال ساخت </label>
@@ -70,42 +70,106 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-6 col-md-3">
-                                    <label> متراژ از</label>
-                                    <select name="metr1" class="form-control">
-                                        <option></option>
-                                        @foreach($metr as $m)
-                                            <option value="{{$m->id}}"> {{$m->title}} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group col-6 col-md-3">
-                                    <label> متراژ تا</label>
-                                    <select name="metr2" class="form-control">
-                                        <option></option>
-                                        @foreach($metr as $m)
-                                            <option value="{{$m->id}}"> {{$m->title}} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group col-6 col-md-3 ml-0">
-                                    <label> قیمت از</label>
-                                    <select name="price1" id="price1" class="form-control">
-                                        <option disabled selected hidden>قیمت از</option>
-                                       @foreach($prices as $p)
-                                           <option value="{{$p->price_value}}">{{$p->price_title}}</option>
-                                       @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-6 col-md-3 mr-0">
-                                    <label> قیمت تا</label>
-                                    <select name="price2" class="form-control">
-                                        <option disabled selected hidden>قیمت تا</option>
-                                        @foreach($prices as $p)
-                                            <option value="{{$p->price_value}}">{{$p->price_title}}</option>
-                                        @endforeach
-                                    </select>
+                                @if($forosh == 1)
+                                    <div class="form-group col-12 col-md-6">
+                                        <label>انتخاب قیمت:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text">
+                                                <i class="fa fa-money"></i>
+                                              </span>
+                                            </div>
+                                            <select name="price1" id="price1" class="form-control">
+                                                <option disabled selected hidden>قیمت از</option>
+                                                @foreach($prices as $p)
+                                                    <option value="{{$p->price_value}}">{{$p->price_title}}</option>
+                                                @endforeach
+                                            </select>
+                                            <select name="price2" class="form-control">
+                                                <option disabled selected hidden>قیمت تا</option>
+                                                @foreach($prices as $p)
+                                                    <option value="{{$p->price_value}}">{{$p->price_title}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                @elseif($forosh == 0)
+                                    <div class="form-group col-12 col-md-6">
+                                        <label>انتخاب رهن:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text">
+                                                <i class="fa fa-money"></i>
+                                              </span>
+                                            </div>
+                                            <select name="rahn1" class="form-control">
+                                                <option disabled selected hidden>رهن از</option>
+                                                <option></option>
+                                            @foreach($rahn4select as $r)
+                                                    <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
+                                                @endforeach
+                                            </select>
+                                            <select name="rahn2" class="form-control">
+                                                <option disabled selected hidden>رهن تا</option>
+                                                <option></option>
+                                            @foreach($rahn4select as $r)
+                                                    <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label>انتخاب اجاره:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text">
+                                                <i class="fa fa-money"></i>
+                                              </span>
+                                            </div>
+                                            <select name="ejare1" class="form-control">
+                                                <option disabled selected hidden>اجاره از</option>
+                                                <option></option>
+                                                @foreach($ejare4select as $r)
+                                                    <option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>
+                                                @endforeach
+                                            </select>
+                                            <select name="ejare2" class="form-control">
+                                                <option disabled selected hidden>اجاره تا</option>
+                                                <option></option>
+                                            @foreach($ejare4select as $r)
+                                                    <option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                @endif
+                                <div class="form-group col-12 col-md-6">
+                                    <label>انتخاب متراژ:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <i class="fa fa-tachometer"></i>
+                                      </span>
+                                        </div>
+                                        <select name="metr1" class="form-control">
+                                            <option></option>
+                                            <option disabled selected hidden>متراژ از</option>
+                                            @foreach($metr as $m)
+                                                <option value="{{$m->id}}"> {{$m->title}} </option>
+                                            @endforeach
+                                        </select>
+                                        <select name="metr2" class="form-control">
+                                            <option></option>
+                                            <option disabled selected hidden>متراژ تا</option>
+                                            @foreach($metr as $m)
+                                                <option value="{{$m->id}}"> {{$m->title}} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <!-- /.input group -->
                                 </div>
 
                                 <div class="form-group col-12 col-md-6">
@@ -122,7 +186,7 @@
                                     <!-- /.input group -->
                                 </div>
 
-                                <div class="form-group col-6 col-md-3">
+                                <div class="form-group col-6 col-md-6">
                                     <label></label>
                                     <button type="submit" class="btn btn-primary text-sm col-12 mt-1">اعمال فیلتر</button>
                                 </div>
