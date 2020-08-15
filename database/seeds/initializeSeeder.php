@@ -81,19 +81,19 @@ class initializeSeeder extends Seeder
         }
 
         $roles = [
-            ['id' => 1, 'title' => 'admin' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 2, 'title' => 'مدیر' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 1, 'title' => 'مدیر' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 2, 'title' => 'دفتر' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 3, 'title' => ' مشاور فروش و اجاره' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 4, 'title' => 'مشاور فروش' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 5, 'title' => 'مشاور رهن و اجاره' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 6, 'title' => 'منشی' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 5, 'title' => 'مشاور اجاره' , 'created_at'=> $now, 'updated_at'=> $now],
         ];
         foreach($roles as $role){
             DB::table('roles')->insert($role);
         }
         $users = [
-            ['id' => 1, 'name' => 'admin', 'family' => 'admin', 'username' => 'admin','phone' => '09876543212','password' => Hash::make('admin'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 2, 'name' => 'کیوان', 'family' => 'مظفری', 'username' => 'keyvan','phone' => '09876543243','password' => Hash::make('admin'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 1, 'name' => 'admin', 'family' => 'admin', 'username' => 'admin','phone' => '0900000','password' => Hash::make('admin'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 2, 'name' => 'daftar', 'family' => 'daftar', 'username' => 'daftar','phone' => '0890000','password' => Hash::make('daftar'), 'role_id' => 2 , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 3, 'name' => 'کیوان', 'family' => 'مظفری', 'username' => 'keyvan','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 3 , 'created_at'=> $now, 'updated_at'=> $now],
         ];
         foreach($users as $user){
             DB::table('users')->insert($user);
@@ -216,7 +216,7 @@ class initializeSeeder extends Seeder
 
         $files = [
             ['id' => 1, 'family' => 'حمیدی' , 'phone' => '98987987', 'street_id'=> 1, 'user_id'=> 1, 'cat_id'=> 1, 'maskoni' => 1, 'forosh' => 1, 'price' => 2000, 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 2, 'family' => 'محمدی' , 'phone' => '09177653432', 'street_id'=> 3, 'user_id'=> 1, 'cat_id'=> 1, 'maskoni' => 1, 1,'forosh' => 0, 'rahn' => 120, 'ejare' => 2, 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 2, 'family' => 'محمدی' , 'phone' => '09177653432', 'street_id'=> 3, 'user_id'=> 1, 'cat_id'=> 1, 'maskoni' => 1, 'forosh' => 0, 'rahn' => 120, 'ejare' => 2, 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 3, 'family' => 'کریمی' , 'phone' => '09173653443', 'street_id'=> 2, 'user_id'=> 1, 'cat_id'=> 5,'maskoni' => 0 , 'price' => 5000, 'forosh' => 1, 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 4, 'family' => 'بیضایی' , 'phone' => '09172653443', 'street_id'=> 6, 'user_id'=> 2, 'cat_id'=> 1, 'maskoni' => 1,'price' => 1000, 'forosh' => 1, 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 5, 'family' => 'بیضایی' , 'phone' => '09177653443', 'street_id'=> 6, 'user_id'=> 2, 'cat_id'=> 1, 'maskoni' => 1, 'price' => 2500, 'forosh' => 1, 'created_at'=> $now, 'updated_at'=> $now],

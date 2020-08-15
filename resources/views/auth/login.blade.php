@@ -35,8 +35,8 @@
             @endif
             <div class="form-content pt-5">
                 <div class="form-items">
-                    <h3>سامانه املاک</h3>
-                    <p class="mt-4"> سامانه املاک نیاوران </p>
+                    <h3>املاک نیاوران</h3>
+                    <p class="mt-4"> سامانه ثبت فایل و مشتری املاک نیاوران </p>
                     <div class="page-links mb-5">
                         <a href="login" class="active ml-3">ورود</a>
                     </div>

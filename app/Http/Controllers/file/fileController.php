@@ -84,7 +84,7 @@ class fileController extends Controller
         $file->family = $request->family;
         $file->phone = $request->phone;
         $file->street_id = $request->street;
-        $file->user_id = 1;
+        $file->user_id = auth()->user()->id;
         $file->address = $request->address;
         $file->cat_id = $request->daste;
         $file->metr = $request->metr;
@@ -169,7 +169,7 @@ class fileController extends Controller
         $file->family = $request->family;
         $file->phone = $request->phone;
         $file->street_id = $request->street;
-        $file->user_id = 1;
+        $file->user_id = auth()->user()->id;
         $file->address = $request->address;
         $file->cat_id = $request->daste;
         $file->metr = $request->metr;

@@ -40,6 +40,7 @@ class CreateFilesTable extends Migration
             $table->tinyInteger('anbari')->nullable();
             $table->tinyInteger('asansor')->nullable();
             $table->tinyInteger('archive')->default('0');
+            $table->tinyInteger('private')->default('0');
             $table->tinyInteger('kole_tabaghat')->unsigned()->nullable();
             $table->text('tozihat')->nullable();
             $table->timestamps();

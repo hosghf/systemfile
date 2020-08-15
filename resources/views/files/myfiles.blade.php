@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title2', 'جستجوی فایل')
+@section('title2', 'فایل های من')
 @section('pagetitle', $pagetitle)
 
 @section('css')
@@ -16,10 +16,10 @@
         </div>
     @endif
     <div>
-        <form method="post" action="/searchfile" class="col-12">
+        <form method="post" action="/mysearchfile" class="col-12">
             @csrf
             <input type="hidden" name="forosh" value="{{$forosh}}">
-            <input type="hidden" name="maskoni" value="{{$maskoni}}">
+            <input type="hidden" name="archive" value="{{$archive}}">
             <div class="input-group ">
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-secondary" type="submit">جستجو</button>
@@ -36,10 +36,10 @@
                 <div class="card-body" id="card-search-panel">
                     <!-- div for form padding-->
                     <div class="col-sm-12 col-md-11 m-auto">
-                        <form method="post" action="/filterfile" class="col-sm-12 mt-3 search-panel">
+                        <form method="post" action="/myfilterfile" class="col-sm-12 mt-3 search-panel">
                             @csrf
                             <input type="hidden" name="forosh" value="{{$forosh}}">
-                            <input type="hidden" name="maskoni" value="{{$maskoni}}">
+                            <input type="hidden" name="archive" value="{{$archive}}">
                             <div class="row">
                                 <div class="form-group col-12 col-sm-3 col-md-6">
                                     <label> محدوده </label>
@@ -112,14 +112,14 @@
                                             <select name="rahn1" class="form-control">
                                                 <option disabled selected hidden>رهن از</option>
                                                 <option></option>
-                                            @foreach($rahn4select as $r)
+                                                @foreach($rahn4select as $r)
                                                     <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
                                                 @endforeach
                                             </select>
                                             <select name="rahn2" class="form-control">
                                                 <option disabled selected hidden>رهن تا</option>
                                                 <option></option>
-                                            @foreach($rahn4select as $r)
+                                                @foreach($rahn4select as $r)
                                                     <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
                                                 @endforeach
                                             </select>
@@ -144,7 +144,7 @@
                                             <select name="ejare2" class="form-control">
                                                 <option disabled selected hidden>اجاره تا</option>
                                                 <option></option>
-                                            @foreach($ejare4select as $r)
+                                                @foreach($ejare4select as $r)
                                                     <option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>
                                                 @endforeach
                                             </select>
@@ -213,7 +213,7 @@
     <div class="row">
         @foreach($files as $file)
             <div class="col-12 col-sm-6 col-md-3 ">
-                <a href="/showfile/{{$file->id}}?forosh={{$forosh}}&maskoni={{$maskoni}}" class="card-file-link">
+                <a href="/showfile/{{$file->id}}?forosh={{$forosh}}" class="card-file-link">
                     <div class="card">
                         <div class="card-body p-4 @if($forosh == 1) card-file @else card-ejare @endif">
                             <div class="card-file-title ">
@@ -244,10 +244,10 @@
                                         @if(isset($file->ejare))<span>ملیون</span>@endif
                                     </li>
                                 @endif
-                                    <li class="list-group-item text-sm">
-                                        <b>  نام مالک:</b>
-                                        {{$file->family}}
-                                    </li>
+                                <li class="list-group-item text-sm">
+                                    <b>  نام مالک:</b>
+                                    {{$file->family}}
+                                </li>
                             </ul>
                         </div>
                         <div class="card-footer text-sm">

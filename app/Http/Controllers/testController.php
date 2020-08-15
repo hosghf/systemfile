@@ -23,15 +23,19 @@ class testController extends Controller
 {
     public function test2(Request $request)
     {
-        $v = $request->validate([
-            'test' => 'required',
-            'test2' => 'required',
-        ],[
-            'test.required' => "<h1>message required</h1>",
-            'test2.required' => 'message required',
-        ]);
+//        $v = $request->validate([
+//            'test' => 'required',
+//            'test2' => 'required',
+//        ],[
+//            'test.required' => "<h1>message required</h1>",
+//            'test2.required' => 'message required',
+//        ]);
+//
+//        return view('test');
 
-        return view('test');
+        $foroshcount = File::where('forosh', 1)->count();
+        echo $foroshcount;
+
     }
 
     public function test(Request $request)

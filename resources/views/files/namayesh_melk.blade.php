@@ -34,7 +34,9 @@
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">تلفن:</label>
-                                    <p class="text-bold text-xs">{{ $file->phone }}</p>
+                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2)
+                                        <p class="text-bold">{{ $file->phone }}</p>
+                                    @endif
                                 </div>
                             </div>
 
@@ -46,23 +48,23 @@
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">خیابان:</label>
-                                    <p class="text-bold text-xs">{{ $file->street == null ? '' : $file->street->title }}</p>
+                                    <p class="text-bold">{{ $file->street == null ? '' : $file->street->title }}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">آدرس:</label>
-                                    <p class="text-bold text-xs">{{ $file->address }}</p>
+                                    <p class="text-bold">{{ $file->address }}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">متراژ:</label>
-                                    <p class="text-bold text-xs">{{ $file->metr }}</p>
+                                    <p class="text-bold">{{ $file->metr }}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">سند:</label>
-                                    <p class="text-bold text-xs">{{ $file->sanad == null ? '' : $file->sanad->title }}</p>
+                                    <p class="text-bold">{{ $file->sanad == null ? '' : $file->sanad->title }}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">قیمت:</label>
-                                    <p class="text-bold text-xs">
+                                    <p class="text-bold">
                                         {{$file->price}}
                                         ملیون</p>
                                 </div>
@@ -72,23 +74,23 @@
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">جهت ساختمان:</label>
-                                    <p class="text-bold text-xs">{{$file->BuildingDirection == null ? '' : $file->BuildingDirection->title}}</p>
+                                    <p class="text-bold">{{$file->BuildingDirection == null ? '' : $file->BuildingDirection->title}}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">سال ساخت:</label>
-                                    <p class="text-bold text-xs">{{ $file->year }}</p>
+                                    <p class="text-bold">{{ $file->year }}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">تعداد خواب:</label>
-                                    <p class="text-bold text-xs">{{$file->room == null ? '' : $file->room->title}}</p>
+                                    <p class="text-bold">{{$file->room == null ? '' : $file->room->title}}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">طبقه:</label>
-                                    <p class="text-bold text-xs">{{$file->tabaghe == null ? '' : $file->tabaghe->title}}</p>
+                                    <p class="text-bold">{{$file->tabaghe == null ? '' : $file->tabaghe->title}}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">تعداد کل طبقات:</label>
-                                    <p class="text-bold text-xs">{{$file->kole_tabaghat}}</p>
+                                    <p class="text-bold">{{$file->kole_tabaghat}}</p>
                                 </div>
                             </div>
 
@@ -96,37 +98,37 @@
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6"> گرمایش:</label>
-                                    <p class="text-bold text-xs">{{$file->heating == null ? '' : $file->heating->title}}</p>
+                                    <p class="text-bold">{{$file->heating == null ? '' : $file->heating->title}}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">سرمایش:</label>
-                                    <p class="text-bold text-xs">{{$file->cooling == null ? '' : $file->cooling->title}}</p>
+                                    <p class="text-bold">{{$file->cooling == null ? '' : $file->cooling->title}}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6"> کابینت:</label>
-                                    <p class="text-bold text-xs">{{$file->cabinet == null ? '' : $file->cabinet->title}}</p>
+                                    <p class="text-bold">{{$file->cabinet == null ? '' : $file->cabinet->title}}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">کف:</label>
-                                    <p class="text-bold text-xs">{{$file->floor == null ? '' : $file->floor->title}}</p>
+                                    <p class="text-bold">{{$file->floor == null ? '' : $file->floor->title}}</p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">پارکینگ:</label>
-                                    @if($file->parking == 1)<p class="text-bold text-xs">دارد</p> @endif
-                                    @if($file->parking == 2)<p class="text-bold text-xs">ندارد</p> @endif
-                                    @if($file->parking == '')<p class="text-bold text-xs">نامشخص</p> @endif
+                                    @if($file->parking == 1)<p class="text-bold">دارد</p> @endif
+                                    @if($file->parking == 2)<p class="text-bold">ندارد</p> @endif
+                                    @if($file->parking == '')<p class="text-bold">نامشخص</p> @endif
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">انباری:</label>
-                                    @if($file->anbari == 1)<p class="text-bold text-xs">دارد</p> @endif
-                                    @if($file->anbari == 2)<p class="text-bold text-xs">ندارد</p> @endif
-                                    @if($file->anbari == '')<p class="text-bold text-xs">نامشخص</p> @endif
+                                    @if($file->anbari == 1)<p class="text-bold">دارد</p> @endif
+                                    @if($file->anbari == 2)<p class="text-bold">ندارد</p> @endif
+                                    @if($file->anbari == '')<p class="text-bold">نامشخص</p> @endif
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">آسانسور:</label>
-                                    @if($file->asansor == 1)<p class="text-bold text-xs">دارد</p> @endif
-                                    @if($file->asansor == 2)<p class="text-bold text-xs">ندارد</p> @endif
-                                    @if($file->asansor == '')<p class="text-bold text-xs">نامشخص</p> @endif
+                                    @if($file->asansor == 1)<p class="text-bold">دارد</p> @endif
+                                    @if($file->asansor == 2)<p class="text-bold">ندارد</p> @endif
+                                    @if($file->asansor == '')<p class="text-bold">نامشخص</p> @endif
                                 </div>
                             </div>
 
@@ -151,7 +153,7 @@
                         <div class="row"></div>
                         <div class="mt-5 float-left">
                             <h6>ثبت شده توسط:
-                                <span class="text-bold text-sm"> وحید حیدری </span>
+                                <span class="text-bold"> {{$file->user->name}} {{$file->user->family}} </span>
                             </h6>
                         </div>
 
@@ -164,18 +166,20 @@
 
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body melk-action-card px-2">
-                    <div class="row">
-                        <a href="/deletefile/{{$file->id}}" class="btn btn-danger btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-trash"></i> حذف </a>
-                        <a href="/updatefile/{{$file->id}}" class="btn btn-warning btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-edit"></i> ویرایش </a>
-                        <a href="/arichivefile/{{$file->id}}" class="btn btn-info btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-archive"></i> آرشیو </a>
-                    </div>
-                </div><!-- /.card-body -->
+    @if($file->user_id == auth()->user()->id)
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body melk-action-card px-2">
+                        <div class="row">
+                            <a href="/deletefile/{{$file->id}}" class="btn btn-danger btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-trash"></i> حذف </a>
+                            <a href="/updatefile/{{$file->id}}" class="btn btn-warning btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-edit"></i> ویرایش </a>
+                            <a href="/arichivefile/{{$file->id}}" class="btn btn-info btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-archive"></i> آرشیو </a>
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 
 @endsection

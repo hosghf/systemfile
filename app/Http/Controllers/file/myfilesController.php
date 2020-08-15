@@ -3,50 +3,35 @@
 namespace App\Http\Controllers\file;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\File;
 use App\Models\Meter;
 use App\Models\Price;
 use App\Models\Street;
 use Hekmatinasser\Verta\Verta;
-use Illuminate\Http\Request;
 use App\Models\Category;
 use Carbon\Carbon;
 
-class fileSearchController extends Controller
+
+class myfilesController extends Controller
 {
-    public function filter(Request $request){
+    public function index(Request $request){
         $forosh = $request->forosh;
-        if (auth()->user()->can('isEjare') and $forosh == 1){
-            $forosh = 0;
-            session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
-        }
-        if (auth()->user()->can('isForosh') and $forosh == 0){
-            $forosh = 1;
-            session()->flash('message', 'شما به فایل های اجاره دسترسی ندارید.');
-        }
-        $maskoni = $request->maskoni;
+        $archive = $request->archive;
+
         $pagetitle = '';
         $category = '';
         if( $forosh == 1 ) {
-            $pagetitle = "فروش";
+            $pagetitle = "فایل های فروش من";
+            $category = Category::all();//forosh maskony only
         } elseif($forosh == 0){
-            $pagetitle = "رهن و اجاره";
+            $pagetitle = "فایل های اجاره من";
+            $category = Category::where('ejare', '1')->get();//forosh maskony only
         }
-        $pagetitle = $pagetitle . " / ";
-        if( $maskoni == 1 ) {
-            $pagetitle = $pagetitle . " مسکونی ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 0)->where('ejare', '1')->get();//forosh maskony only
-            } else {
-                $category = Category::where('tejary', 0)->get();//forosh maskony only
-            }
-        } elseif($maskoni == 0){
-            $pagetitle = $pagetitle ." تجاری ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 1)->where('ejare', '1')->get();//forosh maskony only
-            }else{
-                $category = Category::where('tejary', 1)->get();//forosh maskony only
-            }
+        if( $archive == 1 and $forosh == 1 ) {
+            $pagetitle = "آرشیو های فروش";
+        } elseif($archive == 1  and $forosh == 0){
+            $pagetitle = "آرشیو های اجاره";
         }
 
         $searchbox = $request->searchbox;
@@ -63,12 +48,12 @@ class fileSearchController extends Controller
         $yeardif = $request->year;
         $streetsArr = $request->street;
         if(isset($request->metr1)){
-           $metr1 = Meter::find($request->metr1)->title;
+            $metr1 = Meter::find($request->metr1)->title;
         }else{
             $metr1 = -1;
         }
         if(isset($request->metr2)){
-           $metr2 = Meter::find($request->metr2)->title;
+            $metr2 = Meter::find($request->metr2)->title;
         }else{
             $metr2 = -1;
         }
@@ -87,9 +72,10 @@ class fileSearchController extends Controller
         }
 
         //query
-        if($request->route()->getName() == 'filterfile'){
+        if($request->route()->getName() == 'myfilterfile'){
             $files = File::query();
-            $files = $files->where('forosh', $forosh)->where('maskoni', $maskoni)->where('archive', 0);
+            $files = $files->where('forosh', $forosh)->where('user_id', auth()->user()->id)
+                            ->where('archive', $archive);
 
             if($metr1 != -1 and $metr2 != -1){
                 $files->whereBetween('metr', [$metr1, $metr2]);
@@ -150,14 +136,15 @@ class fileSearchController extends Controller
 
             $files = $files->orderBy('created_at', 'DESC')->paginate(12);
 
-        }elseif ($request->route()->getName() == 'listfile'){
-            $files = File::where('forosh', $forosh)->where('maskoni', $maskoni)->where('archive', 0)
-                                        ->orderBy('created_at', 'DESC')->paginate(12);
-        }elseif ($request->route()->getName() == 'searchfile'){
+        }elseif ($request->route()->getName() == 'myfiles'){
+            $files = File::where('user_id', auth()->user()->id)->where('forosh', $forosh)
+                ->where('archive', $archive)
+                ->orderBy('created_at', 'DESC')->paginate(12);
+        }elseif ($request->route()->getName() == 'mysearchfile'){
 
-            $files = File::where(function ($query) use($forosh, $maskoni){
+            $files = File::where(function ($query) use($forosh, $archive){
                 $query->where('forosh', $forosh)
-                    ->where('maskoni', $maskoni)->where('archive', 0);
+                    ->where('archive', $archive)->where('user_id', auth()->user()->id);
             })->where(function ($query) use($searchbox,$cat_id){
                 $query->orWhere('phone', $searchbox)
                     ->orWhere('family', $searchbox)
@@ -177,10 +164,10 @@ class fileSearchController extends Controller
             $f->tarikh = $f->tarikh->formatDifference($now);
         }
 
-        return view('files.list_melk', ['files' => $files, 'forosh' => $forosh,
-            'maskoni' => $maskoni, 'pagetitle' => $pagetitle, 'category' => $category,
+        return view('files.myfiles', ['files' => $files, 'forosh' => $forosh,
+             'pagetitle' => $pagetitle, 'category' => $category,
             'street' => $street,'metr' => $metr, 'prices' => $prices,
-            'rahn4select' => $rahn4select,'ejare4select' => $ejare4select]);
+            'rahn4select' => $rahn4select,'ejare4select' => $ejare4select, 'archive' => $archive]);
     }
 
 }

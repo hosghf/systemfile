@@ -41,7 +41,7 @@ class usersController extends Controller
         $user->role_id = $request->role;
         $user->phone = $request->phone;
         $user->username = $request->username;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
 
         $request->session()->flash('message', 'مشاور با موفقیت ثبت شد.');
@@ -76,7 +76,7 @@ class usersController extends Controller
         $user->family = $request->family;
         $user->role_id = $request->role;
         $user->phone = $request->phone;
-        $user->username = $request->username;
+        $user->username = Hash::make($request->password);
         $user->save();
 
         $request->session()->flash('message', 'اطلاعات مشاور با موفقیت بروز رسانی شد.');
