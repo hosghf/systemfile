@@ -32,13 +32,15 @@ Route::group(['middleware' => 'auth'], function () {
     //list file
     Route::get('/listfile', 'file\fileSearchController@filter')->name('listfile');
     Route::post('/filterfile', 'file\fileSearchController@filter')->name('filterfile');
+    Route::get('/filterfile', 'file\fileSearchController@filter')->name('filterfile');
     Route::post('/searchfile', 'file\fileSearchController@filter')->name('searchfile');
-    Route::get('/filterfile', function () {
-        return redirect('/listfile');
-    });
-    Route::get('/searchfile', function () {
-        return redirect('/listfile');
-    });
+    Route::get('/searchfile', 'file\fileSearchController@filter')->name('searchfile');
+//    Route::get('/filterfile', function () {
+//        return redirect('/listfile');
+//    });
+//    Route::get('/searchfile', function () {
+//        return redirect('/listfile');
+//    });
 
     Route::get('/myfiles', 'file\myfilesController@index')->name('myfiles');
     Route::post('/mysearchfile', 'file\myfilesController@index')->name('mysearchfile');

@@ -194,16 +194,21 @@ class fileController extends Controller
         $file->tozihat = $request->tozihat;
         $file->save();
 
-//        $fArr = $request->facility;
-//        if(count($fArr) > 0){
-//            foreach($fArr as $f){
-//                $facility = new Facility;
-//                $facility->value = $f;
-//                $facility->file_id = $file->id;
-//                $facility->save();
-//
-//            }
-//        }
+        foreach ($file->facilities as $facility){
+            $facility->delete();
+        }
+
+        $fArr = $request->facility != null ? $request->facility : [];
+        if(count($fArr) > 0){
+            foreach($fArr as $f){
+                if($f == ''){
+                    continue;
+                }
+                $facility = new Facility;
+                $facility->value = $f;
+                $file->facilities()->save($facility);
+            }
+        }
 
         $request->session()->flash('message', 'تغییرات با موفقیت اعمال شد.');
         return redirect()->back();

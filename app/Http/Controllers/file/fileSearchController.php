@@ -89,7 +89,8 @@ class fileSearchController extends Controller
         //query
         if($request->route()->getName() == 'filterfile'){
             $files = File::query();
-            $files = $files->where('forosh', $forosh)->where('maskoni', $maskoni)->where('archive', 0);
+            $files = $files->where('forosh', $forosh)->where('maskoni', $maskoni)
+                ->where('archive', 0);
 
             if($metr1 != -1 and $metr2 != -1){
                 $files->whereBetween('metr', [$metr1, $metr2]);
@@ -148,11 +149,12 @@ class fileSearchController extends Controller
                 $files->where('cat_id', $cat_id);
             }
 
-            $files = $files->orderBy('created_at', 'DESC')->paginate(12);
+            $files = $files->orderBy('created_at', 'DESC')->paginate(3);
+//            return redirect()->back();
 
         }elseif ($request->route()->getName() == 'listfile'){
             $files = File::where('forosh', $forosh)->where('maskoni', $maskoni)->where('archive', 0)
-                                        ->orderBy('created_at', 'DESC')->paginate(12);
+                                        ->orderBy('created_at', 'DESC')->paginate(3);
         }elseif ($request->route()->getName() == 'searchfile'){
 
             $files = File::where(function ($query) use($forosh, $maskoni){
@@ -163,7 +165,7 @@ class fileSearchController extends Controller
                     ->orWhere('family', $searchbox)
                     ->orWhere('address', 'LIKE', "%{$searchbox}%")
                     ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-            })->orderBy('created_at', 'DESC')->paginate(12);
+            })->orderBy('created_at', 'DESC')->paginate(3);
         }
 
         $prices = Price::all('price_title', 'price_value');
@@ -177,10 +179,13 @@ class fileSearchController extends Controller
             $f->tarikh = $f->tarikh->formatDifference($now);
         }
 
+        $files->withPath('?forosh=' . $forosh . '&maskoni=' . $maskoni);
+        $files->appends($_REQUEST);
+
         return view('files.list_melk', ['files' => $files, 'forosh' => $forosh,
             'maskoni' => $maskoni, 'pagetitle' => $pagetitle, 'category' => $category,
             'street' => $street,'metr' => $metr, 'prices' => $prices,
-            'rahn4select' => $rahn4select,'ejare4select' => $ejare4select]);
+            'rahn4select' => $rahn4select,'ejare4select' => $ejare4select, 'oldcategory' => $request->category]);
     }
 
 }

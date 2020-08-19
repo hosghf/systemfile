@@ -82,7 +82,7 @@ class initializeSeeder extends Seeder
 
         $roles = [
             ['id' => 1, 'title' => 'مدیر' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 2, 'title' => 'دفتر' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 2, 'title' => 'منشی' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 3, 'title' => ' مشاور فروش و اجاره' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 4, 'title' => 'مشاور فروش' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 5, 'title' => 'مشاور اجاره' , 'created_at'=> $now, 'updated_at'=> $now],
@@ -92,7 +92,7 @@ class initializeSeeder extends Seeder
         }
         $users = [
             ['id' => 1, 'name' => 'admin', 'family' => 'admin', 'username' => 'admin','phone' => '0900000','password' => Hash::make('admin'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 2, 'name' => 'daftar', 'family' => 'daftar', 'username' => 'daftar','phone' => '0890000','password' => Hash::make('daftar'), 'role_id' => 2 , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 2, 'name' => 'دفتر', 'family' => 'منشی 1', 'username' => 'daftar','phone' => '0890000','password' => Hash::make('123'), 'role_id' => 2 , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 3, 'name' => 'کیوان', 'family' => 'مظفری', 'username' => 'keyvan','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 3 , 'created_at'=> $now, 'updated_at'=> $now],
         ];
         foreach($users as $user){

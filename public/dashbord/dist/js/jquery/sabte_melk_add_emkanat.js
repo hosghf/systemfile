@@ -1,6 +1,8 @@
 var id = 0;
-// var id = $('#countFacility').val();
-console.log(id);
+var oldid = parseInt($("#countFacility").attr('value')) - 1;
+if (oldid > 0 ){
+    id = oldid + 1;
+}
 
 $('#add').click(function () {
     id++;

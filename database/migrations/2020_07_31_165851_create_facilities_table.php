@@ -19,6 +19,9 @@ class CreateFacilitiesTable extends Migration
             $table->bigInteger('file_id');
             $table->timestamps();
         });
+        Schema::table('facilities', function (Blueprint $table){
+            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
+        });
     }
 
     /**

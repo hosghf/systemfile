@@ -250,12 +250,13 @@
 
                                 <div id="emkanat">
                                     @if(isset($file->facilities))
-                                        <p id="countFacility" class=""> {{count($file->facilities)}}</p>
+                                        <p id="countFacility" class="" value="{{count($file->facilities)}}"></p>
+                                        <div class="d-none"> {{$id = 0}}</div>
                                         @foreach($file->facilities as $f)
                                             <input type='text' class=' {{$f->value . $f->id}} d-none' name='facility[]'  value="{{$f->title}}">
                                             <div class=" {{$f->value . $f->id}} row text-bold mt-2 mb-0">
                                                 <div class="form-group ml-4 mb-0">
-                                                    <p>{{ $f->id }}</p>
+                                                    <p>{{++$id}}</p>
                                                 </div>
                                                 <div class="form-group col-5 mb-0">
                                                     <p>{{$f->value}}</p>
@@ -269,7 +270,6 @@
                                 </div>
 
                             </div>
-
                             <h5 class="mb-3 title2 col-sm-12 col-md-11"> توضیحات </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <textarea class="form-control" name="tozihat" id="mytextarea">{{ $file->tozihat }}</textarea>

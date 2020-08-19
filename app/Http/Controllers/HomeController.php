@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use App\Models\User;
 use Carbon\Carbon;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -37,11 +38,30 @@ class HomeController extends Controller
         $ejarearchive = File::where('user_id', auth()->user()->id)->where('forosh', 0)->where('archive', 1)->count();
 
 
-//        report
+//      report
+//        $users = User::all()->except([1]);
+        $users = User::all();
+
+        $v = \verta();
+        $dayofmonth = $v->day;
+        $dayofweek = $v->dayOfWeek;
+        $firstofweek = Carbon::today()->subDays($dayofweek);
+        $firstofweek = Carbon::today()->subDays($dayofweek);
+        $firstofmonth = Carbon::today()->subDays($dayofmonth);
+
+        foreach ($users as $user){
+            $user->todayfiles = File::whereBetween('created_at',[Carbon::today()->subDay() , Carbon::today()])
+                        ->where('user_id', $user->id)->count();
+            $user->thisweekfiles = File::whereBetween('created_at',[$firstofweek ,Carbon::today()])
+                        ->where('user_id', $user->id)->count();
+            $user->thismonthfiles = File::whereBetween('created_at',[$firstofmonth ,Carbon::today()])
+                        ->where('user_id', $user->id)->count();
+        }
 
         return view('dashbord', ['foroshcount' => $foroshcount, 'ejarecount' => $ejarecount,
                                         'usercount' => $usercount, 'allfiles' => $allfiles,
                                         'mysalefiles' => $mysalefiles, 'myrentfiles' => $myrentfiles,
-                                        'myarchivefiles' => $myarchivefiles, 'ejarearchive' => $ejarearchive]);
+                                        'myarchivefiles' => $myarchivefiles, 'ejarearchive' => $ejarearchive,
+                                        'users' => $users]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEjareTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateEjareTable extends Migration
      */
     public function up()
     {
-        Schema::create('ejare', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->integer('rahn');
-            $table->integer('ejare');
-            $table->integer('file_id');
-            $table->tinyInteger('ghabel_tabdil')->default(0);
-            $table->date('tarikh_tahvil');
+            $table->string('name');
+            $table->bigInteger('file_id');
             $table->timestamps();
+        });
+        Schema::table('images', function (Blueprint $table){
+            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateEjareTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ejare');
+        Schema::dropIfExists('images');
     }
 }

@@ -54,10 +54,10 @@
                                 </div>
                                 <div class="form-group col-6 col-sm-3 col-md-3">
                                     <label>دسته بندی</label>
-                                    <select name="category" class="form-control">
+                                    <select name="category" class="form-control @if($oldcategory) border border-success @endif">
                                         <option></option>
                                         @foreach($category as $cat)
-                                            <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                            <option value="{{$cat->id}}" @if(isset($oldcategory)) {{$oldcategory == $cat->id ? 'selected' : ''}} @endif>{{$cat->title}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -164,7 +164,7 @@
                                             <option></option>
                                             <option disabled selected hidden>متراژ از</option>
                                             @foreach($metr as $m)
-                                                <option value="{{$m->id}}"> {{$m->title}} </option>
+                                                <option value="{{$m->id}}" > {{$m->title}} </option>
                                             @endforeach
                                         </select>
                                         <select name="metr2" class="form-control">
@@ -259,8 +259,8 @@
                 </a>
             </div>
         @endforeach
-
     </div>
+        <div>{{ $files->withQueryString()->links() }}</div>
 @endsection
 
 @section('js')
