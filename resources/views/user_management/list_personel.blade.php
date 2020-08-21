@@ -59,7 +59,7 @@
                                         </td>
                                         <td>
                                             <a href="/deletepersonel/{{$user->id}}">
-                                                <button class="btn bg-danger text-sm py-1 px-2"> <i class="fa fa-trash"></i> حذف </button>
+                                                <button class="btn bg-danger text-sm py-1 px-2 @if($user->id == 2) disabled d-none @endif"> <i class="fa fa-trash"></i> حذف </button>
                                             </a>
                                             <a href="#">
                                                 <a href="/updatepersonel/{{$user->id}}" class="btn bg-warning text-sm py-1 px-2"> <i class="fa fa-edit"></i> ویرایش </a>

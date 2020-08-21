@@ -25,8 +25,8 @@
         <div class="img-holder">
             <div class=""></div>
             <div class="info-holder">
-                <h3> املاک </h3>
-                <p style="line-height: normal"> املاک </p>
+                <h3> املاک سیب سینی </h3>
+                <p style="line-height: normal"> سامانه مدیریت فایل و مشتری املاک سیب سینی. </p>
             </div>
         </div>
         <div class="form-holder">
@@ -35,8 +35,8 @@
             @endif
             <div class="form-content pt-5">
                 <div class="form-items">
-                    <h3>املاک نیاوران</h3>
-                    <p class="mt-4"> سامانه ثبت فایل و مشتری املاک نیاوران </p>
+                    <h3>املاک سیب سینی</h3>
+                    <p class="mt-4"> سامانه مدیریت فایل و مشتری املاک سیب سینی </p>
                     <div class="page-links mb-5">
                         <a href="login" class="active ml-3">ورود</a>
                     </div>

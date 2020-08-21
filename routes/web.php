@@ -29,18 +29,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/arichivefile/{id}', 'file\fileController@archive');
     Route::get('/deletefile/{id}', 'file\fileController@delete');
     Route::get('/showfile/{id}', 'file\fileController@show');
+    Route::get('/showImages/{id}', 'file\fileController@showImages');
+    Route::post('/deleteimage', 'file\fileController@deleteimage');
     //list file
     Route::get('/listfile', 'file\fileSearchController@filter')->name('listfile');
     Route::post('/filterfile', 'file\fileSearchController@filter')->name('filterfile');
     Route::get('/filterfile', 'file\fileSearchController@filter')->name('filterfile');
     Route::post('/searchfile', 'file\fileSearchController@filter')->name('searchfile');
     Route::get('/searchfile', 'file\fileSearchController@filter')->name('searchfile');
-//    Route::get('/filterfile', function () {
-//        return redirect('/listfile');
-//    });
-//    Route::get('/searchfile', function () {
-//        return redirect('/listfile');
-//    });
 
     Route::get('/myfiles', 'file\myfilesController@index')->name('myfiles');
     Route::post('/mysearchfile', 'file\myfilesController@index')->name('mysearchfile');
@@ -49,7 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     //moshtari
     Route::get('/listmoshtari', 'customer\customerController@list')->name('listmoshtari');
     Route::post('/searchmoshtari', 'customer\customerController@list')->name('searchmoshtari');
+    Route::get('/searchmoshtari', 'customer\customerController@list')->name('searchmoshtari');
     Route::post('/filtermoshtari', 'customer\customerController@list')->name('filtermoshtari');
+    Route::get('/filtermoshtari', 'customer\customerController@list')->name('filtermoshtari');
 
     Route::get('/showcustomer/{id}', 'customer\customerController@show')->name('');
     Route::get('/registercustomer', 'customer\customerController@registerIndex')->name('registercustomer');
@@ -75,6 +73,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/test', 'testController@test2');
 Route::post('/test', 'testController@test2');
 Route::get('/test3', 'testController@test3');
-
 
 

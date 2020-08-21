@@ -29,7 +29,7 @@
 
                     <!-- div for form padding-->
                     <div class="col-sm-12 col-md-11 m-auto">
-                        <form method="post" action="" class="col-sm-12 col-md-8 mt-3">
+                        <form method="post" action="" enctype="multipart/form-data" class="col-sm-12 col-md-8 mt-3">
                             @csrf
                             <input type="hidden" name="forosh" value="{{$forosh}}">
                             <input type="hidden" name="maskoni" value="{{$maskoni}}">
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label>متراژ</label>
-                                    <input name="metr" value="{{ old('metr') }}" type="text" class="form-control">
+                                    <input name="metr" value="{{ old('metr') }}" type="text" class="form-control @error('metr') border border-danger @enderror">
                                 </div>
                                 @if($forosh == 1)
                                     <div class="form-group mt-3">
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label>قیمت</label>
-                                        <input name="gheymat" value="{{old('gheymat')}}" type="text" class="form-control">
+                                        <input name="gheymat" value="{{old('gheymat')}}" type="text" class="form-control @error('gheymat') border border-danger @enderror">
                                     </div>
                                 @endif
                                 @if($forosh == 0)
@@ -261,7 +261,13 @@
 
                             <h5 class="mb-3 title2 col-sm-12 col-md-11"> توضیحات </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
-                                 <textarea name="tozihat" class="form-control" >{{ old('tozihat') }}</textarea>
+                                 <textarea name="tozihat" class="form-control tozihat" >{{ old('tozihat') }}</textarea>
+                            </div>
+
+                            <h5 class="mb-3 title2 col-sm-12 col-md-11"> افزودن تصاویر </h5>
+                            <div class="col-sm-12 col-md-10 m-auto">
+                                <label class="btn btn-outline-info" for="images">تصاویر را انتخاب کنید</label>
+                                    <input type="file" name="images[]" id="images" style="opacity: 0.7" multiple class="form-control">
                             </div>
 
                             <div class="space2"></div>

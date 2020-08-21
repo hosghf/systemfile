@@ -15,7 +15,7 @@
                         @if($file->archive == 1)<span class="badge badge-danger"> آرشیو </span>@endif
                     </div>
                     <span class="float-left mt-3 ml-4 text-bold text-sm">تاریخ:
-                  <span>{{ $file->created_at }}</span>
+                  <span>{{ $file->tarikh }}</span>
                 </span>
                 </div>
 
@@ -148,6 +148,19 @@
                             <div class="col-sm-12 col-md-10 m-auto mt-2 post-description">
                                 {{$file->tozihat}}
                             </div>
+
+                            @if(!$file->images->isEmpty())
+                                <h5 class="mb-3 mt-5 mb-4 title2 col-sm-12 col-md-11"> تصاویر </h5>
+                                <div class="col-sm-12 col-md-10 m-auto mt-2 post-description">
+                                    <div class="row">
+                                        <span class="d-none">{{$i = 1}}</span>
+                                        @foreach($file->images as $img)
+                                            <a target="_blank" class="col-3 badge badge-secondary text-sm" href="/showImages/{{$file->id}}">تصویر {{$i++}}</a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
                         </form>
 
                         <div class="row"></div>
@@ -174,7 +187,10 @@
                         <div class="row">
                             <a href="/deletefile/{{$file->id}}" class="btn btn-danger btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-trash"></i> حذف </a>
                             <a href="/updatefile/{{$file->id}}" class="btn btn-warning btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-edit"></i> ویرایش </a>
-                            <a href="/arichivefile/{{$file->id}}" class="btn btn-info btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-archive"></i> آرشیو </a>
+                            <a href="/arichivefile/{{$file->id}}" class="btn btn-info btn-file-action col-4 m-0 text-sm text-bold"><i class="fa fa-archive"></i>
+                                @if($file->archive == 0) آرشیو @endif
+                                @if($file->archive == 1) خروج از آرشیو @endif
+                            </a>
                         </div>
                     </div><!-- /.card-body -->
                 </div>

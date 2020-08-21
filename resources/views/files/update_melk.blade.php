@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('title2', 'ویرایش ملک')
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endsection
 
 @section('content')
 
@@ -27,7 +30,7 @@
 
                     <!-- div for form padding-->
                     <div class="col-sm-12 col-md-11 m-auto">
-                        <form method="post" action="" class="col-sm-12 col-md-8 mt-3">
+                        <form method="post" action="" enctype="multipart/form-data" class="col-sm-12 col-md-8 mt-3">
                             @csrf
                             <input type="hidden" name="forosh" value="{{$file->forosh}}">
                             <input type="hidden" name="maskoni" value="{{$file->maskoni}}">
@@ -272,7 +275,27 @@
                             </div>
                             <h5 class="mb-3 title2 col-sm-12 col-md-11"> توضیحات </h5>
                             <div class="col-sm-12 col-md-10 m-auto">
-                                <textarea class="form-control" name="tozihat" id="mytextarea">{{ $file->tozihat }}</textarea>
+                                <textarea class="form-control tozihat" name="tozihat" id="mytextarea">{{ $file->tozihat }}</textarea>
+                            </div>
+
+                            @if(!$file->images->isEmpty())
+                                <h5 class="mb-3 title2 col-sm-12 col-md-11"> تصاویر </h5>
+                                <div class="col-sm-12 col-md-10 m-auto">
+                                    <div class="row">
+                                    @foreach($file->images as $img)
+                                        <div class="col-4 mb-4">
+                                            <img class="demo cursor img-update-delete" src="{{ URL::to('/') }}/images/{{$file->y}}/{{$file->m}}/{{$img->name}}" style="width:100%" onclick="currentSlide({{$i++}})" alt="The Woods">
+                                            <button type="button" onclick="delete(this)" value="{{$img->id}}" class="col-12 img-btn-delete btn btn-danger">حذف</button>
+                                        </div>
+                                    @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            <h5 class="mb-3 title2 col-sm-12 col-md-11"> افزودن تصاویر </h5>
+                            <div class="col-sm-12 col-md-10 m-auto">
+                                <label class="btn btn-outline-info" for="images">تصاویر را انتخاب کنید</label>
+                                <input type="file" name="images[]" id="images" style="opacity: 0.7" multiple class="form-control">
                             </div>
 
                             <div class="space2"></div>
@@ -293,5 +316,14 @@
 @endsection
 
 @section('js')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
     <script src="/dashbord/dist/js/jquery/sabte_melk_add_emkanat.js"></script>
+    <script src="/dashbord/dist/js/jquery/deleteimage.js"></script>
+
 @endsection

@@ -9,6 +9,7 @@ use App\Models\Ejare;
 use App\Models\Facility;
 use App\Models\File;
 use App\Models\Heating;
+use App\Models\Image;
 use App\Models\Meter;
 use App\Models\Sanad;
 use App\Models\Street;
@@ -18,24 +19,29 @@ use App\Models\Customer_street;
 use App\Models\Floor;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 
 class testController extends Controller
 {
     public function test2(Request $request)
     {
-//        $v = $request->validate([
-//            'test' => 'required',
-//            'test2' => 'required',
-//        ],[
-//            'test.required' => "<h1>message required</h1>",
-//            'test2.required' => 'message required',
-//        ]);
-//
-//        return view('test');
+//        $content = new Request();
+//        $content->x = 5;
+//        $this->xyz($content);
 
-        $foroshcount = File::where('forosh', 1)->count();
-        echo $foroshcount;
+//        $arr = [2,8];
+//        $file = File::find(8);
+//        if(!$file->images->isEmpty()){
+//            echo 'array not empty';
+//        }
+//        var_dump($arr);
 
+        return Redirect::to($request->request->get('http_referrer'));
+    }
+
+    public function xyz(Request $request){
+        echo $request->x;
     }
 
     public function test(Request $request)

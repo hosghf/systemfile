@@ -15,7 +15,7 @@
                         <span> {{$customer->id}} </span>
                     </div>
                     <span class="float-left mt-3 ml-4 text-bold text-sm">تاریخ:
-                  <span>{{$customer->created_at}}</span>
+                  <span>{{$customer->tarikh}}</span>
                 </span>
                 </div>
 
@@ -25,7 +25,7 @@
 
                         <form class="col-sm-12 col-md-8">
 
-                            <h5 class="mb-3 mt-5 mb-4 title col-sm-12 col-md-11">مشخصات مشتری</h5>
+                            <h5 class="mb-3 mt-5 mb-4 title2 col-sm-12 col-md-11">مشخصات مشتری</h5>
                             <div class="col-sm-12 col-md-10 m-auto mt-2">
                                 <div class="form-group row">
                                     <label class="col-6 col-sm-4 col-md-6">نام خانوادگی مشتری:</label>
@@ -33,33 +33,46 @@
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">تلفن:</label>
-                                    <p class="text-bold text-xs">{{ $customer->phone }}</p>
+                                    <p class="text-bold">{{ $customer->phone }}</p>
                                 </div>
                             </div>
 
-                            <h5 class="mb-3 title col-sm-12 col-md-11">مشخصات ملک مورد نیاز مشتری</h5>
+                            <h5 class="mb-3 title2 col-sm-12 col-md-11">مشخصات ملک مورد نیاز مشتری</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group row mt-3">
-                                    <label class="col-6 col-sm-4 col-md-6"> دسته بندی:</label>
-                                    <p class="text-bold text-xs">فروش/مسکونی/آپارتمان</p>
-                                </div>
-                                <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">محدوده ها:</label>
-                                    <p class="text-bold text-xs"></p>
+                                    @foreach($customer->streets as $st)
+                                        <p class="text-bold badge badge-info text-sm m-1">{{$st->title}}</p>
+                                    @endforeach
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">متراژ:</label>
-                                    <p class="text-bold text-xs">{{$customer->metr}}</p>
+                                    <p class="text-bold">{{$customer->metr}}</p>
                                 </div>
-                                <div class="form-group row mt-3">
-                                    <label class="col-6 col-sm-4 col-md-6">قیمت:</label>
-                                    <p class="text-bold text-xs">
-                                        <span>{{$customer->price}}</span>
-                                        ملیون</p>
-                                </div>
+                                @if($customer->forosh == 1)
+                                    <div class="form-group row mt-3">
+                                        <label class="col-6 col-sm-4 col-md-6">قیمت:</label>
+                                        <p class="text-bold">
+                                            <span>{{$customer->price}}</span>
+                                            ملیون</p>
+                                    </div>
+                                @else
+                                    <div class="form-group row mt-3">
+                                        <label class="col-6 col-sm-4 col-md-6">رهن:</label>
+                                        <p class="text-bold">
+                                            <span>{{$customer->rahn}}</span>
+                                            ملیون</p>
+                                    </div>
+                                    <div class="form-group row mt-3">
+                                        <label class="col-6 col-sm-4 col-md-6">اجاره:</label>
+                                        <p class="text-bold">
+                                            <span>{{$customer->ejare}}</span>
+                                            ملیون</p>
+                                    </div>
+                                @endif
                             </div>
 
-                            <h5 class="mb-3 mt-5 mb-4 title col-sm-12 col-md-11"> توضیحات </h5>
+                            <h5 class="mb-3 mt-5 mb-4 title2 col-sm-12 col-md-11"> توضیحات </h5>
                             <div class="col-sm-12 col-md-10 m-auto mt-2 post-description">
                                 {{$customer->tozihat}}
                             </div>
@@ -68,7 +81,7 @@
                         <div class="row"></div>
                         <div class="mt-5 float-left">
                             <h6>ثبت شده توسط:
-                                <span class="text-bold text-sm"> وحید حیدری </span>
+                                <span class="text-bold text-sm"> {{$customer->user->name}} {{$customer->user->family}} </span>
                             </h6>
                         </div>
 

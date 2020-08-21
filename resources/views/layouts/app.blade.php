@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+    @yield('meta')
     <title> سامانه بانک اطلاعاتی املاک </title>
 
     <!-- Font Awesome Icons -->
@@ -43,10 +43,7 @@
             <li class="nav-item">
                 <a href="{{ route('logout') }}" style="color:gray;" onclick="event.preventDefault();
                 document.getElementById('frm-logout').submit();">
-                    <div class="btn btn-outline-info m-0 p-1">
-                        <span>خروج</span>
-                        <i class="fa fa-sign-out"></i>
-                    </div>
+                    <button class="btn btn-outline-info text-sm py-1 px-2"> <i class="fa fa-sign-out"></i> خروج </button>
                 </a>
                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}

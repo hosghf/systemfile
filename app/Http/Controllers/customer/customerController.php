@@ -8,6 +8,11 @@ use App\Models\Street;
 use Illuminate\Http\Request;
 use App\Models\Price;
 use App\Models\Meter;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
+use Hekmatinasser\Verta\Verta;
+use Carbon\Carbon;
 
 class customerController extends Controller
 {
@@ -27,7 +32,7 @@ class customerController extends Controller
     public function store(Request $request){
         $v = $request->validate([
             'family' => 'required',
-            'phone' => 'required|digits_between:0,9',
+            'phone' => 'required|digits_between:0,13',
             'gheymat' => 'digits_between:0,9',
             'metr' => 'digits_between:0,9',
             'rahn' => 'digits_between:0,9',
@@ -52,12 +57,12 @@ class customerController extends Controller
         $customer->metr = $request->metr;
         $customer->tozihat = $request->tozihat;
         $customer->forosh = $forosh;
-        $customer->user_id = 1;
+        $customer->user_id = auth()->user()->id;
         $customer->save();
 
         $customer->streets()->attach($request->streets);
         $request->session()->flash('message', 'مشتری با موفقیت ثبت شد.');
-        return redirect('registercustomer');
+        return redirect('registercustomer?forosh='.$forosh);
     }
 
     public function showUpdate($id){
@@ -71,7 +76,7 @@ class customerController extends Controller
         $streets = $request->streets;
         $v = $request->validate([
             'family' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|digits_between:0,13',
             'gheymat' => 'digits_between:0,9',
             'metr' => 'digits_between:0,9',
             'phone' => 'digits_between:0,9'
@@ -90,7 +95,7 @@ class customerController extends Controller
         $customer->metr = $request->metr;
         $customer->tozihat = trim($request->tozihat);
         $customer->forosh = $forosh;
-        $customer->user_id = 1;
+        $customer->user_id = auth()->user()->id;
         $customer->save();
 
         $customer->streets()->sync($streets);
@@ -144,17 +149,40 @@ class customerController extends Controller
 
 
         if($request->route()->getName() == 'listmoshtari') {
-            $customers = Customer::where('forosh', $forosh)->paginate(12);
+//            $customers = Customer::where('forosh', $forosh)->orWhere('user_id', auth()->user()->id)
+//                                      ->paginate(12);
+
+//              $customers = Customer::whereHas('user', function(Builder $query){
+//                  $query->where('role_id', 2);
+//              })->orWhere('user_id', auth()->user()->id)->where('forosh', $forosh)->paginate(12);
+
+              $customers = Customer::where('forosh', $forosh)->where(function ($query){
+                  $query->whereHas('user', function(Builder $query){
+                              $query->where('role_id', 2);
+                          })->orWhere('user_id', auth()->user()->id);
+                                                            })->orderBy('created_at', 'DESC')->paginate(10);
+
         }
         elseif($request->route()->getName() == 'searchmoshtari'){
 
-            $customers = Customer::where(function ($query) use($forosh){
-                $query->where('forosh', $forosh);
-            })->where(function ($query) use($searchbox){
-                $query->orWhere('phone', $searchbox)
-                    ->orWhere('family', $searchbox)
-                    ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-            })->orderBy('created_at', 'DESC')->paginate(12);
+//            $customers = Customer::where(function ($query) use($forosh){
+//                $query->where('forosh', $forosh);
+//            })->where(function ($query) use($searchbox){
+//                $query->orWhere('phone', $searchbox)
+//                    ->orWhere('family', $searchbox)
+//                    ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
+//            })->orderBy('created_at', 'DESC')->paginate(12);
+
+            $customers = Customer::where('forosh', $forosh)->where(function ($query){
+                                                        $query->whereHas('user', function(Builder $query){
+                                                              $query->where('role_id', 2);
+                                                                })->orWhere('user_id', auth()->user()->id);
+                                                                })
+                               ->where(function ($query) use($searchbox){
+                                $query->orWhere('phone', $searchbox)
+                                    ->orWhere('family', 'LIKE', "%{$searchbox}%")
+                                    ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
+                            })->orderBy('created_at', 'DESC')->paginate(12);
 
 
         }elseif($request->route()->getName() == 'filtermoshtari'){
@@ -206,7 +234,15 @@ class customerController extends Controller
                     }
                 });
             }
-            $customers = $customers->where('forosh', $forosh)->orderBy('created_at', 'DESC')->paginate(12);
+//            $customers = $customers->where('forosh', $forosh)
+//                ->orderBy('created_at', 'DESC')->paginate(10);
+
+            $customers = $customers->where('forosh', $forosh)
+                ->where(function ($query){
+                    $query->whereHas('user', function(Builder $query){
+                        $query->where('role_id', 2);
+                    })->orWhere('user_id', auth()->user()->id);
+                })->orderBy('created_at', 'DESC')->paginate(10);
         }
 
         $metr = Meter::all();
@@ -219,16 +255,22 @@ class customerController extends Controller
                     'rahn4select' => $rahn4select,'ejare4select' => $ejare4select, 'metr' => $metr]);
     }
 
-    public function delete($id){
+    public function delete($id, Request $request){
+        Customer::find($id)->streets()->detach();
         Customer::find($id)->delete();
         session()->flash('message', 'مشتری حذف شد.');
-        return redirect()->back();
-
+        $previousUrl = app('url')->previous();
+        if(Str::contains($previousUrl, 'searchmoshtari') or Str::contains($previousUrl, 'filtermoshtari') ){
+            return redirect()->to($previousUrl.'?forosh='. $request->forosh);
+        }
+        return redirect()->to($previousUrl);
     }
 
     public function show($id)
     {
         $customer = Customer::find($id);
+        $customer->tarikh = Verta($customer->created_at);
+        $customer->tarikh = $customer->tarikh->format('H:i j-n-Y');
         return view('moshtari.namayesh_moshtari', ['customer' => $customer]);
     }
 

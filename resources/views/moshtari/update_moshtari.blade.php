@@ -73,14 +73,14 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label>توضیحات</label>
-                                    <textarea name="tozihat" class="form-control">{{$customer->tozihat}}</textarea>
+                                    <textarea name="tozihat" class="form-control tozihat">{{$customer->tozihat}}</textarea>
                                 </div>
                             </div>
 
                             <div class="space2"></div>
                             <div class="row"></div>
                             <div class="col-sm-12 col-md-10 m-auto mb-5 mt-5 ">
-                                <button type="submit" class="btn  btn-outline-success btn-block">ثبت مشتری</button>
+                                <button type="submit" class="btn  btn-outline-success btn-block">بروز رسانی مشتری</button>
                             </div>
 
                         </form>

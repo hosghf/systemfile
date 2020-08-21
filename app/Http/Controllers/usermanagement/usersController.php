@@ -93,12 +93,20 @@ class usersController extends Controller
     }
 
     public function list(){
-        $users = User::all()->except([1,2]);
+        $users = User::all()->except([1]);
         return view('user_management.list_personel', ['users' => $users]);
     }
 
     public function delete($id)
     {
+        if($id == 2 or $id == 1){
+            session()->flash('message', 'امکان حذف کاربر وجود ندارد.');
+            return redirect()->back();
+        }
+        if (!auth()->user()->can('isModir')){
+            session()->flash('message', 'شما به این قسمت دسترسی ندارید.');
+            return redirect()->back();
+        }
         User::find($id)->delete();
         session()->flash('message', 'کاربر حذف شد.');
         return redirect()->back();

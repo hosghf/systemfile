@@ -5,7 +5,30 @@
 @section('pagetitle', $pagetitle)
 
 @section('css')
+    <link rel="stylesheet" href="/dashbord/dist/css/persian-datepicker.min.css">
     <link rel="stylesheet" href="/dashbord/dist/css/select2.min.css">
+    <style>
+        .tooltip2 {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip2 .tooltiptext {
+            visibility: hidden;
+            width: 300px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+        }
+        .tooltip2:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -222,11 +245,26 @@
                                         <td>{{++$i}}</td>
                                         <td> {{ $customer->family }} </td>
                                         <td>
-                                            @foreach($customer->streets as $st)
-                                                <span class="badge badge-success">{{$st->title}}</span>
-                                            @endforeach
+                                            {{--@foreach($customer->streets as $st)--}}
+                                                {{--<span class="badge badge-success" style="font-size: 12.7px">{{$st->title}}</span>--}}
+                                            {{--@endforeach--}}
+                                            @if(!$customer->streets->isEmpty())
+                                                @if(count($customer->streets) > 2)
+                                                    <div class="tooltip2">{{$customer->streets[0]->title}}، {{$customer->streets[1]->title}}، ...
+                                                        <span class="tooltiptext">
+                                                            @foreach($customer->streets as $st)
+                                                                {{$st->title}}،
+                                                            @endforeach
+                                                        </span>
+                                                    </div>
+                                                @else
+                                                    @foreach($customer->streets as $st)
+                                                        <span class="badge badge-success" style="font-size: 12.7px">{{$st->title}}</span>
+                                                    @endforeach
+                                                @endif
+                                            @endif
                                         </td>
-                                        <td>
+                                        <td class="text-bold">
                                             {{ $customer->phone }}
                                         </td>
                                         <td>
@@ -242,12 +280,14 @@
                                             {{ $customer->ejare }}
                                         </td>
                                         <td>
-                                            <a href="/deletecustomer/{{$customer->id}}">
-                                                <button class="btn bg-danger text-sm py-1 px-2"> <i class="fa fa-trash"></i> حذف </button>
-                                            </a>
-                                            <a href="/updatecustomer/{{$customer->id}}">
-                                                <button class="btn bg-warning text-sm py-1 px-2"> <i class="fa fa-edit"></i> ویرایش </button>
-                                            </a>
+                                            @if($customer->user->id == auth()->user()->id)
+                                                <a href="/deletecustomer/{{$customer->id}}?forosh={{$forosh}}">
+                                                    <button class="btn bg-danger text-sm py-1 px-2"> <i class="fa fa-trash"></i> حذف </button>
+                                                </a>
+                                                <a href="/updatecustomer/{{$customer->id}}">
+                                                    <button class="btn bg-warning text-sm py-1 px-2"> <i class="fa fa-edit"></i> ویرایش </button>
+                                                </a>
+                                            @endif
                                             <a href="/showcustomer/{{$customer->id}}">
                                                 <button class="btn bg-info text-sm py-1 px-2"> <i class="fa fa-eye"></i> مشاهده </button>
                                             </a>
@@ -272,10 +312,36 @@
 @endsection
 
 @section('js')
+    <script src="/dashbord/dist/js/persian-date.min.js"></script>
+    <script src="/dashbord/dist/js/persian-datepicker.min.js"></script>
     <script src="/dashbord/dist/js/plugins/select2.min.js"></script>
     <script>
         $(function (){
             $('.street').select2();
+        })
+    </script>
+
+    <script>
+        $(function (){
+            $('.street').select2();
+            $(document).ready(function() {
+                $(".date1").persianDatepicker({
+                    observer: true,
+                    format: 'YYYY/MM/DD',
+                    initialValue: false,
+                    initialValueType: 'persian',
+                    autoClose: true,
+                    maxDate: 'today',
+                });
+                $(".date2").persianDatepicker({
+                    observer: true,
+                    format: 'YYYY/MM/DD',
+                    initialValue: false,
+                    initialValueType: 'persian',
+                    autoClose: true,
+                    maxDate: 'today',
+                });
+            });
         })
     </script>
 @endsection

@@ -81,7 +81,7 @@
                                 @endif
                                 <div class="form-group mt-3">
                                     <label>توضیحات</label>
-                                    <textarea name="tozihat" class="form-control"></textarea>
+                                    <textarea name="tozihat" class="form-control tozihat"></textarea>
                                 </div>
                             </div>
 

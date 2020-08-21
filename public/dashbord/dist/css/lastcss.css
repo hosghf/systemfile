@@ -137,3 +137,16 @@ label{
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.img-btn-delete{
+    border-top: 0;
+    border-radius: 0;
+}
+.img-update-delete{
+    max-height: 95px;
+    height: 95px;
+}
+
+.tozihat{
+    height: 220px;
+}
