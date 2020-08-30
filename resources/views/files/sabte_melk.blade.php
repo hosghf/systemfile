@@ -58,7 +58,9 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>محدوده</label>
+                                    <label><span class="text-danger">*</span>
+                                        محدوده
+                                    </label>
                                     <select name="street" class="form-control @error('street') border border-danger @enderror">
                                         <option></option>
                                         @foreach($street as $st)

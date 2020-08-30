@@ -149,12 +149,12 @@ class fileSearchController extends Controller
                 $files->where('cat_id', $cat_id);
             }
 
-            $files = $files->orderBy('created_at', 'DESC')->paginate(3);
+            $files = $files->orderBy('created_at', 'DESC')->paginate(12);
 //            return redirect()->back();
 
         }elseif ($request->route()->getName() == 'listfile'){
             $files = File::where('forosh', $forosh)->where('maskoni', $maskoni)->where('archive', 0)
-                                        ->orderBy('created_at', 'DESC')->paginate(3);
+                                        ->orderBy('created_at', 'DESC')->paginate(12);
         }elseif ($request->route()->getName() == 'searchfile'){
 
             $files = File::where(function ($query) use($forosh, $maskoni){
@@ -165,7 +165,7 @@ class fileSearchController extends Controller
                     ->orWhere('family', $searchbox)
                     ->orWhere('address', 'LIKE', "%{$searchbox}%")
                     ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-            })->orderBy('created_at', 'DESC')->paginate(3);
+            })->orderBy('created_at', 'DESC')->paginate(12);
         }
 
         $prices = Price::all('price_title', 'price_value');

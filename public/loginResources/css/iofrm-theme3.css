@@ -27,7 +27,7 @@
 }
 
 .website-logo .logo {
-    background-image: url("../images/logo.png");
+    background-image: url("/dashbord/dist/img/mylogo.png");
 
 }
 
@@ -40,7 +40,7 @@
 }
 
 .website-logo-inside .logo {
-    background-image: url("../images/logo.png");
+    background-image: url("/dashbord/dist/img/mylogo.png");
 }
 
 .website-logo-inside .logo img {
@@ -53,7 +53,7 @@
 }
 
 .img-holder .info-holder h3 {
-    color: #000;
+    color: #fff;
 }
 
 .img-holder .info-holder p {
@@ -62,7 +62,7 @@
 
 .img-holder .bg {
     opacity: 1;
-    /*background-image: url("../images/img2.jpg");*/
+    background-image: url("../images/img1.jpg");
 }
 
 .form-holder {
@@ -243,7 +243,7 @@
     }
 
     .website-logo .logo {
-        background-image: url("../images/logo.png");
+        background-image: url("/dashbord/dist/img/mylogo.png");
     }
 }
 

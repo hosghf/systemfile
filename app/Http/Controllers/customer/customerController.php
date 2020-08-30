@@ -30,21 +30,31 @@ class customerController extends Controller
     }
 
     public function store(Request $request){
+
+        if(auth()->user()->id ==4){
+            $request->session()->flash('message', 'شما قادر به ثبت فای نیستید.');
+            return redirect()->back();
+        }
+
         $v = $request->validate([
             'family' => 'required',
             'phone' => 'required|digits_between:0,13',
-            'gheymat' => 'digits_between:0,9',
-            'metr' => 'digits_between:0,9',
-            'rahn' => 'digits_between:0,9',
-            'ejare' => 'digits_between:0,9'
+            'gheymat' => 'nullable|numeric|max:99999999.99',
+            'rahn' => 'nullable|numeric|max:999999.99',
+            'ejare' => 'nullable|numeric|max:999999.99',
+            'metr' => 'nullable|numeric|max:999999999',
         ],[
             'family.required' => 'لطفا نام خانوادگی مشتری را وارد کنید.',
             'phone.required' => 'لطفا تلفن مشتری را وارد کنید.',
             'gheymat.digits_between' => 'قیمت را به عدد وارد کنید.',
-            'metr.digits_between' => 'متراژ را به عدد وارد کنید.',
-            'rahn.digits_between' => 'رهن را به عدد وارد کنید.',
-            'ejare.digits_between' => 'اجاره را به عدد وارد کنید.',
-            'phone.digits_between' => 'تلفن را به عدد وارد کنید.',
+            'metr.numeric' => 'متراژ را به عدد وارد کنید.',
+            'metr.max' => 'حداکثر مقدار مجاز برای متراژ 999999999 میباشد.',
+            'gheymat.numeric' => ' قیمت را به عدد وارد کنید.واحد قیمت ملیون تومان میباشد.',
+            'gheymat.max' => 'واحد قیمت یک ملیون میباشد و حداکثر مقدار مجاز 99999999.99 میباشد.',
+            'rahn.numeric' => ' رهن را به عدد وارد کنید.واحد رهن ملیون تومان میباشد.',
+            'rahn.max' => 'واحد رهن یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.',
+            'ejare.numeric' => ' اجاره را به عدد وارد کنید.واحد اجاره ملیون تومان میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
+            'ejare.max' => 'واحد اجاره یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
         ]);
         $forosh = $request->forosh;
 
@@ -77,15 +87,22 @@ class customerController extends Controller
         $v = $request->validate([
             'family' => 'required',
             'phone' => 'required|digits_between:0,13',
-            'gheymat' => 'digits_between:0,9',
-            'metr' => 'digits_between:0,9',
-            'phone' => 'digits_between:0,9'
+            'gheymat' => 'nullable|numeric|max:99999999.99',
+            'rahn' => 'nullable|numeric|max:999999.99',
+            'ejare' => 'nullable|numeric|max:999999.99',
+            'metr' => 'nullable|numeric|max:999999999',
         ],[
             'family.required' => 'لطفا نام خانوادگی مشتری را وارد کنید.',
             'phone.required' => 'لطفا تلفن مشتری را وارد کنید.',
             'gheymat.digits_between' => 'قیمت را به عدد وارد کنید.',
-            'metr.digits_between' => 'متراژ را به عدد وارد کنید.',
-            'phone.digits_between' => 'تلفن را به عدد وارد کنید.'
+            'metr.numeric' => 'متراژ را به عدد وارد کنید.',
+            'metr.max' => 'حداکثر مقدار مجاز برای متراژ 999999999 میباشد.',
+            'gheymat.numeric' => ' قیمت را به عدد وارد کنید.واحد قیمت ملیون تومان میباشد.',
+            'gheymat.max' => 'واحد قیمت یک ملیون میباشد و حداکثر مقدار مجاز 99999999.99 میباشد.',
+            'rahn.numeric' => ' رهن را به عدد وارد کنید.واحد رهن ملیون تومان میباشد.',
+            'rahn.max' => 'واحد رهن یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.',
+            'ejare.numeric' => ' اجاره را به عدد وارد کنید.واحد اجاره ملیون تومان میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
+            'ejare.max' => 'واحد اجاره یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
         ]);
 
         $customer = Customer::find($id);
@@ -147,7 +164,6 @@ class customerController extends Controller
             $date2 = Carbon::create($date2[0], $date2[1], $date2[2]);
         }
 
-
         if($request->route()->getName() == 'listmoshtari') {
 //            $customers = Customer::where('forosh', $forosh)->orWhere('user_id', auth()->user()->id)
 //                                      ->paginate(12);
@@ -160,7 +176,7 @@ class customerController extends Controller
                   $query->whereHas('user', function(Builder $query){
                               $query->where('role_id', 2);
                           })->orWhere('user_id', auth()->user()->id);
-                                                            })->orderBy('created_at', 'DESC')->paginate(10);
+                                                            })->orderBy('created_at', 'DESC')->paginate(12);
 
         }
         elseif($request->route()->getName() == 'searchmoshtari'){
@@ -228,10 +244,8 @@ class customerController extends Controller
             }
 
             if($streetsArr != null and $streetsArr != ''){
-                $customers->where(function ($query)use($streetsArr){
-                    foreach ($streetsArr as $street){
-                        $query->orWhere('street_id', $street);
-                    }
+                $customers->whereHas('streets',function (Builder $query)use($streetsArr){
+                    $query->whereIn('street_id', $streetsArr);
                 });
             }
 //            $customers = $customers->where('forosh', $forosh)
@@ -242,8 +256,13 @@ class customerController extends Controller
                     $query->whereHas('user', function(Builder $query){
                         $query->where('role_id', 2);
                     })->orWhere('user_id', auth()->user()->id);
-                })->orderBy('created_at', 'DESC')->paginate(10);
+                })->orderBy('created_at', 'DESC')->paginate(12);
         }
+
+        $customers->withPath('?forosh=' . $forosh);
+        $customers->appends($_REQUEST);
+        $customers->page = app('request')->input('page') == '' ? 0 : app('request')->input('page') - 1;
+        $customers->page = ((($customers->page)*12) + 1);
 
         $metr = Meter::all();
         $street = Street::all();

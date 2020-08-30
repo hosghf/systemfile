@@ -39,11 +39,13 @@
                             <h5 class="mb-3 mt-5 title col-sm-12 col-md-11">مشخصات مشتری</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
-                                    <label>نام خانوادگی مشتری</label>
+                                    <label><span class="text-danger">*</span>
+                                        نام خانوادگی مشتری</label>
                                     <input type="text" name="family" value="{{ old('family') }}"  class="form-control @error('family') border border-danger @enderror">
                                 </div>
                                 <div class="form-group mt-3">
-                                    <label>تلفن</label>
+                                    <label><span class="text-danger">*</span>
+                                        تلفن</label>
                                     <input type="text" name="phone" value="{{ old('phone') }}" class="form-control @error('phone') border border-danger @enderror">
                                 </div>
                             </div>

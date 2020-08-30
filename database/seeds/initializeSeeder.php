@@ -35,7 +35,10 @@ class initializeSeeder extends Seeder
           ['id' => 15, 'title' => ' شهرک بهشتی', 'created_at'=> $now, 'updated_at'=> $now],
           ['id' => 16, 'title' => ' شهرک حافظ', 'created_at'=> $now, 'updated_at'=> $now],
           ['id' => 17, 'title' => ' شهرک گلستان', 'created_at'=> $now, 'updated_at'=> $now],
-          ['id' => 18, 'title' => 'سایر', 'created_at'=> $now, 'updated_at'=> $now],
+          ['id' => 18, 'title' => 'همت شمالی', 'created_at'=> $now, 'updated_at'=> $now],
+          ['id' => 19, 'title' => 'همت جنوبی', 'created_at'=> $now, 'updated_at'=> $now],
+          ['id' => 20, 'title' => 'میدان معلم', 'created_at'=> $now, 'updated_at'=> $now],
+          ['id' => 21, 'title' => 'سایر', 'created_at'=> $now, 'updated_at'=> $now],
         ];
         foreach ($streets as $st) {
             DB::table('streets')->insert($st);
@@ -93,7 +96,8 @@ class initializeSeeder extends Seeder
         $users = [
             ['id' => 1, 'name' => 'admin', 'family' => 'admin', 'username' => 'admin','phone' => '0900000','password' => Hash::make('admin'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 2, 'name' => 'دفتر', 'family' => 'منشی 1', 'username' => 'daftar','phone' => '0890000','password' => Hash::make('123'), 'role_id' => 2 , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 3, 'name' => 'کیوان', 'family' => 'مظفری', 'username' => 'keyvan','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 3 , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 3, 'name' => 'مهدی', 'family' => 'خوشنود', 'username' => 'khoshnod','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 4, 'name' => 'تست', 'family' => 'تست', 'username' => 'test','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 3 , 'created_at'=> $now, 'updated_at'=> $now],
         ];
         foreach($users as $user){
             DB::table('users')->insert($user);
@@ -185,17 +189,18 @@ class initializeSeeder extends Seeder
             ['id' => 1, 'title' => 'زیر همکف' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 2, 'title' => 'همکف' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 3, 'title' => '1' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 4, 'title' => '3' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 5, 'title' => '4' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 6, 'title' => '5' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 7, 'title' => '6' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 8, 'title' => '7' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 9, 'title' => '8' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 10, 'title' => '9' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 11, 'title' => '10' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 12, 'title' => '11' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 13, 'title' => '12' , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 14, 'title' => 'بیشتر از 12' , 'created_at'=> $now, 'updated_at'=> $now]
+            ['id' => 4, 'title' => '2' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 5, 'title' => '3' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 6, 'title' => '4' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 7, 'title' => '5' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 8, 'title' => '6' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 9, 'title' => '7' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 10, 'title' => '8' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 11, 'title' => '9' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 12, 'title' => '10' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 13, 'title' => '11' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 14, 'title' => '12' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 15, 'title' => 'بیشتر از 12' , 'created_at'=> $now, 'updated_at'=> $now]
         ];
         foreach($tabaghe as $t){
             DB::table('tabaghe')->insert($t);

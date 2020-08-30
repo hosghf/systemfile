@@ -30,7 +30,7 @@ class HomeController extends Controller
         $allfiles = File::count();
         $foroshcount = File::where('forosh', 1)->count();
         $ejarecount = File::where('forosh', 0)->count();
-        $usercount = User::count();
+        $usercount = User::count() - 2;
 
         $mysalefiles = File::where('user_id', auth()->user()->id)->where('forosh', 1)->where('archive', 0)->count();
         $myrentfiles = File::where('user_id', auth()->user()->id)->where('forosh', 0)->where('archive', 0)->count();
@@ -40,21 +40,20 @@ class HomeController extends Controller
 
 //      report
 //        $users = User::all()->except([1]);
-        $users = User::all();
+        $users = User::all()->except([1,4]);
 
         $v = \verta();
         $dayofmonth = $v->day;
         $dayofweek = $v->dayOfWeek;
         $firstofweek = Carbon::today()->subDays($dayofweek);
-        $firstofweek = Carbon::today()->subDays($dayofweek);
         $firstofmonth = Carbon::today()->subDays($dayofmonth);
 
         foreach ($users as $user){
-            $user->todayfiles = File::whereBetween('created_at',[Carbon::today()->subDay() , Carbon::today()])
+            $user->todayfiles = File::whereBetween('created_at', [Carbon::today(), Carbon::now()])
                         ->where('user_id', $user->id)->count();
-            $user->thisweekfiles = File::whereBetween('created_at',[$firstofweek ,Carbon::today()])
+            $user->thisweekfiles = File::whereBetween('created_at',[$firstofweek ,Carbon::now()])
                         ->where('user_id', $user->id)->count();
-            $user->thismonthfiles = File::whereBetween('created_at',[$firstofmonth ,Carbon::today()])
+            $user->thismonthfiles = File::whereBetween('created_at',[$firstofmonth ,Carbon::now()])
                         ->where('user_id', $user->id)->count();
         }
 

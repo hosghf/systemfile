@@ -102,36 +102,52 @@
         width: 65%;
         margin: auto;
     }
+    .imagewraper{
+        width: 70%;
+        margin: auto;
+    }
     @media only screen and (max-width: 700px) {
         .container {
             width: 90%;
             margin: auto;
         }
+        .imagewraper{
+            width: 100%;
+            margin: auto;
+        }
     }
+    @media only screen and (max-width: 940px) {
+        .imagewraper{
+            width: 100%;
+            margin: auto;
+        }
+    }
+
 </style>
 <body>
 
 <div class="container">
 
-
-    @foreach($file->images as $img)
-        <div class="mySlides">
-            <div class="numbertext">2 / 6</div>
-            <img style="height: 500px" src="{{ URL::to('/') }}/images/{{$file->y}}/{{$file->m}}/{{$img->name}}" style="width:100%">
-        </div>
-    @endforeach
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-
-
-    <div class="row">
-        <div style="display: none">{{$i = 1}}</div>
+    <div class="imagewraper">
         @foreach($file->images as $img)
-            <div class="column">
-                <img class="demo cursor" style="height: 100px" src="{{ URL::to('/') }}/images/{{$file->y}}/{{$file->m}}/{{$img->name}}" style="width:100%" onclick="currentSlide({{$i++}})" alt="The Woods">
+            <div class="mySlides">
+                <div class="numbertext">2 / 6</div>
+                <img src="{{ URL::to('/') }}/images/{{$file->y}}/{{$file->m}}/{{$img->name}}" style="width:100%">
             </div>
         @endforeach
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+
+        <div class="row">
+            <div style="display: none">{{$i = 1}}</div>
+            @foreach($file->images as $img)
+                <div class="column">
+                    <img class="demo cursor" src="{{ URL::to('/') }}/images/{{$file->y}}/{{$file->m}}/{{$img->name}}" style="width:100%" onclick="currentSlide({{$i++}})" alt="The Woods">
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
 

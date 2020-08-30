@@ -261,6 +261,7 @@
         @endforeach
 
     </div>
+    <div>{{$files->links()}}</div>
 @endsection
 
 @section('js')

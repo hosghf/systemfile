@@ -19,6 +19,7 @@
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dashbord/dist/css/custom-style.css">
     <link rel="stylesheet" href="/dashbord/dist/css/lastcss.css">
+    <link rel="icon" href="/dashbord/dist/img/mylogo.png"/>
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -57,9 +58,9 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="/home" class="brand-link">
-            <img src="/dashbord/dist/img/mylogo.png" alt="املاک نیاوران" class="brand-image img-circle elevation-3"
+            <img src="/dashbord/dist/img/mylogo.png" alt="املاک سیب سینی" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="font-weight-light">پنل
+            <span class="font-weight-light">
                 {{auth()->user()->role->title}}
             </span>
         </a>

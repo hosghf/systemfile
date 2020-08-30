@@ -164,6 +164,8 @@ class myfilesController extends Controller
             $f->tarikh = $f->tarikh->formatDifference($now);
         }
 
+        $files->withPath('?forosh=' . $forosh);
+        $files->appends($_REQUEST);
         return view('files.myfiles', ['files' => $files, 'forosh' => $forosh,
              'pagetitle' => $pagetitle, 'category' => $category,
             'street' => $street,'metr' => $metr, 'prices' => $prices,

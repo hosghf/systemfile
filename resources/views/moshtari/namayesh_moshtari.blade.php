@@ -31,7 +31,7 @@
                                     <label class="col-6 col-sm-4 col-md-6">نام خانوادگی مشتری:</label>
                                     <p class="text-bold"> {{ $customer->family }}</p>
                                 </div>
-                                <div class="form-group row mt-3">
+                                <div class="form-group row mt-4">
                                     <label class="col-6 col-sm-4 col-md-6">تلفن:</label>
                                     <p class="text-bold">{{ $customer->phone }}</p>
                                 </div>
@@ -45,12 +45,13 @@
                                         <p class="text-bold badge badge-info text-sm m-1">{{$st->title}}</p>
                                     @endforeach
                                 </div>
-                                <div class="form-group row mt-3">
+                                <div class="row"></div>
+                                <div class="form-group row mt-4">
                                     <label class="col-6 col-sm-4 col-md-6">متراژ:</label>
                                     <p class="text-bold">{{$customer->metr}}</p>
                                 </div>
                                 @if($customer->forosh == 1)
-                                    <div class="form-group row mt-3">
+                                    <div class="form-group row mt-4">
                                         <label class="col-6 col-sm-4 col-md-6">قیمت:</label>
                                         <p class="text-bold">
                                             <span>{{$customer->price}}</span>

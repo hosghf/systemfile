@@ -10,23 +10,24 @@
     <link rel="stylesheet" type="text/css" href="loginResources/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="loginResources/css/iofrm-theme3.css">
     <link rel="stylesheet" type="text/css" href="loginResources/css/farsi_fonts.css">
-    <link rel="icon" href="/loginResources/images/logo3.png"/>
+    {{--<link rel="icon" href="/loginResources/images/logo3.png"/>--}}
+    <link rel="icon" href="/dashbord/dist/img/mylogo.png"/>
 </head>
 <body>
 <div class="form-body" class="container-fluid">
     <div class="website-logo">
-        <a href="">
-            <div class="logo">
-                <img class="logo-size"  src=S"loginResources/images/logo.png" alt="">
-            </div>
-        </a>
+        {{--<a href="">--}}
+            {{--<div class="logo">--}}
+                {{--<img class="logo-size"  src="/dashbord/dist/img/mylogo.png" alt="">--}}
+            {{--</div>--}}
+        {{--</a>--}}
     </div>
     <div class="row">
         <div class="img-holder">
-            <div class=""></div>
+            <div class="bg"></div>
             <div class="info-holder">
-                <h3> املاک سیب سینی </h3>
-                <p style="line-height: normal"> سامانه مدیریت فایل و مشتری املاک سیب سینی. </p>
+                {{--<h3> املاک سیب سینی </h3>--}}
+                {{--<p style="line-height: normal"> سامانه مدیریت فایل و مشتری املاک سیب سینی. </p>--}}
             </div>
         </div>
         <div class="form-holder">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\usermanagement;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\File;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 class usersController extends Controller
 {
     public function registerIndex(){
-        $role = Role::all()->except(1);
+        $role = Role::all();
         return view('user_management.sabte_personel', ['roles' => $role]);
     }
 
@@ -51,11 +53,19 @@ class usersController extends Controller
 
     public function showUpdate($id){
         $user = User::find($id);
-        $role = Role::all()->except(1);
+        $role = Role::all();
         return view('user_management.update_personel', ['user' => $user, 'roles' => $role]);
     }
 
     public function update(Request $request, $id){
+        if($id == 2 or $id == 1){
+            session()->flash('message', 'امکان ویرایش کاربر وجود ندارد.');
+            return redirect()->back();
+        }
+        if (!auth()->user()->can('isModir')){
+            session()->flash('message', 'شما به این قسمت دسترسی ندارید.');
+            return redirect()->back();
+        }
         $v = $request->validate([
             'name' => 'required',
             'family' => 'required',
@@ -76,7 +86,7 @@ class usersController extends Controller
         $user->family = $request->family;
         $user->role_id = $request->role;
         $user->phone = $request->phone;
-        $user->username = Hash::make($request->password);
+        $user->username = $request->username;
         $user->save();
 
         $request->session()->flash('message', 'اطلاعات مشاور با موفقیت بروز رسانی شد.');
@@ -93,7 +103,7 @@ class usersController extends Controller
     }
 
     public function list(){
-        $users = User::all()->except([1]);
+        $users = User::all()->except([1,4]);
         return view('user_management.list_personel', ['users' => $users]);
     }
 
@@ -107,6 +117,19 @@ class usersController extends Controller
             session()->flash('message', 'شما به این قسمت دسترسی ندارید.');
             return redirect()->back();
         }
+
+        $files = File::where('user_id', $id)->get();
+        foreach ($files as $file){
+            $file->user_id = 2;
+            $file->save();
+        }
+
+        $customers = Customer::where('user_id', $id)->get();
+        foreach ($customers as $cust){
+            $cust->user_id = 2;
+            $cust->save();
+        }
+
         User::find($id)->delete();
         session()->flash('message', 'کاربر حذف شد.');
         return redirect()->back();

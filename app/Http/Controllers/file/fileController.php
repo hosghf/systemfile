@@ -68,20 +68,32 @@ class fileController extends Controller
 
     public function registerStore(Request $request){
 
+        if(auth()->user()->id ==4){
+            $request->session()->flash('message', 'شما قادر به ثبت فای نیستید.');
+            return redirect()->back();
+        }
+
         $v = $request->validate([
             'family' => 'required',
             'phone' => 'required|digits_between:0,13',
             'metr' => 'digits_between:0,9',
             'street' => 'required',
-            'gheymat' => 'digits_between:0,9',
-            'images.*' => 'max:1024|mimes:png,jpg,jpeg,gif,webp',
+            'gheymat' => 'nullable|numeric|max:99999999.99',
+            'rahn' => 'nullable|numeric|max:999999.99',
+            'ejare' => 'nullable|numeric|max:999999.99',
+            'images.*' => 'max:2024|mimes:png,jpg,jpeg,gif,webp',
         ],[
             'family.required' => 'لطفا نام خانوادگی مالک را وارد کنید.',
             'phone.required' => 'لطفا تلفن مالک را وارد کنید.',
             'street.required' => ' محدوده را انتخاب کنید.',
             'phone.digits_between' => 'تلفن را به عدد وارد کنید.',
             'metr.digits_between' => 'متراژ را به عدد وارد کنید.',
-            'gheymat.digits_between' => ' قیمت را به عدد وارد کنید.واحد قیمت ملیون تومان میباشد.',
+            'gheymat.numeric' => ' قیمت را به عدد وارد کنید.واحد قیمت ملیون تومان میباشد.',
+            'gheymat.max' => 'واحد قیمت یک ملیون میباشد و حداکثر مقدار مجاز 99999999.99 میباشد.',
+            'rahn.numeric' => ' رهن را به عدد وارد کنید.واحد رهن ملیون تومان میباشد.',
+            'rahn.max' => 'واحد رهن یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.',
+            'ejare.numeric' => ' اجاره را به عدد وارد کنید.واحد اجاره ملیون تومان میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
+            'ejare.max' => 'واحد اجاره یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
             'images.*.mimes' => 'فرمت تصویر از نوع png, jpg, jpeg, gif باشد.',
             'images.*.max' => 'حداکثر سایز تصویر ارسالی یک مگابایت میتواند باشد.'
         ]);
@@ -129,7 +141,8 @@ class fileController extends Controller
         }
 
         //images
-        $destination= base_path().'/public/images/'.date('Y').'/'.date('m');
+//        $destination= base_path().'/public/images/'.date('Y').'/'.date('m');
+        $destination= '/home/sibsinii/public_html/images/'.date('Y').'/'.date('m');
         if(!is_dir($destination))
         {
             mkdir($destination,0777,true);
@@ -146,7 +159,8 @@ class fileController extends Controller
         }
 
         $request->session()->flash('message', 'فایل با موفقیت ثبت شد.');
-        return redirect('/registerfile?forosh='.$forosh .'&maskoni=' . $maskoni);
+        return redirect('registerfile?forosh='.$forosh .'&maskoni=' . $maskoni);
+//        return redirect()->back();
     }
 
     public function show($id){
@@ -177,7 +191,9 @@ class fileController extends Controller
         $image->m = Carbon::createFromFormat('Y-m-d H:i:s', $image->created_at)->month;
         $image->m = $image->m < 10 ? '0' . $image->m : $image->m;
 
-        $destination= base_path().'/public/images/' . $image->y . '/' . $image->m .'/';
+//        $destination= base_path().'/public/images/' . $image->y . '/' . $image->m .'/';
+        $destination= '/home/sibsinii/public_html/images/' . $image->y . '/' . $image->m .'/';
+
         unlink($destination . $image->name);
 
         $image->delete();
@@ -217,7 +233,9 @@ class fileController extends Controller
             'phone' => 'required|digits_between:0,13',
             'metr' => 'digits_between:0,9',
             'street' => 'required',
-            'gheymat' => 'digits_between:0,9',
+            'gheymat' => 'nullable|numeric|max:99999999.99',
+            'rahn' => 'nullable|numeric|max:999999.99',
+            'ejare' => 'nullable|numeric|max:999999.99',
             'images.*' => 'max:2024|mimes:png,jpg,jpeg,gif,webp',
         ],[
             'family.required' => 'لطفا نام خانوادگی مالک را وارد کنید.',
@@ -225,9 +243,14 @@ class fileController extends Controller
             'street.required' => ' محدوده را انتخاب کنید.',
             'phone.digits_between' => 'تلفن را به عدد وارد کنید.',
             'metr.digits_between' => 'متراژ را به عدد وارد کنید.',
-            'gheymat.digits_between' => ' قیمت را به عدد وارد کنید.واحد قیمت ملیون تومان میباشد.',
+            'gheymat.numeric' => ' قیمت را به عدد وارد کنید.واحد قیمت ملیون تومان میباشد.',
+            'gheymat.max' => 'واحد قیمت یک ملیون میباشد و حداکثر مقدار مجاز 99999999.99 میباشد.',
+            'rahn.numeric' => ' رهن را به عدد وارد کنید.واحد رهن ملیون تومان میباشد.',
+            'rahn.max' => 'واحد رهن یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.',
+            'ejare.numeric' => ' اجاره را به عدد وارد کنید.واحد اجاره ملیون تومان میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
+            'ejare.max' => 'واحد اجاره یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
             'images.*.mimes' => 'فرمت تصویر از نوع png, jpg, jpeg, gif باشد.',
-            'images.*.max' => 'حداکثر سایز تصویر ارسالی یک مگابایت میتواند باشد.',
+            'images.*.max' => 'حداکثر سایز تصویر ارسالی یک مگابایت میتواند باشد.'
         ]);
 
         $forosh = $request->forosh;
@@ -279,7 +302,9 @@ class fileController extends Controller
         }
 
         //images
-        $destination= base_path().'/public/images/'.date('Y').'/'.date('m');
+//        $destination= base_path().'/public/images/'.date('Y').'/'.date('m');
+        $destination= '/home/sibsinii/public_html/images/'.date('Y').'/'.date('m');
+
         if(!is_dir($destination))
         {
             mkdir($destination,0777,true);

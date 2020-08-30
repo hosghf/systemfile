@@ -6,6 +6,24 @@
 @section('css')
     <link rel="stylesheet" href="/dashbord/dist/css/persian-datepicker.min.css">
     <link rel="stylesheet" href="/dashbord/dist/css/select2.min.css">
+
+    <style>
+        @media screen and ( max-width: 570px ){
+            li.page-item {
+
+                display: none;
+            }
+            .page-item:first-child,
+            .page-item:nth-child( 2 ),
+            .page-item:nth-last-child( 2 ),
+            .page-item:last-child,
+            .page-item.active,
+            .page-item.disabled {
+
+                display: block;
+            }
+        }
+    </style>
 @endsection
 
 @section('content')

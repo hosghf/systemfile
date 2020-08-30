@@ -18,9 +18,9 @@ class CreateCustomersTable extends Migration
             $table->string('family');
             $table->string('phone');
             $table->integer('user_id')->unsigned();
-            $table->integer('rahn')->nullable();
-            $table->integer('ejare')->nullable();
-            $table->bigInteger('price')->nullable();
+            $table->float('rahn')->nullable();
+            $table->float('ejare')->nullable();
+            $table->float('price',10,2)->nullable();
             $table->integer('metr')->nullable();
             $table->text('tozihat')->nullable();
             $table->tinyInteger('forosh')->nullable();

@@ -14,6 +14,7 @@ use App\Models\Meter;
 use App\Models\Sanad;
 use App\Models\Street;
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Customer_street;
 use App\Models\Floor;
@@ -21,23 +22,21 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+//use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 class testController extends Controller
 {
     public function test2(Request $request)
     {
-//        $content = new Request();
-//        $content->x = 5;
-//        $this->xyz($content);
+        $customers = Customer::query();
+        $customers->where('user_id', 1)->get();
 
-//        $arr = [2,8];
-//        $file = File::find(8);
-//        if(!$file->images->isEmpty()){
-//            echo 'array not empty';
-//        }
-//        var_dump($arr);
-
-        return Redirect::to($request->request->get('http_referrer'));
+//        dd($customers);
+        foreach ($customers as $customer){
+            echo $customer->id;
+            echo 'helo';
+        }
     }
 
     public function xyz(Request $request){

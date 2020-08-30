@@ -19,6 +19,7 @@
         </div>
     @endif
 
+    @if($user->id != 2)
     <div class="row">
         <div class="col-lg-12">
 
@@ -73,6 +74,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <div class="row">
         <div class="col-lg-12">

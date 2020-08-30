@@ -15,7 +15,7 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->float('price_value');
+            $table->float('price_value', 10,2);
             $table->string('price_title');
             $table->float('rahn_value');
             $table->string('rahn_title');

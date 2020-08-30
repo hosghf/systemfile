@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,8 +65,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/updatepersonel/{id}', 'usermanagement\usersController@showUpdate');
         Route::post('/updatepersonel/{id}', 'usermanagement\usersController@update');
         Route::get('/deletepersonel/{id}', 'usermanagement\usersController@delete');
-        Route::post('/changepassword/{id}', 'usermanagement\usersController@changepassword');
     });
+        Route::post('/changepassword/{id}', 'usermanagement\usersController@changepassword');
     Route::view('/changepassword', 'settings.changepassword')->name('passwordchange');
 
 });

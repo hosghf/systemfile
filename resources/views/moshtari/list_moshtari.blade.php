@@ -28,6 +28,23 @@
         .tooltip2:hover .tooltiptext {
             visibility: visible;
         }
+
+        @media screen and ( max-width: 570px ){
+            li.page-item {
+
+                display: none;
+            }
+            .page-item:first-child,
+            .page-item:nth-child( 2 ),
+            .page-item:nth-last-child( 2 ),
+            .page-item:last-child,
+            .page-item.active,
+            .page-item.disabled {
+
+                display: block;
+            }
+        }
+
     </style>
 @endsection
 
@@ -232,17 +249,17 @@
                                 <th>محدوده ها</th>
                                 <th>تلفن</th>
                                 <th>متراژ</th>
-                                <th>قیمت</th>
-                                <th>رهن</th>
-                                <th>اجاره</th>
+                                @if($forosh == 1) <th>قیمت</th> @endif
+                                @if($forosh == 0)<th>رهن</th>
+                                <th>اجاره</th>@endif
                                 <th>عملیات</th>
                             </tr>
                             </thead>
                             <tbody class="text-sm">
-                                <div class="d-none">{{$i = 0}}</div>
+                                <div class="d-none"></div>
                                 @foreach($customers as $customer)
                                     <tr>
-                                        <td>{{++$i}}</td>
+                                        <td>{{ $customers->page++ }}</td>
                                         <td> {{ $customer->family }} </td>
                                         <td>
                                             {{--@foreach($customer->streets as $st)--}}
@@ -270,15 +287,15 @@
                                         <td>
                                             {{ $customer->metr }}
                                         </td>
-                                        <td>
+                                        @if($forosh == 1)<td>
                                             {{ $customer->price }}
-                                        </td>
-                                        <td>
+                                        </td>@endif
+                                        @if($forosh == 0)<td>
                                             {{ $customer->rahn }}
                                         </td>
                                         <td>
                                             {{ $customer->ejare }}
-                                        </td>
+                                        </td>@endif
                                         <td>
                                             @if($customer->user->id == auth()->user()->id)
                                                 <a href="/deletecustomer/{{$customer->id}}?forosh={{$forosh}}">
