@@ -4,30 +4,13 @@
     <list default="true" id="d0d65684-8cc4-4b50-b7f8-57a6e2580792" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/file/myfilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/file/myfilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/testController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/testController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_31_160423_create_prices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_31_160423_create_prices_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/initializeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/initializeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/loginResources/css/iofrm-theme3.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/loginResources/css/iofrm-theme3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashbord.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashbord.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/files/imagesshow.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/imagesshow.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/files/myfiles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/myfiles.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_management/update_personel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_management/update_personel.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,47 +26,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
+            <state relative-caret-position="1428">
               <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="178" column="106" selection-start-line="178" selection-start-column="106" selection-end-line="178" selection-end-column="106" />
+            <state relative-caret-position="2079">
+              <caret line="105" column="39" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
               <folding>
-                <element signature="e#49#85#0#PHP" expanded="true" />
+                <element signature="e#55#91#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/files/list_melk.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="45" selection-end-column="9" />
+            <state relative-caret-position="-51">
+              <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+              <folding>
+                <element signature="e#40#60#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashbord.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="190" column="55" selection-start-line="190" selection-start-column="55" selection-end-line="190" selection-end-column="55" />
+            <state relative-caret-position="2505">
+              <caret line="253" column="11" lean-forward="true" selection-start-line="253" selection-start-column="11" selection-end-line="253" selection-end-column="11" />
+              <folding>
+                <element signature="e#45#81#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,6 +102,8 @@
       <find>inf</find>
       <find>logo</find>
       <find>nav</find>
+      <find>car</find>
+      <find>if</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,34 +135,34 @@
         <option value="$PROJECT_DIR$/resources/views/moshtari/update_moshtari.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_07_31_153647_create_customer_street_table.php" />
         <option value="$PROJECT_DIR$/resources/views/files/update_melk.blade.php" />
-        <option value="$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css" />
         <option value="$PROJECT_DIR$/public/loginResources/css/iofrm-theme3.css" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/files/imagesshow2.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/moshtari/namayesh_moshtari.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/files/imagesshow.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" />
         <option value="$PROJECT_DIR$/resources/views/user_management/list_personel.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user_management/update_personel.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/testController.php" />
-        <option value="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/files/myfiles.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/file/myfilesController.php" />
         <option value="$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_07_31_160423_create_prices_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_07_31_172305_create_files_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_07_31_153351_create_customers_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" />
         <option value="$PROJECT_DIR$/resources/views/moshtari/sabte_moshtari.blade.php" />
-        <option value="$PROJECT_DIR$/database/seeds/initializeSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/customer/customerController.php" />
-        <option value="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashbord.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/files/list_melk.blade.php" />
+        <option value="$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css" />
+        <option value="$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php" />
+        <option value="$PROJECT_DIR$/database/seeds/initializeSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/file/fileController.php" />
       </list>
     </option>
   </component>
@@ -301,6 +283,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -332,7 +315,50 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="customer" type="462c0819:PsiDirectoryNode" />
+              <item name="usermanagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="2020" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systemfile" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="2020" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="systemfile" type="b2602c69:ProjectViewProjectNode" />
@@ -356,29 +382,28 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/laravel_kheirie/kheirie" />
+    <property name="last_opened_file_path" value="F:/test-applications(laravel-vue)/jot_training_prj" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\laravel_systemfile\systemfile\resources\views\auth" />
+      <recent name="F:\laravel_systemfile\systemfile\app\Models" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\laravel_systemfile\systemfile\public\dashbord\plugins\imgslider" />
       <recent name="F:\laravel_systemfile\systemfile\resources\views\files" />
       <recent name="F:\laravel_systemfile\systemfile\public\loginResources\images" />
       <recent name="F:\laravel_systemfile\systemfile\public\dashbord\dist\img" />
       <recent name="F:\laravel_systemfile\systemfile\public\dashbord\dist\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\laravel_systemfile\systemfile\resources\views\auth" />
-      <recent name="F:\laravel_systemfile\systemfile\app\Models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -430,20 +455,25 @@
       <workItem from="1598531558167" duration="375000" />
       <workItem from="1598627550505" duration="13217000" />
       <workItem from="1598654803097" duration="12426000" />
-      <workItem from="1598821996488" duration="2833000" />
+      <workItem from="1598821996488" duration="3433000" />
+      <workItem from="1598978564974" duration="859000" />
+      <workItem from="1599322240600" duration="3999000" />
+      <workItem from="1599427683416" duration="1164000" />
+      <workItem from="1599514795103" duration="6000" />
+      <workItem from="1600259087145" duration="4417000" />
+      <workItem from="1602006076725" duration="637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="508659000" />
+    <option name="totallyTimeSpent" value="520341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" weight="0.19255663" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.24029127" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32919255" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -467,16 +497,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/js/jquery/deleteimage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/2020/08/1597861888a67f096809415ca1c9f112d96d27689b.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/images/2020/08/1597837002.png" />
-    <entry file="file://$PROJECT_DIR$/public/images/2020/08/1597837003.jpg" />
     <entry file="file://$PROJECT_DIR$/public/images/2020/08/1597860704.jpg" />
     <entry file="file://$PROJECT_DIR$/public/images/2020/08/15978618887f24d240521d99071c93af3917215ef7.jpg" />
     <entry file="file://$PROJECT_DIR$/public/images/2020/08/1597861888a666587afda6e89aec274a3657558a27.jpg" />
@@ -508,13 +528,6 @@
           <folding>
             <element signature="e#7#52#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="145" column="17" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -618,30 +631,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
-          <folding>
-            <element signature="e#55#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user_management/update_personel.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,27 +651,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="56" column="42" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/files/myfiles.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
           <caret line="263" column="25" selection-start-line="263" selection-start-column="25" selection-end-line="263" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="181" column="3" selection-start-line="181" selection-start-column="3" selection-end-line="182" selection-end-column="35" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -719,16 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="253" column="11" selection-start-line="253" selection-start-column="11" selection-end-line="253" selection-end-column="11" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/files/sabte_melk.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -743,17 +709,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/initializeSeeder.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+        <state relative-caret-position="551">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="45" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -767,24 +726,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/files/list_melk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/moshtari/list_moshtari.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="45" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashbord.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="190" column="55" selection-start-line="190" selection-start-column="55" selection-end-line="190" selection-end-column="55" />
+        <state relative-caret-position="3675">
+          <caret line="175" column="52" selection-start-line="175" selection-start-column="52" selection-end-line="175" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-611" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dashbord/dist/css/lastcss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/files/list_melk.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="90" column="29" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileSearchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3591">
+          <caret line="176" column="31" lean-forward="true" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
+          <folding>
+            <element signature="e#45#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/initializeSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="98" column="61" selection-start-line="98" selection-start-column="61" selection-end-line="98" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/files/namayesh_melk.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="54" column="139" selection-start-line="54" selection-start-column="139" selection-end-line="54" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/usermanagement/usersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2079">
+          <caret line="105" column="39" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
+          <folding>
+            <element signature="e#55#91#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+          <folding>
+            <element signature="e#40#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/file/fileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2505">
+          <caret line="253" column="11" lean-forward="true" selection-start-line="253" selection-start-column="11" selection-end-line="253" selection-end-column="11" />
+          <folding>
+            <element signature="e#45#81#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

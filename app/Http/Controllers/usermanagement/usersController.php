@@ -103,7 +103,7 @@ class usersController extends Controller
     }
 
     public function list(){
-        $users = User::all()->except([1,4]);
+        $users = User::all()->except([1]);
         return view('user_management.list_personel', ['users' => $users]);
     }
 

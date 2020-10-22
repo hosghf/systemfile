@@ -131,7 +131,7 @@
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <!-- Info Boxes Style 2 -->
             <a href="/filterfile?forosh=1&maskoni=1&category=1">
-                <div class="info-box mb-3 bg-white">
+                <div class="info-box mb-3 bg-primary">
                     <span class="info-box-icon"><i class="fa fa-building"></i></span>
 
                     <div class="info-box-content">
@@ -145,7 +145,7 @@
         <!-- /.info-box -->
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <a href="filterfile/?forosh=1&maskoni=1&category=2">
-                <div class="info-box mb-3 bg-white">
+                <div class="info-box mb-3 bg-danger">
                     <span class="info-box-icon"><i class="fa fa-home"></i></span>
 
                     <div class="info-box-content">
@@ -159,7 +159,7 @@
         <!-- /.info-box -->
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <a href="filterfile/?forosh=1&maskoni=1&category=3">
-                <div class="info-box mb-3 bg-white">
+                <div class="info-box mb-3 bg-gray">
                     <span class="info-box-icon"><i class="fa fa-globe"></i></span>
 
                     <div class="info-box-content">
@@ -173,7 +173,7 @@
         <!-- /.info-box -->
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <a href="filterfile/?forosh=1&maskoni=0&category=4">
-                <div class="info-box mb-3 bg-white">
+                <div class="info-box mb-3 bg-warning">
                     <span class="info-box-icon"><i class="fa fa-briefcase"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text"> فروش </span>
@@ -188,7 +188,7 @@
         @cannot('isForosh')
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <a href="filterfile?forosh=0&maskoni=1&category=1">
-                <div class="info-box mb-3 bg-gray-light">
+                <div class="info-box mb-3 bg-info">
                     <span class="info-box-icon"><i class="fa fa-building"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">اجاره</span>
@@ -200,7 +200,7 @@
         <!-- /.info-box -->
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <a href="filterfile?forosh=0&maskoni=1&category=2">
-                <div class="info-box mb-3 bg-gray-light">
+                <div class="info-box mb-3 bg-danger">
                     <span class="info-box-icon"><i class="fa fa-home"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">اجاره</span>
@@ -213,7 +213,7 @@
         <!-- /.info-box -->
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <a href="filterfile?forosh=0&maskoni=0&category=5">
-                <div class="info-box mb-3 bg-gray-light">
+                <div class="info-box mb-3 bg-dark">
                     <span class="info-box-icon"><i class="fa fa-shopping-cart"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">اجاره</span>
@@ -225,7 +225,7 @@
 
         <div class="col-md-4 col-lg-3 col-sm-6 col-12">
             <a href="filterfile?forosh=0&maskoni=0&category=4">
-                <div class="info-box mb-3 bg-gray-light">
+                <div class="info-box mb-3 bg-primary">
                     <span class="info-box-icon"><i class="fa fa-briefcase"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">اجاره</span>

@@ -233,16 +233,27 @@
             <div class="col-12 col-sm-6 col-md-3 ">
                 <a href="/showfile/{{$file->id}}?forosh={{$forosh}}&maskoni={{$maskoni}}" class="card-file-link">
                     <div class="card">
-                        <div class="card-body p-4 @if($forosh == 1) card-file @else card-ejare @endif">
-                            <div class="card-file-title ">
+                        <div class="card-title pt-3 bg-black">
+                            <div class="card-file-title">
                                 <h6 class="text-center">
                                     <span>{{$file->metr}}</span>
                                     @if(isset($file->metr))<span>متر</span>@endif
                                     <span>{{$file->street->title}}</span>
                                 </h6>
+                                <div class="text-center text-sm">
+                                    @if(isset($file->room))
+                                        <span>{{ $file->room->title }}</span>
+                                        <span>خواب</span>
+                                    @endif
+                                </div>
+                                <div class="text-center mt-1 text-sm pb-1">
+                                    {{ $file->category->title }}
+                                </div>
                             </div>
-                            <p class="text-muted text-center"> {{ $file->category->title }} </p>
-                            <ul class="list-group list-group-unbordered mb-3">
+                            {{--<p class="text-center">  </p>--}}
+                        </div>
+                        <div class="card-body p-4 @if($forosh == 1) card-file @else card-ejare @endif">
+                            <ul class="list-group list-group-unbordered">
                                 @if($forosh == 1)
                                     <li class="list-group-item text-sm">
                                         <b>قیمت: </b>
@@ -268,7 +279,7 @@
                                     </li>
                             </ul>
                         </div>
-                        <div class="card-footer text-sm">
+                        <div class="card-footer bg-warning text-sm">
                             <span class="text-sm">
                                 {{ $file->tarikh }}
                             </span>

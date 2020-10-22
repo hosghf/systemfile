@@ -30,7 +30,7 @@ class HomeController extends Controller
         $allfiles = File::count();
         $foroshcount = File::where('forosh', 1)->count();
         $ejarecount = File::where('forosh', 0)->count();
-        $usercount = User::count() - 2;
+        $usercount = User::count() - 1;
 
         $mysalefiles = File::where('user_id', auth()->user()->id)->where('forosh', 1)->where('archive', 0)->count();
         $myrentfiles = File::where('user_id', auth()->user()->id)->where('forosh', 0)->where('archive', 0)->count();
@@ -40,7 +40,7 @@ class HomeController extends Controller
 
 //      report
 //        $users = User::all()->except([1]);
-        $users = User::all()->except([1,4]);
+        $users = User::all()->except([1]);
 
         $v = \verta();
         $dayofmonth = $v->day;

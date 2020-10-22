@@ -81,7 +81,7 @@ class fileController extends Controller
             'gheymat' => 'nullable|numeric|max:99999999.99',
             'rahn' => 'nullable|numeric|max:999999.99',
             'ejare' => 'nullable|numeric|max:999999.99',
-            'images.*' => 'max:2024|mimes:png,jpg,jpeg,gif,webp',
+            'images.*' => 'mimes:png,jpg,jpeg,gif,webp',
         ],[
             'family.required' => 'لطفا نام خانوادگی مالک را وارد کنید.',
             'phone.required' => 'لطفا تلفن مالک را وارد کنید.',
@@ -95,7 +95,7 @@ class fileController extends Controller
             'ejare.numeric' => ' اجاره را به عدد وارد کنید.واحد اجاره ملیون تومان میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
             'ejare.max' => 'واحد اجاره یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
             'images.*.mimes' => 'فرمت تصویر از نوع png, jpg, jpeg, gif باشد.',
-            'images.*.max' => 'حداکثر سایز تصویر ارسالی یک مگابایت میتواند باشد.'
+//            'images.*.max' => 'حداکثر سایز تصویر ارسالی یک مگابایت میتواند باشد.'
         ]);
 
         $maskoni = $request->maskoni;
@@ -236,7 +236,7 @@ class fileController extends Controller
             'gheymat' => 'nullable|numeric|max:99999999.99',
             'rahn' => 'nullable|numeric|max:999999.99',
             'ejare' => 'nullable|numeric|max:999999.99',
-            'images.*' => 'max:2024|mimes:png,jpg,jpeg,gif,webp',
+            'images.*' => 'mimes:png,jpg,jpeg,gif,webp',
         ],[
             'family.required' => 'لطفا نام خانوادگی مالک را وارد کنید.',
             'phone.required' => 'لطفا تلفن مالک را وارد کنید.',
@@ -250,7 +250,7 @@ class fileController extends Controller
             'ejare.numeric' => ' اجاره را به عدد وارد کنید.واحد اجاره ملیون تومان میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
             'ejare.max' => 'واحد اجاره یک ملیون میباشد و حداکثر مقدار مجاز 999999.99 میباشد.برای مقادیر کمتر از 1 ملیون از اعشار استفاده کنید.',
             'images.*.mimes' => 'فرمت تصویر از نوع png, jpg, jpeg, gif باشد.',
-            'images.*.max' => 'حداکثر سایز تصویر ارسالی یک مگابایت میتواند باشد.'
+//            'images.*.max' => 'حداکثر سایز تصویر ارسالی یک مگابایت میتواند باشد.'
         ]);
 
         $forosh = $request->forosh;

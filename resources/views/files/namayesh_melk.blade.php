@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">تلفن:</label>
-                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1 )
+                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1)
                                         <p class="text-bold">{{ $file->phone }}</p>
                                     @endif
                                 </div>
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="form-group row mt-4">
                                     <label class="col-6 col-sm-4 col-md-6">آدرس:</label>
-                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1 )
+                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1)
                                        <p class="text-bold">{{ $file->address }}</p>
                                     @endif
                                 </div>
@@ -64,12 +64,27 @@
                                     <label class="col-6 col-sm-4 col-md-6">سند:</label>
                                     <p class="text-bold">{{ $file->sanad == null ? '' : $file->sanad->title }}</p>
                                 </div>
-                                <div class="form-group row mt-4">
-                                    <label class="col-6 col-sm-4 col-md-6">قیمت:</label>
-                                    <p class="text-bold">
-                                        {{$file->price}}
-                                        ملیون</p>
-                                </div>
+                                @if($file->forosh == 1)
+                                    <div class="form-group row mt-4">
+                                        <label class="col-6 col-sm-4 col-md-6">قیمت:</label>
+                                        <p class="text-bold">
+                                            {{$file->price}}
+                                            ملیون</p>
+                                    </div>
+                                @else
+                                    <div class="form-group row mt-4">
+                                        <label class="col-6 col-sm-4 col-md-6">رهن:</label>
+                                        <p class="text-bold">
+                                            {{$file->rahn}}
+                                            ملیون</p>
+                                    </div>
+                                    <div class="form-group row mt-4">
+                                        <label class="col-6 col-sm-4 col-md-6">اجاره:</label>
+                                        <p class="text-bold">
+                                            {{$file->ejare}}
+                                            ملیون</p>
+                                    </div>
+                                @endif
                             </div>
 
                             <h5 class="mb-3 mt-5 title2 col-sm-12 col-md-11">مشخصات ساختمان </h5>
@@ -84,7 +99,9 @@
                                 </div>
                                 <div class="form-group row mt-4">
                                     <label class="col-6 col-sm-4 col-md-6">تعداد خواب:</label>
-                                    <p class="text-bold">{{$file->room == null ? '' : $file->room->title}}</p>
+                                    <p class="text-bold">{{$file->room == null ? '' : $file->room->title}}
+                                        خواب
+                                    </p>
                                 </div>
                                 <div class="form-group row mt-4">
                                     <label class="col-6 col-sm-4 col-md-6">طبقه:</label>

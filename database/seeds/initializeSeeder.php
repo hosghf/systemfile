@@ -96,8 +96,7 @@ class initializeSeeder extends Seeder
         $users = [
             ['id' => 1, 'name' => 'admin', 'family' => 'admin', 'username' => 'admin','phone' => '0900000','password' => Hash::make('admin'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 2, 'name' => 'دفتر', 'family' => 'منشی 1', 'username' => 'daftar','phone' => '0890000','password' => Hash::make('123'), 'role_id' => 2 , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 3, 'name' => 'مهدی', 'family' => 'خوشنود', 'username' => 'khoshnod','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
-            ['id' => 4, 'name' => 'تست', 'family' => 'تست', 'username' => 'test','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 3 , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 3, 'name' => 'مهدی', 'family' => 'خوشبخت', 'username' => 'khoshnod','phone' => '09876543243','password' => Hash::make('123'), 'role_id' => 1 , 'created_at'=> $now, 'updated_at'=> $now],
         ];
         foreach($users as $user){
             DB::table('users')->insert($user);
@@ -173,7 +172,7 @@ class initializeSeeder extends Seeder
         }
 
         $rooms = [
-            ['id' => 1, 'title' => 'بدون اتاق' , 'created_at'=> $now, 'updated_at'=> $now],
+            ['id' => 1, 'title' => 'بدون' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 2, 'title' => '1' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 3, 'title' => '2' , 'created_at'=> $now, 'updated_at'=> $now],
             ['id' => 4, 'title' => '3' , 'created_at'=> $now, 'updated_at'=> $now],
