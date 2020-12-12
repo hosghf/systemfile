@@ -34,8 +34,8 @@
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">تلفن:</label>
-                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1)
-                                        <p class="text-bold">{{ $file->phone }}</p>
+                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1 or auth()->user()->id == 25)
+                                        <a href="tel:{{ $file->phone }}" class="text-dark">{{ $file->phone }}</a>
                                     @endif
                                 </div>
                             </div>
@@ -52,8 +52,14 @@
                                 </div>
                                 <div class="form-group row mt-4">
                                     <label class="col-6 col-sm-4 col-md-6">آدرس:</label>
-                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1)
+                                    @if($file->user_id == auth()->user()->id or $file->user->role->id == 2 or auth()->user()->role->id == 1 or auth()->user()->id == 25)
                                        <p class="text-bold">{{ $file->address }}</p>
+                                    @else
+                                        @if(strlen($file->address) > 0)
+                                            <p class="text-bold">{{mb_substr($file->address,0,14,'utf-8')}} ...</p>
+                                        @else
+                                            <p class="text-bold"></p>
+                                        @endif
                                     @endif
                                 </div>
                                 <div class="form-group row mt-4">

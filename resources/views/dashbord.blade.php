@@ -125,6 +125,7 @@
         <!-- ./col -->
     </div>
 
+    @cannot('isMoshaverMajazy')
     <h5 class="mt-5 mb-2"> دسترسی سریع </h5>
     <div class="row">
         @cannot('isEjare')
@@ -237,6 +238,7 @@
         </div>
         @endcannot
     </div>
+    @endcannot {{-- isMajazy --}}
 
     @can('isModir')
         <h5 class="mt-4 mb-2"> گزارش کار پرسنل </h5>

@@ -33,7 +33,11 @@
                                 </div>
                                 <div class="form-group row mt-4">
                                     <label class="col-6 col-sm-4 col-md-6">تلفن:</label>
-                                    <p class="text-bold">{{ $customer->phone }}</p>
+                                    <p class="text-bold">
+                                        <a href="tel:{{ $customer->phone }}">
+                                        {{ $customer->phone }}
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
 

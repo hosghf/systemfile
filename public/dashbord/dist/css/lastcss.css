@@ -7,6 +7,11 @@ a, p, label{
 label{
     margin-bottom: .3rem;
 }
+
+.nav-item i {
+    vertical-align: middle;
+}
+
 .card-header {
     font-size: 1.08rem;
 }
@@ -78,14 +83,57 @@ label{
 #card-search-panel{
     padding-bottom: 10px;
 }
+
+
+.search-box .input-group-prepend{
+    width: 10%;
+}
+.search-box .input-group-prepend button{
+    width: 100%;
+}
+.search-box .inputs {
+    display: flex;
+    width: 90%;
+}
+.search-box .inputs input{
+    border-radius: 0 0 0 0;
+}
+.search-box .inputs input:last-child{
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .search-box {
+        flex-wrap: nowrap;
+    }
+    .search-box .inputs{
+        width: 93%;
+    }
+    .search-box .inputs input{
+        border-radius: 5px 0 0 5px;
+    }
+    .search-box .input-group-prepend{
+        width: auto;
+    }
+    .search-box .input-group-prepend button{
+    }
+    .search-box .inputs {
+        display: block;
+        width: inherit;
+    }
+}
+
 .card-file{
     /*max-height: 200px;*/
     /*height: 200px;*/
     overflow: hidden;
+    padding-bottom: 0;
 }
 .card-ejare{
     /*height: 226px;*/
     overflow: hidden;
+    padding-bottom: 0;
 }
 .overflow-hidden{
     overflow: hidden;

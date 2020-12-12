@@ -255,3 +255,6 @@
     margin-bottom: 34px;
     text-align: right;
 }
+.form-items p {
+    line-height: normal;
+}

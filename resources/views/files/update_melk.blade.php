@@ -69,7 +69,11 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label>آدرس</label>
-                                    <input name="address" type="text" value="{{ $file->address }}" class="form-control">
+                                    <input id="address" autocomplete="off" name="address" type="text" value="{{ $file->address }}" class="form-control">
+                                    <p class="mt-2">
+                                        <span>نمایش به همکاران:</span>
+                                        <span id="addressToShow" class="text-danger"> </span>
+                                    </p>
                                 </div>
                                 <div class="form-group mt-3">
                                     <label>متراژ</label>
@@ -325,5 +329,6 @@
     </script>
     <script src="/dashbord/dist/js/jquery/sabte_melk_add_emkanat.js"></script>
     <script src="/dashbord/dist/js/jquery/deleteimage.js"></script>
+    <script src="/dashbord/dist/js/jquery/namayesh_address.js"></script>
 
 @endsection

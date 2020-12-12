@@ -49,16 +49,26 @@
 @endsection
 
 @section('content')
+    @if(session()->has('message'))
+        <div class="alert alert-warning alert-dismissible text-sm">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            {{ session()->get('message') }}
+        </div>
+    @endif
 
     <div>
         <form method="post" action="/searchmoshtari">
             @csrf
             <input type="hidden" name="forosh" value="{{$forosh}}">
-            <div class="input-group ">
+
+            <div class="input-group search-box">
                 <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="submit">جستجو</button>
+                    <button class="btn btn-primary" type="submit">جستجو</button>
                 </div>
-                <input type="text" name="searchbox" class="form-control" placeholder="نام، تلفن، توضیحات" aria-label="" aria-describedby="basic-addon1">
+                <div class="inputs">
+                    <input type="text" name="searchbox" class="form-control" placeholder="نام، تلفن، توضیحات و آدرس" aria-label="" aria-describedby="basic-addon1">
+                    <input type="text" name="customerNumber" class="form-control" placeholder="شماره مشتری" aria-label="" aria-describedby="basic-addon1">
+                </div>
             </div>
         </form>
     </div>
@@ -121,18 +131,20 @@
                                                 <i class="fa fa-money"></i>
                                               </span>
                                             </div>
-                                            <select name="price1" id="price1" class="form-control">
-                                                <option disabled selected hidden>قیمت از</option>
-                                                @foreach($prices as $p)
-                                                    <option value="{{$p->price_value}}">{{$p->price_title}}</option>
-                                                @endforeach
-                                            </select>
-                                            <select name="price2" class="form-control">
-                                                <option disabled selected hidden>قیمت تا</option>
-                                                @foreach($prices as $p)
-                                                    <option value="{{$p->price_value}}">{{$p->price_title}}</option>
-                                                @endforeach
-                                            </select>
+                                            {{--<select name="price1" id="price1" class="form-control">--}}
+                                                {{--<option disabled selected hidden>قیمت از</option>--}}
+                                                {{--@foreach($prices as $p)--}}
+                                                    {{--<option value="{{$p->price_value}}">{{$p->price_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="price1" class="form-control" placeholder="قیمت از">
+                                            {{--<select name="price2" class="form-control">--}}
+                                                {{--<option disabled selected hidden>قیمت تا</option>--}}
+                                                {{--@foreach($prices as $p)--}}
+                                                    {{--<option value="{{$p->price_value}}">{{$p->price_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="price2" class="form-control" placeholder="قیمت تا">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -145,20 +157,22 @@
                                                 <i class="fa fa-money"></i>
                                               </span>
                                             </div>
-                                            <select name="rahn1" class="form-control">
-                                                <option disabled selected hidden>رهن از</option>
-                                                <option></option>
-                                                @foreach($rahn4select as $r)
-                                                    <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
-                                                @endforeach
-                                            </select>
-                                            <select name="rahn2" class="form-control">
-                                                <option disabled selected hidden>رهن تا</option>
-                                                <option></option>
-                                                @foreach($rahn4select as $r)
-                                                    <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
-                                                @endforeach
-                                            </select>
+                                            {{--<select name="rahn1" class="form-control">--}}
+                                                {{--<option disabled selected hidden>رهن از</option>--}}
+                                                {{--<option></option>--}}
+                                                {{--@foreach($rahn4select as $r)--}}
+                                                    {{--<option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="rahn1" class="form-control" placeholder="رهن از">
+                                            {{--<select name="rahn2" class="form-control">--}}
+                                                {{--<option disabled selected hidden>رهن تا</option>--}}
+                                                {{--<option></option>--}}
+                                                {{--@foreach($rahn4select as $r)--}}
+                                                    {{--<option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="rahn2" class="form-control" placeholder="رهن تا">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -170,20 +184,22 @@
                                                 <i class="fa fa-money"></i>
                                               </span>
                                             </div>
-                                            <select name="ejare1" class="form-control">
-                                                <option disabled selected hidden>اجاره از</option>
-                                                <option></option>
-                                                @foreach($ejare4select as $r)
-                                                    <option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>
-                                                @endforeach
-                                            </select>
-                                            <select name="ejare2" class="form-control">
-                                                <option disabled selected hidden>اجاره تا</option>
-                                                <option></option>
-                                                @foreach($ejare4select as $r)
-                                                    <option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>
-                                                @endforeach
-                                            </select>
+                                            {{--<select name="ejare1" class="form-control">--}}
+                                                {{--<option disabled selected hidden>اجاره از</option>--}}
+                                                {{--<option></option>--}}
+                                                {{--@foreach($ejare4select as $r)--}}
+                                                    {{--<option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="ejare1" class="form-control" placeholder="اجاره از">
+                                            {{--<select name="ejare2" class="form-control">--}}
+                                                {{--<option disabled selected hidden>اجاره تا</option>--}}
+                                                {{--<option></option>--}}
+                                                {{--@foreach($ejare4select as $r)--}}
+                                                    {{--<option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="ejare2" class="form-control" placeholder="اجاره تا">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -282,7 +298,7 @@
                                             @endif
                                         </td>
                                         <td class="text-bold">
-                                            {{ $customer->phone }}
+                                            <a href="tel:{{ $customer->phone }}"> {{ $customer->phone }} </a>
                                         </td>
                                         <td>
                                             {{ $customer->metr }}

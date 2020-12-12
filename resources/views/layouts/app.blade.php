@@ -44,7 +44,7 @@
             <li class="nav-item">
                 <a href="{{ route('logout') }}" style="color:gray;" onclick="event.preventDefault();
                 document.getElementById('frm-logout').submit();">
-                    <button class="btn btn-outline-info text-sm py-1 px-2"> <i class="fa fa-sign-out"></i> خروج </button>
+                    <button class="btn btn-outline-info text-sm px-2"> <i class="fa fa-sign-out"></i> خروج </button>
                 </a>
                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
@@ -91,6 +91,7 @@
                                 </p>
                             </a>
                         </li>
+                        @cannot('isMoshaverMajazy')
                         <li class="nav-item has-treeview {{ Route::currentRouteName() == 'listfile' ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link {{ Route::currentRouteName() == 'listfile' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-search"></i>
@@ -130,6 +131,7 @@
                                 @endcannot
                             </ul>
                         </li>
+                        @endcannot {{-- isMajazy --}}
                         <li class="nav-item has-treeview {{ Route::currentRouteName() == 'registerfile' ? 'menu-open' : '' }}">
                             <a href="/registerfile" class="nav-link {{ Route::currentRouteName() == 'registerfile' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-file"></i>
@@ -165,6 +167,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @cannot('isMoshaverMajazy')
                         <li class="nav-item has-treeview {{ Route::currentRouteName() == 'listmoshtari' ? 'menu-open' : '' }}">
                             <a href="/listmoshtari" class="nav-link {{ Route::currentRouteName() == 'listmoshtari' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-search"></i>
@@ -236,6 +239,7 @@
                                 </ul>
                             </li>
                         @endcan
+                        @endcannot {{-- isMajazy --}}
                         <li class="nav-item">
                             <a href="/changepassword" class="nav-link {{ Route::currentRouteName() == 'passwordchange' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-key"></i>

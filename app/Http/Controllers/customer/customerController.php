@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Hekmatinasser\Verta\Verta;
 use Carbon\Carbon;
+use Gate;
 
 class customerController extends Controller
 {
@@ -123,12 +124,6 @@ class customerController extends Controller
 
     public function list(Request $request){
         $forosh = $request->forosh;
-        $pagetitle = '';
-        if($forosh == 1){
-            $pagetitle = 'فروش';
-        } elseif($forosh ==0){
-            $pagetitle = 'رهن و اجاره';
-        }
 
         $price1 = $request->price1;
         $price2 = $request->price2;
@@ -140,6 +135,9 @@ class customerController extends Controller
         $date1 = $request->date1;
         $date2 = $request->date2;
         $streetsArr = $request->street;
+        $customerNumber = $request->customerNumber;
+        $customerId = false;
+
         if(isset($request->metr1)){
             $metr1 = Meter::find($request->metr1)->title;
         }else{
@@ -181,25 +179,41 @@ class customerController extends Controller
         }
         elseif($request->route()->getName() == 'searchmoshtari'){
 
-//            $customers = Customer::where(function ($query) use($forosh){
-//                $query->where('forosh', $forosh);
-//            })->where(function ($query) use($searchbox){
-//                $query->orWhere('phone', $searchbox)
-//                    ->orWhere('family', $searchbox)
-//                    ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-//            })->orderBy('created_at', 'DESC')->paginate(12);
+            if($customerNumber > 0 ) {
 
-            $customers = Customer::where('forosh', $forosh)->where(function ($query){
-                                                        $query->whereHas('user', function(Builder $query){
-                                                              $query->where('role_id', 2);
-                                                                })->orWhere('user_id', auth()->user()->id);
-                                                                })
-                               ->where(function ($query) use($searchbox){
-                                $query->orWhere('phone', $searchbox)
-                                    ->orWhere('family', 'LIKE', "%{$searchbox}%")
-                                    ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-                            })->orderBy('created_at', 'DESC')->paginate(12);
+                //search by customer ID
+                if (auth()->user()->can('isModir') and $forosh == 1) {
+                    $customers = Customer::whereIn('id', [$customerNumber, $customerNumber])
+                        ->paginate(12);
+                } else {
+                    $customers = Customer::whereIn('id', [$customerNumber, $customerNumber])
+                                    ->where(function ($query) {
+                                        $query->whereHas('user', function(Builder $query){
+                                            $query->where('role_id', 2);
+                                        })->orWhere('user_id', auth()->user()->id);
+                                    })->paginate(12);
+                }
 
+                if(!isset($customers[0])){
+                    //file not found
+                    $request->session()->flash('message', " مشتری با شماره " . $customerNumber . " یافت نشد و یا شما به این مشتری دسترسی ندارید.");
+                    return redirect()->back();
+                } else {
+                    $customerId = true;
+                }
+
+            } else {
+                $customers = Customer::where('forosh', $forosh)->where(function ($query){
+                                                            $query->whereHas('user', function(Builder $query){
+                                                                  $query->where('role_id', 2);
+                                                                    })->orWhere('user_id', auth()->user()->id);
+                                                                    })
+                                   ->where(function ($query) use($searchbox){
+                                    $query->orWhere('phone', $searchbox)
+                                        ->orWhere('family', 'LIKE', "%{$searchbox}%")
+                                        ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
+                                })->orderBy('created_at', 'DESC')->paginate(12);
+            }
 
         }elseif($request->route()->getName() == 'filtermoshtari'){
 
@@ -260,6 +274,18 @@ class customerController extends Controller
         }
 
         $customers->withPath('?forosh=' . $forosh);
+        if($customerId) {
+            $customers->withPath('?forosh=' . $customers[0]->forosh);
+            $forosh = $customers[0]->forosh;
+        }
+
+        $pagetitle = '';
+        if($forosh == 1){
+            $pagetitle = 'فروش';
+        } elseif($forosh ==0){
+            $pagetitle = 'رهن و اجاره';
+        }
+
         $customers->appends($_REQUEST);
         $customers->page = app('request')->input('page') == '' ? 0 : app('request')->input('page') - 1;
         $customers->page = ((($customers->page)*12) + 1);

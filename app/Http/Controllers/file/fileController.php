@@ -164,7 +164,19 @@ class fileController extends Controller
     }
 
     public function show($id){
+
         $file = File::find($id);
+        if (auth()->user()->can('isEjare') and $file->forosh == 1){
+            session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
+            return redirect('/');
+
+        } elseif(auth()->user()->can('isForosh') and $file->forosh == 0) {
+            session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
+            return redirect('/');
+        } elseif(auth()->user()->can('isMoshaverMajazy') and auth()->user()->id != $file->user_id) {
+            session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
+            return redirect('/');
+        }
         $file->y = Carbon::createFromFormat('Y-m-d H:i:s', $file->created_at)->year;
         $file->m = Carbon::createFromFormat('Y-m-d H:i:s', $file->created_at)->month;
         $file->m = $file->m < 10 ? '0' . $file->m : $file->m;

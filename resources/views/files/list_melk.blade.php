@@ -38,11 +38,15 @@
             @csrf
             <input type="hidden" name="forosh" value="{{$forosh}}">
             <input type="hidden" name="maskoni" value="{{$maskoni}}">
-            <div class="input-group ">
+
+            <div class="input-group search-box">
                 <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="submit">جستجو</button>
+                    <button class="btn btn-primary" type="submit">جستجو</button>
                 </div>
-                <input type="text" name="searchbox" class="form-control" placeholder="نام، تلفن، توضیحات و آدرس" aria-label="" aria-describedby="basic-addon1">
+                <div class="inputs">
+                    <input type="text" name="searchbox" class="form-control" placeholder="نام، تلفن، توضیحات و آدرس" aria-label="" aria-describedby="basic-addon1">
+                    <input type="text" name="fileid" class="form-control" placeholder="شماره فایل" aria-label="" aria-describedby="basic-addon1">
+                </div>
             </div>
         </form>
     </div>
@@ -59,7 +63,7 @@
                             <input type="hidden" name="forosh" value="{{$forosh}}">
                             <input type="hidden" name="maskoni" value="{{$maskoni}}">
                             <div class="row">
-                                <div class="form-group col-12 col-sm-3 col-md-6">
+                                <div class="form-group col-12 col-sm-3 col-md-3">
                                     <label> محدوده </label>
                                     <div class="input-group mb-3">
                                         <select multiple id="st" name="street[]" class="street col-md-12">
@@ -69,6 +73,16 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                </div>
+                                <div class="form-group col-6 col-sm-3 col-md-3">
+                                    <label>تعداد خواب</label>
+                                    <select name="room" class="form-control">
+                                        <option></option>
+                                        @foreach($rooms as $r)
+                                            @if($r->id == 1) @continue @endif
+                                            <option value="{{$r->id}}">{{$r->title}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group col-6 col-sm-3 col-md-3">
                                     <label>دسته بندی</label>
@@ -103,18 +117,20 @@
                                                 <i class="fa fa-money"></i>
                                               </span>
                                             </div>
-                                            <select name="price1" id="price1" class="form-control">
-                                                <option disabled selected hidden>قیمت از</option>
-                                                @foreach($prices as $p)
-                                                    <option value="{{$p->price_value}}">{{$p->price_title}}</option>
-                                                @endforeach
-                                            </select>
-                                            <select name="price2" class="form-control">
-                                                <option disabled selected hidden>قیمت تا</option>
-                                                @foreach($prices as $p)
-                                                    <option value="{{$p->price_value}}">{{$p->price_title}}</option>
-                                                @endforeach
-                                            </select>
+                                            {{--<select name="price1" id="price1" class="form-control">--}}
+                                                {{--<option disabled selected hidden>قیمت از</option>--}}
+                                                {{--@foreach($prices as $p)--}}
+                                                    {{--<option value="{{$p->price_value}}">{{$p->price_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="price1" id="price1" class="form-control" placeholder="قیمت از">
+                                            {{--<select name="price2" class="form-control">--}}
+                                                {{--<option disabled selected hidden>قیمت تا</option>--}}
+                                                {{--@foreach($prices as $p)--}}
+                                                    {{--<option value="{{$p->price_value}}">{{$p->price_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="price2" class="form-control" placeholder="قیمت تا">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -127,20 +143,22 @@
                                                 <i class="fa fa-money"></i>
                                               </span>
                                             </div>
-                                            <select name="rahn1" class="form-control">
-                                                <option disabled selected hidden>رهن از</option>
-                                                <option></option>
-                                            @foreach($rahn4select as $r)
-                                                    <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
-                                                @endforeach
-                                            </select>
-                                            <select name="rahn2" class="form-control">
-                                                <option disabled selected hidden>رهن تا</option>
-                                                <option></option>
-                                            @foreach($rahn4select as $r)
-                                                    <option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>
-                                                @endforeach
-                                            </select>
+                                            {{--<select name="rahn1" class="form-control">--}}
+                                                {{--<option disabled selected hidden>رهن از</option>--}}
+                                                {{--<option></option>--}}
+                                            {{--@foreach($rahn4select as $r)--}}
+                                                    {{--<option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="rahn1" class="form-control">
+                                            {{--<select name="rahn2" class="form-control">--}}
+                                                {{--<option disabled selected hidden>رهن تا</option>--}}
+                                                {{--<option></option>--}}
+                                            {{--@foreach($rahn4select as $r)--}}
+                                                    {{--<option value="{{$r->rahn_value}}">{{$r->rahn_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="rahn2" class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -152,20 +170,22 @@
                                                 <i class="fa fa-money"></i>
                                               </span>
                                             </div>
-                                            <select name="ejare1" class="form-control">
-                                                <option disabled selected hidden>اجاره از</option>
-                                                <option></option>
-                                                @foreach($ejare4select as $r)
-                                                    <option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>
-                                                @endforeach
-                                            </select>
-                                            <select name="ejare2" class="form-control">
-                                                <option disabled selected hidden>اجاره تا</option>
-                                                <option></option>
-                                            @foreach($ejare4select as $r)
-                                                    <option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>
-                                                @endforeach
-                                            </select>
+                                            {{--<select name="ejare1" class="form-control">--}}
+                                                {{--<option disabled selected hidden>اجاره از</option>--}}
+                                                {{--<option></option>--}}
+                                                {{--@foreach($ejare4select as $r)--}}
+                                                    {{--<option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="ejare1" class="form-control">
+                                            {{--<select name="ejare2" class="form-control">--}}
+                                                {{--<option disabled selected hidden>اجاره تا</option>--}}
+                                                {{--<option></option>--}}
+                                            {{--@foreach($ejare4select as $r)--}}
+                                                    {{--<option value="{{$r->ejare_value}}">{{$r->ejare_title}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                            <input name="ejare2" class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -240,19 +260,18 @@
                                     @if(isset($file->metr))<span>متر</span>@endif
                                     <span>{{$file->street->title}}</span>
                                 </h6>
+                                <div class="text-center text-sm mt-1">
+                                    {{ $file->limitedAddress }}
+                                </div>
                                 <div class="text-center text-sm">
                                     @if(isset($file->room))
                                         <span>{{ $file->room->title }}</span>
                                         <span>خواب</span>
                                     @endif
                                 </div>
-                                <div class="text-center mt-1 text-sm pb-1">
-                                    {{ $file->category->title }}
-                                </div>
                             </div>
-                            {{--<p class="text-center">  </p>--}}
                         </div>
-                        <div class="card-body p-4 @if($forosh == 1) card-file @else card-ejare @endif">
+                        <div class="card-body px-4 @if($forosh == 1) card-file @else card-ejare @endif">
                             <ul class="list-group list-group-unbordered">
                                 @if($forosh == 1)
                                     <li class="list-group-item text-sm">
@@ -276,6 +295,10 @@
                                     <li class="list-group-item text-sm">
                                         <b>  نام مالک:</b>
                                         {{$file->family}}
+                                    </li>
+                                    <li class="list-group-item text-sm">
+                                        <b> دسته:</b>
+                                        {{$file->category->title}}
                                     </li>
                             </ul>
                         </div>

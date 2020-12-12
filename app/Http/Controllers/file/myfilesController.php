@@ -35,6 +35,7 @@ class myfilesController extends Controller
         }
 
         $searchbox = $request->searchbox;
+        $fileid = $request->fileid;
         $cat_id = $request->category;
         $price1 = $request->price1;
         $price2 = $request->price2;

@@ -6,15 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Models\File;
 use App\Models\Meter;
 use App\Models\Price;
+use App\Models\Room;
 use App\Models\Street;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Carbon\Carbon;
+use Gate;
 
 class fileSearchController extends Controller
 {
     public function filter(Request $request){
+
         $forosh = $request->forosh;
         if (auth()->user()->can('isEjare') and $forosh == 1){
             $forosh = 0;
@@ -25,29 +28,6 @@ class fileSearchController extends Controller
             session()->flash('message', 'شما به فایل های اجاره دسترسی ندارید.');
         }
         $maskoni = $request->maskoni;
-        $pagetitle = '';
-        $category = '';
-        if( $forosh == 1 ) {
-            $pagetitle = "فروش";
-        } elseif($forosh == 0){
-            $pagetitle = "رهن و اجاره";
-        }
-        $pagetitle = $pagetitle . " / ";
-        if( $maskoni == 1 ) {
-            $pagetitle = $pagetitle . " مسکونی ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 0)->where('ejare', '1')->get();//forosh maskony only
-            } else {
-                $category = Category::where('tejary', 0)->get();//forosh maskony only
-            }
-        } elseif($maskoni == 0){
-            $pagetitle = $pagetitle ." تجاری ";
-            if($forosh == 0){
-                $category = Category::where('tejary', 1)->where('ejare', '1')->get();//forosh maskony only
-            }else{
-                $category = Category::where('tejary', 1)->get();//forosh maskony only
-            }
-        }
 
         $searchbox = $request->searchbox;
         $cat_id = $request->category;
@@ -57,11 +37,15 @@ class fileSearchController extends Controller
         $rahn2 = $request->rahn2;
         $ejare1 = $request->ejare1;
         $ejare2 = $request->ejare2;
+        $room = $request->room;
 
         $date1 = $request->date1;
         $date2 = $request->date2;
         $yeardif = $request->year;
         $streetsArr = $request->street;
+        $fileid = $request->fileid;
+        $fileNumSign = false;
+
         if(isset($request->metr1)){
            $metr1 = Meter::find($request->metr1)->title;
         }else{
@@ -149,6 +133,10 @@ class fileSearchController extends Controller
                 $files->where('cat_id', $cat_id);
             }
 
+            if($room != null) {
+                $files->where('room_id', $room);
+            }
+
             $files = $files->orderBy('created_at', 'DESC')->paginate(12);
 //            return redirect()->back();
 
@@ -157,15 +145,38 @@ class fileSearchController extends Controller
                                         ->orderBy('created_at', 'DESC')->paginate(12);
         }elseif ($request->route()->getName() == 'searchfile'){
 
-            $files = File::where(function ($query) use($forosh, $maskoni){
-                $query->where('forosh', $forosh)
-                    ->where('maskoni', $maskoni)->where('archive', 0);
-            })->where(function ($query) use($searchbox,$cat_id){
-                $query->orWhere('phone', $searchbox)
-                    ->orWhere('family', $searchbox)
-                    ->orWhere('address', 'LIKE', "%{$searchbox}%")
-                    ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-            })->orderBy('created_at', 'DESC')->paginate(12);
+            if($fileid > 0 ){
+                //search by ID
+                $files = File::whereIn('id', [$fileid, $fileid])
+                    ->where('archive', 0)->paginate();
+
+                if(isset($files[0])) {
+                    if (auth()->user()->can('isEjare') and $files[0]->forosh == 1) {
+                        $request->session()->flash('message', "شما به این فایل دسترسی ندارید");
+                        return redirect()->back();
+                    } elseif (auth()->user()->can('isForosh') and $files[0]->forosh == 0) {
+                        $request->session()->flash('message', "شما به این فایل دسترسی ندارید");
+                        return redirect()->back();
+                    }
+                } else{
+                    //file not found
+                    $request->session()->flash('message', " فایل با شماره " . $fileid . " یافت نشد.");
+                    return redirect()->back();
+                }
+
+                $fileNumSign = true;
+
+            } else{
+                $files = File::where(function ($query) use($forosh, $maskoni){
+                    $query->where('forosh', $forosh)
+                        ->where('maskoni', $maskoni)->where('archive', 0);
+                })->where(function ($query) use($searchbox,$cat_id){
+                    $query->orWhere('phone', $searchbox)
+                        ->orWhere('family', $searchbox)
+                        ->orWhere('address', 'LIKE', "%{$searchbox}%")
+                        ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
+                })->orderBy('created_at', 'DESC')->paginate(12);
+            }
         }
 
         $prices = Price::all('price_title', 'price_value');
@@ -174,17 +185,52 @@ class fileSearchController extends Controller
         $street = Street::all();
         $now  = \verta();
         $metr = Meter::all();
+        $rooms = Room::all();
         foreach ($files as $f){
             $f->tarikh = verta($f->created_at);
             $f->tarikh = $f->tarikh->formatDifference($now);
+            if(strlen($f->address) > 0){
+                $f->limitedAddress = mb_substr($f->address,0,14,'utf-8') . " ... ";
+            }
         }
 
         $files->withPath('?forosh=' . $forosh . '&maskoni=' . $maskoni);
+        //set the forosh and maskoni var to the file value
+        if($fileNumSign){
+            $files->withPath('?forosh=' . $files[0]->forosh . '&maskoni=' . $files[0]->maskoni);
+            $forosh = $files[0]->forosh;
+            $maskoni = $files[0]->maskoni;
+        }
+
+        $pagetitle = '';
+        $category = '';
+        if( $forosh == 1 ) {
+            $pagetitle = "فروش";
+        } elseif($forosh == 0){
+            $pagetitle = "رهن و اجاره";
+        }
+        $pagetitle = $pagetitle . " / ";
+        if( $maskoni == 1 ) {
+            $pagetitle = $pagetitle . " مسکونی ";
+            if($forosh == 0){
+                $category = Category::where('tejary', 0)->where('ejare', '1')->get();//forosh maskony only
+            } else {
+                $category = Category::where('tejary', 0)->get();//forosh maskony only
+            }
+        } elseif($maskoni == 0){
+            $pagetitle = $pagetitle ." تجاری ";
+            if($forosh == 0){
+                $category = Category::where('tejary', 1)->where('ejare', '1')->get();//forosh maskony only
+            }else{
+                $category = Category::where('tejary', 1)->get();//forosh maskony only
+            }
+        }
+
         $files->appends($_REQUEST);
 
         return view('files.list_melk', ['files' => $files, 'forosh' => $forosh,
             'maskoni' => $maskoni, 'pagetitle' => $pagetitle, 'category' => $category,
-            'street' => $street,'metr' => $metr, 'prices' => $prices,
+            'street' => $street,'metr' => $metr, 'prices' => $prices, 'rooms' => $rooms,
             'rahn4select' => $rahn4select,'ejare4select' => $ejare4select, 'oldcategory' => $request->category]);
     }
 
