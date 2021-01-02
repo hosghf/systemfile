@@ -88,7 +88,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                @if($file->forosh == 1)
+                                @if($file->forosh == 1 || $file->sakht > 0)
                                     <div class="form-group mt-3">
                                         <label>قیمت</label>
                                         <input name="gheymat" value="{{$file->price}}" type="text" class="form-control">

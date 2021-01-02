@@ -33,6 +33,7 @@
                             @csrf
                             <input type="hidden" name="forosh" value="{{$forosh}}">
                             <input type="hidden" name="maskoni" value="{{$maskoni}}">
+                            <input type="hidden" name="sakht" value="{{$sakht}}">
                             <h5 class="mb-3 mt-5 title2 col-sm-12 col-md-11">مشخصات صاحب ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
@@ -50,13 +51,14 @@
                             <h5 class="mb-3 title2 col-sm-12 col-md-11">مشخصات ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
-                                    <label>دسته بندی</label>
-                                    <select name="daste" class="form-control">
-                                        @foreach($category as $cat)
-                                            <option value="{{ $cat->id }}" {{ (old("daste") == $cat->id ? "selected":"") }}>{{ $cat->title }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                    @if($sakht != 1)
+                                        <label>دسته بندی</label>
+                                        <select name="daste" class="form-control">
+                                            @foreach($category as $cat)
+                                                <option value="{{ $cat->id }}" {{ (old("daste") == $cat->id ? "selected":"") }}>{{ $cat->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    @endif
                                 <div class="form-group">
                                     <label><span class="text-danger">*</span>
                                         محدوده
@@ -80,7 +82,7 @@
                                     <label>متراژ</label>
                                     <input name="metr" value="{{ old('metr') }}" type="text" class="form-control @error('metr') border border-danger @enderror">
                                 </div>
-                                @if($forosh == 1)
+                                @if($forosh == 1 || $sakht == 1)
                                     <div class="form-group mt-3">
                                         <label>سند</label>
                                         <select name="sanad" class="form-control">
@@ -95,7 +97,7 @@
                                         <input name="gheymat" value="{{old('gheymat')}}" type="text" class="form-control @error('gheymat') border border-danger @enderror">
                                     </div>
                                 @endif
-                                @if($forosh == 0)
+                                @if($forosh == 0 && $sakht == 0)
                                     <div class="form-group mt-3">
                                         <label>رهن</label>
                                         <input name="rahn" value="{{old('rahn')}}" type="text" class="form-control">

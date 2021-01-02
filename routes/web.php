@@ -76,7 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-//Route::get('/test', 'testController@test2');
+Route::get('/test', 'testController@test2');
 //Route::post('/test', 'testController@test2');
 //Route::get('/test3', 'testController@test3');
 

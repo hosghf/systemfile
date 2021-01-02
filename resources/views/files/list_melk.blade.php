@@ -38,6 +38,7 @@
             @csrf
             <input type="hidden" name="forosh" value="{{$forosh}}">
             <input type="hidden" name="maskoni" value="{{$maskoni}}">
+            <input type="hidden" name="sakht" value="{{$sakht}}">
 
             <div class="input-group search-box">
                 <div class="input-group-prepend">
@@ -62,6 +63,7 @@
                             @csrf
                             <input type="hidden" name="forosh" value="{{$forosh}}">
                             <input type="hidden" name="maskoni" value="{{$maskoni}}">
+                            <input type="hidden" name="sakht" value="{{$sakht}}">
                             <div class="row">
                                 <div class="form-group col-12 col-sm-3 col-md-3">
                                     <label> محدوده </label>
@@ -84,15 +86,17 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                @if($sakht != 1)
                                 <div class="form-group col-6 col-sm-3 col-md-3">
-                                    <label>دسته بندی</label>
-                                    <select name="category" class="form-control @if($oldcategory) border border-success @endif">
-                                        <option></option>
-                                        @foreach($category as $cat)
-                                            <option value="{{$cat->id}}" @if(isset($oldcategory)) {{$oldcategory == $cat->id ? 'selected' : ''}} @endif>{{$cat->title}}</option>
-                                        @endforeach
-                                    </select>
+                                        <label>دسته بندی</label>
+                                        <select name="category" class="form-control @if($oldcategory) border border-success @endif">
+                                            <option></option>
+                                            @foreach($category as $cat)
+                                                <option value="{{$cat->id}}" @if(isset($oldcategory)) {{$oldcategory == $cat->id ? 'selected' : ''}} @endif>{{$cat->title}}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
+                                @endif
                                 <div class="form-group col-3 col-6 col-md-3">
                                     <label> سال ساخت </label>
                                     <select name="year" class="form-control">
@@ -108,7 +112,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                @if($forosh == 1)
+                                @if($forosh == 1 || $sakht != null)
                                     <div class="form-group col-12 col-md-6">
                                         <label>انتخاب قیمت:</label>
                                         <div class="input-group">
@@ -271,16 +275,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body px-4 @if($forosh == 1) card-file @else card-ejare @endif">
+                        <div class="card-body px-4 @if($forosh == 1 || $sakht == 1) card-file @else card-ejare @endif">
                             <ul class="list-group list-group-unbordered">
-                                @if($forosh == 1)
+                                @if($forosh == 1 || $sakht == 1)
                                     <li class="list-group-item text-sm">
                                         <b>قیمت: </b>
                                         <span>{{ number_format($file->price) }}</span>
                                         @if(isset($file->price))<span>ملیون</span>@endif
                                     </li>
                                 @endif
-                                @if($forosh == 0)
+                                @if($forosh == 0 && $sakht == null)
                                     <li class="list-group-item text-sm">
                                         <b>رهن: </b>
                                         <span>{{ number_format($file->rahn) }}</span>
@@ -298,7 +302,13 @@
                                     </li>
                                     <li class="list-group-item text-sm">
                                         <b> دسته:</b>
-                                        {{$file->category->title}}
+                                        @if($file->sakht == 1)
+                                            مشارکت
+                                        @elseif($file->sakht == 2)
+                                            پیش فروش
+                                        @else
+                                            {{$file->category->title}}
+                                        @endif
                                     </li>
                             </ul>
                         </div>

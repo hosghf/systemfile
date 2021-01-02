@@ -114,6 +114,12 @@
                                             <p>فروش تجاری</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="/listfile?sakht=1" class="nav-link {{ Route::currentRouteName() == 'listfile' && $sakht == 1 ? 'active' : '' }}">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>مشارکت در ساخت</p>
+                                        </a>
+                                    </li>
                                 @endcannot
                                 @cannot('isForosh')
                                     <li class="nav-item">
@@ -123,7 +129,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/listfile?forosh=0&maskoni=0" class="nav-link {{ Route::currentRouteName() == 'listfile' && $forosh == 0 && $maskoni == 0 ? 'active' : '' }}">
+                                        <a href="/listfile?forosh=0&maskoni=0" class="nav-link {{ Route::currentRouteName() == 'listfile' && $forosh == 0 && $maskoni == 0 && $sakht == null ? 'active' : '' }}">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>اجاره تجاری</p>
                                         </a>
@@ -160,9 +166,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/registerfile?forosh=0&maskoni=0" class="nav-link {{  Route::currentRouteName() == 'registerfile' && $forosh == 0 && $maskoni == 0 ? 'active' : '' }}">
+                                    <a href="/registerfile?forosh=0&maskoni=0" class="nav-link {{  Route::currentRouteName() == 'registerfile' && $forosh == 0 && $maskoni == 0 && $sakht == 0 ? 'active' : '' }}">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>اجاره تجاری</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/registerfile?sakht=1" class="nav-link {{  Route::currentRouteName() == 'registerfile' && $sakht == 1 ? 'active' : '' }}">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>مشارکت در ساخت</p>
                                     </a>
                                 </li>
                             </ul>

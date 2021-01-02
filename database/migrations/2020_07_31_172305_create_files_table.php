@@ -20,12 +20,12 @@ class CreateFilesTable extends Migration
             $table->tinyInteger('street_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('address')->nullable();
-            $table->tinyInteger('cat_id')->unsigned()->default(1);
+            $table->tinyInteger('cat_id')->unsigned()->nullable();
             $table->integer('metr')->unsigned()->nullable();
             $table->float('price',10,2)->nullable();
             $table->float('rahn')->nullable();
             $table->float('ejare')->nullable();
-            $table->tinyInteger('forosh')->default('1');
+            $table->tinyInteger('forosh')->nullable();
             $table->tinyInteger('maskoni')->nullable();
             $table->integer('year')->nullable();
             $table->tinyInteger('cabinet_id')->nullable()->unsigned();
@@ -43,6 +43,7 @@ class CreateFilesTable extends Migration
             $table->tinyInteger('private')->default('0');
             $table->tinyInteger('kole_tabaghat')->unsigned()->nullable();
             $table->text('tozihat')->nullable();
+            $table->tinyInteger('sakht')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('files', function (Blueprint $table){

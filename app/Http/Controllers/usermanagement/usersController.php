@@ -103,7 +103,7 @@ class usersController extends Controller
     }
 
     public function list(){
-        $users = User::all()->except([1]);
+        $users = User::paginate(25);
         return view('user_management.list_personel', ['users' => $users]);
     }
 

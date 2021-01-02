@@ -29,14 +29,20 @@ class testController extends Controller
 {
     public function test2(Request $request)
     {
-        $customers = Customer::query();
-        $customers->where('user_id', 1)->get();
 
-//        dd($customers);
-        foreach ($customers as $customer){
-            echo $customer->id;
-            echo 'helo';
-        }
+        $files = File::join('users', 'files.user_id', '=', 'users.id')
+        ->select('files.*', 'users.name')
+        ->where('users.role_id', '=', 6);
+        $files = $files->where('files.id', 23)->get();
+
+
+        $files = File::with('user')->whereHas('user', function($q) {
+            $q->where('role_id', '=', 6);
+        });
+
+        $files = $files->where('maskoni', 1)->get();
+
+        dd($files);
     }
 
     public function xyz(Request $request){

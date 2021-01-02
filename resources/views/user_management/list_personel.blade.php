@@ -46,6 +46,7 @@
                             <tbody class="text-sm">
                                 <div class="d-none">{{$i = 0}}</div>
                                 @foreach($users as $user)
+                                    @if($user->id == 1) @continue @endif
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td> {{$user->name}} </td>
@@ -74,6 +75,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
+                    {{ $users->links() }}
                 </div>
                 <!-- /.card-footer -->
             </div>

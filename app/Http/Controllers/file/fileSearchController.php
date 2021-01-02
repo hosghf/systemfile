@@ -19,8 +19,10 @@ class fileSearchController extends Controller
     public function filter(Request $request){
 
         $forosh = $request->forosh;
-        if (auth()->user()->can('isEjare') and $forosh == 1){
+        $sakht = $request->sakht;
+        if (auth()->user()->can('isEjare') and ($forosh == 1 || $sakht > 0 ) ){
             $forosh = 0;
+            $sakht = 0;
             session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
         }
         if (auth()->user()->can('isForosh') and $forosh == 0){
@@ -72,9 +74,25 @@ class fileSearchController extends Controller
 
         //query
         if($request->route()->getName() == 'filterfile'){
+
             $files = File::query();
-            $files = $files->where('forosh', $forosh)->where('maskoni', $maskoni)
-                ->where('archive', 0);
+
+//            $files = $files->where('forosh', $forosh)->where('maskoni', $maskoni)
+//                ->where('archive', 0);
+
+            if (auth()->user()->can('isModir')) { //only admin can see files with user with role_id 6
+                $files = $files->where('forosh', $forosh)
+                    ->where('maskoni', $maskoni)
+                    ->where('sakht', $sakht)
+                    ->where('archive', 0);
+            } else {
+                $files = File::with('user')->whereHas('user', function($q) {
+                    $q->where('role_id', '!=', 6);
+                })->where('forosh', $forosh)
+                    ->where('maskoni', $maskoni)
+                    ->where('sakht', $sakht)
+                    ->where('archive', 0);
+            }
 
             if($metr1 != -1 and $metr2 != -1){
                 $files->whereBetween('metr', [$metr1, $metr2]);
@@ -140,9 +158,23 @@ class fileSearchController extends Controller
             $files = $files->orderBy('created_at', 'DESC')->paginate(12);
 //            return redirect()->back();
 
-        }elseif ($request->route()->getName() == 'listfile'){
-            $files = File::where('forosh', $forosh)->where('maskoni', $maskoni)->where('archive', 0)
+        } elseif ($request->route()->getName() == 'listfile'){
+
+            if (auth()->user()->can('isModir')) { //only admin can see files with user with role_id 6
+                $files = File::where('forosh', $forosh)->where('maskoni', $maskoni)
+                    ->where('archive', 0)->where('sakht', $sakht)
                                         ->orderBy('created_at', 'DESC')->paginate(12);
+            } else {
+                $files = File::with('user')->whereHas('user', function($q) {
+                    $q->where('role_id', '!=', 6);
+                })->where('forosh', $forosh)
+                    ->where('maskoni', $maskoni)
+                    ->where('sakht', $sakht)
+                    ->where('archive', 0)
+                    ->orderBy('created_at', 'DESC')->paginate(12);
+            }
+
+
         }elseif ($request->route()->getName() == 'searchfile'){
 
             if($fileid > 0 ){
@@ -151,10 +183,13 @@ class fileSearchController extends Controller
                     ->where('archive', 0)->paginate();
 
                 if(isset($files[0])) {
-                    if (auth()->user()->can('isEjare') and $files[0]->forosh == 1) {
+                    if (auth()->user()->can('isEjare') and ($files[0]->forosh == 1 || $files[0]->sakht > 0) ) {
                         $request->session()->flash('message', "شما به این فایل دسترسی ندارید");
                         return redirect()->back();
                     } elseif (auth()->user()->can('isForosh') and $files[0]->forosh == 0) {
+                        $request->session()->flash('message', "شما به این فایل دسترسی ندارید");
+                        return redirect()->back();
+                    } elseif (!auth()->user()->can('isModir') and $files[0]->user->role_id == 6 ) {
                         $request->session()->flash('message', "شما به این فایل دسترسی ندارید");
                         return redirect()->back();
                     }
@@ -167,15 +202,34 @@ class fileSearchController extends Controller
                 $fileNumSign = true;
 
             } else{
-                $files = File::where(function ($query) use($forosh, $maskoni){
-                    $query->where('forosh', $forosh)
-                        ->where('maskoni', $maskoni)->where('archive', 0);
-                })->where(function ($query) use($searchbox,$cat_id){
-                    $query->orWhere('phone', $searchbox)
-                        ->orWhere('family', $searchbox)
-                        ->orWhere('address', 'LIKE', "%{$searchbox}%")
-                        ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-                })->orderBy('created_at', 'DESC')->paginate(12);
+                if(auth()->user()->can('isModir') ){ //just admin user cuold see files with role_id 6
+                    $files = File::where(function ($query) use($forosh, $maskoni, $sakht){
+                        $query->where('forosh', $forosh)
+                            ->where('maskoni', $maskoni)
+                            ->where('sakht', $sakht)
+                            ->where('archive', 0);
+                    })->where(function ($query) use($searchbox,$cat_id){
+                        $query->orWhere('phone', $searchbox)
+                            ->orWhere('family', $searchbox)
+                            ->orWhere('address', 'LIKE', "%{$searchbox}%")
+                            ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
+                    })->orderBy('created_at', 'DESC')->paginate(12);
+                } else {
+                    $files = File::where(function ($query) use($forosh, $maskoni, $sakht){
+                        $query->with('user')->whereHas('user', function($q) {
+                            $q->where('role_id', '!=', 6);
+                        })->where('forosh', $forosh)
+                            ->where('maskoni', $maskoni)
+                            ->where('sakht', $sakht)
+                            ->where('archive', 0);
+                    })->where(function ($query) use($searchbox,$cat_id){
+                        $query->orWhere('phone', $searchbox)
+                            ->orWhere('family', $searchbox)
+                            ->orWhere('address', 'LIKE', "%{$searchbox}%")
+                            ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
+                    })->orderBy('created_at', 'DESC')->paginate(12);
+                }
+
             }
         }
 
@@ -225,10 +279,13 @@ class fileSearchController extends Controller
                 $category = Category::where('tejary', 1)->get();//forosh maskony only
             }
         }
+        if($sakht == 1){
+            $pagetitle = "مشارکت در ساخت";
+        }
 
         $files->appends($_REQUEST);
 
-        return view('files.list_melk', ['files' => $files, 'forosh' => $forosh,
+        return view('files.list_melk', ['files' => $files, 'forosh' => $forosh, 'sakht' => $sakht,
             'maskoni' => $maskoni, 'pagetitle' => $pagetitle, 'category' => $category,
             'street' => $street,'metr' => $metr, 'prices' => $prices, 'rooms' => $rooms,
             'rahn4select' => $rahn4select,'ejare4select' => $ejare4select, 'oldcategory' => $request->category]);

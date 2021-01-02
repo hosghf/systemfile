@@ -62,7 +62,7 @@
         </div>
     @endcan
 
-    <h5 class="@can('isModir')mt-4 @endcan mb-2"> فایل های من </h5>
+    <h4 class="@can('isModir')mt-4 @endcan mb-2"> فایل های من </h4>
     <div class="row">
         <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -70,7 +70,7 @@
                 <div class="inner">
                     <h3>{{$mysalefiles}}</h3>
 
-                    <p> فایل های فروش من</p>
+                    <p>فروش/پیش/مشارکت </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -84,7 +84,7 @@
             <div class="small-box bg-success">
                 <div class="inner">
                     <h3>{{$myrentfiles}}</h3>
-                    <p>فایل اجاره های من</p>
+                    <p>فایل های اجاره من</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -99,7 +99,7 @@
                 <div class="inner">
                     <h3>{{$myarchivefiles}}</h3>
 
-                    <p>آرشیوهای فروش من</p>
+                    <p>آرشیوهای فروش/پیش/مشارکت </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>

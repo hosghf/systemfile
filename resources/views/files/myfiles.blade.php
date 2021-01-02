@@ -52,15 +52,17 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-6 col-sm-3 col-md-3">
-                                    <label>دسته بندی</label>
-                                    <select name="category" class="form-control">
-                                        <option></option>
-                                        @foreach($category as $cat)
-                                            <option value="{{$cat->id}}">{{$cat->title}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                @if($sakht != 1)
+                                    <div class="form-group col-6 col-sm-3 col-md-3">
+                                        <label>دسته بندی</label>
+                                        <select name="category" class="form-control">
+                                            <option></option>
+                                            @foreach($category as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
                                 <div class="form-group col-3 col-6 col-md-3">
                                     <label> سال ساخت </label>
                                     <select name="year" class="form-control">
@@ -228,20 +230,19 @@
                                     @if(isset($file->metr))<span>متر</span>@endif
                                     <span>{{$file->street->title}}</span>
                                 </h6>
+                                <div class="text-center text-sm mt-1">
+                                    {{ $file->limitedAddress }}
+                                </div>
                                 <div class="text-center text-sm">
                                     @if(isset($file->room))
                                         <span>{{ $file->room->title }}</span>
                                         <span>خواب</span>
                                     @endif
                                 </div>
-                                <div class="text-center mt-1 text-sm pb-1">
-                                    {{ $file->category->title }}
-                                </div>
                             </div>
-                            {{--<p class="text-center">  </p>--}}
                         </div>
-                        <div class="card-body p-4 @if($forosh == 1) card-file @else card-ejare @endif">
-                        <ul class="list-group list-group-unbordered mb-3">
+                        <div class="card-body px-4 @if($forosh == 1) card-file @else card-ejare @endif">
+                            <ul class="list-group list-group-unbordered">
                                 @if($forosh == 1)
                                     <li class="list-group-item text-sm">
                                         <b>قیمت: </b>
@@ -265,6 +266,16 @@
                                     <b>  نام مالک:</b>
                                     {{$file->family}}
                                 </li>
+                                <li class="list-group-item text-sm">
+                                    <b> دسته:</b>
+                                    @if($file->sakht == 1)
+                                        مشارکت
+                                    @elseif($file->sakht == 2)
+                                        پیش فروش
+                                    @else
+                                        {{$file->category->title}}
+                                    @endif
+                                </li>
                             </ul>
                         </div>
                         <div class="card-footer bg-warning text-sm">
@@ -276,7 +287,6 @@
                 </a>
             </div>
         @endforeach
-
     </div>
     <div>{{$files->links()}}</div>
 @endsection

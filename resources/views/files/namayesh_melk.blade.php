@@ -70,7 +70,7 @@
                                     <label class="col-6 col-sm-4 col-md-6">سند:</label>
                                     <p class="text-bold">{{ $file->sanad == null ? '' : $file->sanad->title }}</p>
                                 </div>
-                                @if($file->forosh == 1)
+                                @if($file->forosh == 1 || $file->sakht == 1)
                                     <div class="form-group row mt-4">
                                         <label class="col-6 col-sm-4 col-md-6">قیمت:</label>
                                         <p class="text-bold">

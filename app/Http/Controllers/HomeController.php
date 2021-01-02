@@ -32,9 +32,20 @@ class HomeController extends Controller
         $ejarecount = File::where('forosh', 0)->count();
         $usercount = User::count() - 1;
 
-        $mysalefiles = File::where('user_id', auth()->user()->id)->where('forosh', 1)->where('archive', 0)->count();
+        $mysalefiles = File::where('user_id', auth()->user()->id)
+            ->where(function ($q) {
+                $q->where('forosh', 1)
+                    ->orWhereIn('sakht', [1,2]);
+            })
+            ->where('archive', 0)->count();
         $myrentfiles = File::where('user_id', auth()->user()->id)->where('forosh', 0)->where('archive', 0)->count();
-        $myarchivefiles = File::where('user_id', auth()->user()->id)->where('forosh', 1)->where('archive', 1)->count();
+        $myarchivefiles = File::where('user_id', auth()->user()->id)
+            ->where(function($q){
+                $q->where('forosh', 1)
+                    ->orWhereIn('sakht', [1,2]);
+            })
+            ->where('archive', 1)->count();
+
         $ejarearchive = File::where('user_id', auth()->user()->id)->where('forosh', 0)->where('archive', 1)->count();
 
 

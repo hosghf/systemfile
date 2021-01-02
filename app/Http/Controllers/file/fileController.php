@@ -26,6 +26,7 @@ class fileController extends Controller
 
         $maskoni = $request->maskoni;
         $forosh = $request->forosh;
+        $sakht = $request->sakht;
         $pagetitle = '';
         $category = '';
         if( $forosh == 1 ) {
@@ -49,6 +50,9 @@ class fileController extends Controller
               $category = Category::where('tejary', 1)->get();//forosh maskony only
             }
         }
+        if($sakht == 1) {
+            $pagetitle = 'مشارکت در ساخت';
+        }
         $street = Street::all();
         $sanad = Sanad::all();
         $directions = BuildingDirection::all();
@@ -63,15 +67,15 @@ class fileController extends Controller
                                             'directions' => $directions, 'year' => $year, 'rooms' => $rooms,
                                             'tabaghe' => $tabaghe, 'heatings' => $heatings, 'coolings' => $coolings,
                                             'kaf' => $kaf, 'cabinets' => $cabinet,'maskoni' => $maskoni,
-                                                'forosh' => $forosh, 'pagetitle' => $pagetitle]);
+                                                'forosh' => $forosh, 'pagetitle' => $pagetitle, 'sakht' => $sakht]);
     }
 
     public function registerStore(Request $request){
 
-        if(auth()->user()->id ==4){
-            $request->session()->flash('message', 'شما قادر به ثبت فای نیستید.');
-            return redirect()->back();
-        }
+//        if(auth()->user()->id ==4){
+//            $request->session()->flash('message', 'شما قادر به ثبت فای نیستید.');
+//            return redirect()->back();
+//        }
 
         $v = $request->validate([
             'family' => 'required',
@@ -100,6 +104,7 @@ class fileController extends Controller
 
         $maskoni = $request->maskoni;
         $forosh = $request->forosh;
+        $sakht = $request->sakht;
 
         $file = new File;
         $file->family = $request->family;
@@ -114,6 +119,7 @@ class fileController extends Controller
         $file->ejare = $request->ejare;
         $file->forosh = $forosh;
         $file->maskoni = $maskoni;
+        $file->sakht = $sakht;
         $file->year = $request->year;
         $file->cabinet_id = $request->cabinet;
         $file->floor_id = $request->kaf;
@@ -159,6 +165,9 @@ class fileController extends Controller
         }
 
         $request->session()->flash('message', 'فایل با موفقیت ثبت شد.');
+        if($sakht == 1){
+            return redirect('registerfile?sakht='.$sakht );
+        }
         return redirect('registerfile?forosh='.$forosh .'&maskoni=' . $maskoni);
 //        return redirect()->back();
     }
@@ -174,6 +183,9 @@ class fileController extends Controller
             session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
             return redirect('/');
         } elseif(auth()->user()->can('isMoshaverMajazy') and auth()->user()->id != $file->user_id) {
+            session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
+            return redirect('/');
+        } elseif (!auth()->user()->can('isModir') and $file->user->role_id == 6 and auth()->user()->id != $file->user_id) { //only admin can see file with role_id 6
             session()->flash('message', 'شما به فایل های فروش دسترسی ندارید.');
             return redirect('/');
         }

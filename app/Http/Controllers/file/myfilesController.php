@@ -75,7 +75,11 @@ class myfilesController extends Controller
         //query
         if($request->route()->getName() == 'myfilterfile'){
             $files = File::query();
-            $files = $files->where('forosh', $forosh)->where('user_id', auth()->user()->id)
+            $files = $files->where(function($query) use($forosh){
+                                $query->where('forosh', $forosh)
+                                ->orWhereIn('sakht', [1,2]);
+                            })
+                        ->where('user_id', auth()->user()->id)
                             ->where('archive', $archive);
 
             if($metr1 != -1 and $metr2 != -1){
@@ -138,14 +142,21 @@ class myfilesController extends Controller
             $files = $files->orderBy('created_at', 'DESC')->paginate(12);
 
         }elseif ($request->route()->getName() == 'myfiles'){
-            $files = File::where('user_id', auth()->user()->id)->where('forosh', $forosh)
+            $files = File::where('user_id', auth()->user()->id)
+
+                ->where(function($qyery) use($forosh){
+                    $qyery->where('forosh', $forosh)
+                        ->orWhereIn('sakht', [1,2]);
+                })
                 ->where('archive', $archive)
                 ->orderBy('created_at', 'DESC')->paginate(12);
         }elseif ($request->route()->getName() == 'mysearchfile'){
 
             $files = File::where(function ($query) use($forosh, $archive){
                 $query->where('forosh', $forosh)
-                    ->where('archive', $archive)->where('user_id', auth()->user()->id);
+                    ->where('archive', $archive)
+                    ->orWhereIn('sakht', [1,2])
+                    ->where('user_id', auth()->user()->id);
             })->where(function ($query) use($searchbox,$cat_id){
                 $query->orWhere('phone', $searchbox)
                     ->orWhere('family', $searchbox)
