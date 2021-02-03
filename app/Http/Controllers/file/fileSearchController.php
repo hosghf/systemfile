@@ -155,7 +155,7 @@ class fileSearchController extends Controller
                 $files->where('room_id', $room);
             }
 
-            $files = $files->orderBy('created_at', 'DESC')->paginate(12);
+            $files = $files->orderBy('updated_at', 'DESC')->paginate(12);
 //            return redirect()->back();
 
         } elseif ($request->route()->getName() == 'listfile'){
@@ -163,7 +163,7 @@ class fileSearchController extends Controller
             if (auth()->user()->can('isModir')) { //only admin can see files with user with role_id 6
                 $files = File::where('forosh', $forosh)->where('maskoni', $maskoni)
                     ->where('archive', 0)->where('sakht', $sakht)
-                                        ->orderBy('created_at', 'DESC')->paginate(12);
+                                        ->orderBy('updated_at', 'DESC')->paginate(12);
             } else {
                 $files = File::with('user')->whereHas('user', function($q) {
                     $q->where('role_id', '!=', 6);
@@ -171,7 +171,7 @@ class fileSearchController extends Controller
                     ->where('maskoni', $maskoni)
                     ->where('sakht', $sakht)
                     ->where('archive', 0)
-                    ->orderBy('created_at', 'DESC')->paginate(12);
+                    ->orderBy('updated_at', 'DESC')->paginate(12);
             }
 
 
@@ -213,7 +213,7 @@ class fileSearchController extends Controller
                             ->orWhere('family', $searchbox)
                             ->orWhere('address', 'LIKE', "%{$searchbox}%")
                             ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-                    })->orderBy('created_at', 'DESC')->paginate(12);
+                    })->orderBy('updated_at', 'DESC')->paginate(12);
                 } else {
                     $files = File::where(function ($query) use($forosh, $maskoni, $sakht){
                         $query->with('user')->whereHas('user', function($q) {
@@ -227,7 +227,7 @@ class fileSearchController extends Controller
                             ->orWhere('family', $searchbox)
                             ->orWhere('address', 'LIKE', "%{$searchbox}%")
                             ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-                    })->orderBy('created_at', 'DESC')->paginate(12);
+                    })->orderBy('updated_at', 'DESC')->paginate(12);
                 }
 
             }
@@ -241,8 +241,11 @@ class fileSearchController extends Controller
         $metr = Meter::all();
         $rooms = Room::all();
         foreach ($files as $f){
-            $f->tarikh = verta($f->created_at);
+            //change date to persian date
+            $f->tarikh = verta($f->updated_at);
             $f->tarikh = $f->tarikh->formatDifference($now);
+
+            //address
             if(strlen($f->address) > 0){
                 $f->limitedAddress = mb_substr($f->address,0,14,'utf-8') . " ... ";
             }

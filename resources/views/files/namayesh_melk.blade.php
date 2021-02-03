@@ -14,10 +14,17 @@
                         <span> {{$file->id}} </span>
                         @if($file->archive == 1)<span class="badge badge-danger"> آرشیو </span>@endif
                     </div>
-                    <span class="float-left mt-3 ml-4 text-bold text-sm">تاریخ:
-                  <span>{{ $file->tarikh }}</span>
+                    <div class="float-left mt-3 ml-4 text-bold text-left text-sm">
+                        تاریخ ثبت:
+                        <span>{{ $file->tarikh }}</span>
+                        <div>
+                            آخرین بروز رسانی
+                            <span>{{ $file->lastUpdate }}</span>
+                        </div>
+                    </div>
                 </span>
                 </div>
+
 
                 <div class="card-body show-file-cbody">
 
@@ -44,7 +51,17 @@
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group row">
                                     <label class="col-6 col-sm-4 col-md-6">دسته بندی:</label>
-                                    <p class="text-bold"> {{$file->category == null ? '' : $file->category->title}} </p>
+
+                                    <p class="text-bold">
+{{--                                        {{$file->category == null ? '' : $file->category->title}}--}}
+                                        @if($file->sakht == 1)
+                                            مشارکت
+                                        @elseif($file->sakht == 2)
+                                            پیش فروش
+                                        @else
+                                            {{$file->category->title}}
+                                        @endif
+                                    </p>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <label class="col-6 col-sm-4 col-md-6">خیابان:</label>

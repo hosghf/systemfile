@@ -50,6 +50,7 @@
 
                             <h5 class="mb-3 title2 col-sm-12 col-md-11">مشخصات ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
+                                @if($file->sakht < 1)
                                 <div class="form-group">
                                     <label>دسته بندی</label>
                                     <select name="daste" class="form-control">
@@ -58,6 +59,7 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                @endif
                                 <div class="form-group">
                                     <label>محدوده</label>
                                     <select name="street" class="form-control @error('street') border border-danger @enderror">

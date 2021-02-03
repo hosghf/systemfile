@@ -51,7 +51,7 @@
                             <h5 class="mb-3 title2 col-sm-12 col-md-11">مشخصات ملک</h5>
                             <div class="col-sm-12 col-md-10 m-auto">
                                 <div class="form-group">
-                                    @if($sakht != 1)
+                                    @if($sakht < 1)
                                         <label>دسته بندی</label>
                                         <select name="daste" class="form-control">
                                             @foreach($category as $cat)
@@ -59,6 +59,7 @@
                                             @endforeach
                                         </select>
                                     @endif
+                                </div>
                                 <div class="form-group">
                                     <label><span class="text-danger">*</span>
                                         محدوده

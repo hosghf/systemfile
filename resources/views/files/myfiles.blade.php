@@ -52,17 +52,15 @@
                                         </select>
                                     </div>
                                 </div>
-                                @if($sakht != 1)
-                                    <div class="form-group col-6 col-sm-3 col-md-3">
-                                        <label>دسته بندی</label>
-                                        <select name="category" class="form-control">
-                                            <option></option>
-                                            @foreach($category as $cat)
-                                                <option value="{{$cat->id}}">{{$cat->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                @endif
+                                <div class="form-group col-6 col-sm-3 col-md-3">
+                                    <label>دسته بندی</label>
+                                    <select name="category" class="form-control">
+                                        <option></option>
+                                        @foreach($category as $cat)
+                                            <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="form-group col-3 col-6 col-md-3">
                                     <label> سال ساخت </label>
                                     <select name="year" class="form-control">

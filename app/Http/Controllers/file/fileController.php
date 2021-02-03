@@ -194,6 +194,8 @@ class fileController extends Controller
         $file->m = $file->m < 10 ? '0' . $file->m : $file->m;
         $file->tarikh = Verta($file->created_at);
         $file->tarikh = $file->tarikh->format('H:i j-n-Y');
+        $file->lastUpdate = Verta($file->updated_at);
+        $file->lastUpdate = $file->lastUpdate->format('H:i j-n-Y');
         return view('files.namayesh_melk', ['file' => $file]);
     }
 

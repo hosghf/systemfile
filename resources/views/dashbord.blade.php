@@ -99,7 +99,7 @@
                 <div class="inner">
                     <h3>{{$myarchivefiles}}</h3>
 
-                    <p>آرشیوهای فروش/پیش/مشارکت </p>
+                    <p>آرشیو فروش/پیش/مشارکت </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>

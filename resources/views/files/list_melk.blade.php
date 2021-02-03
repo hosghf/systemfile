@@ -88,13 +88,13 @@
                                 </div>
                                 @if($sakht != 1)
                                 <div class="form-group col-6 col-sm-3 col-md-3">
-                                        <label>دسته بندی</label>
-                                        <select name="category" class="form-control @if($oldcategory) border border-success @endif">
-                                            <option></option>
-                                            @foreach($category as $cat)
-                                                <option value="{{$cat->id}}" @if(isset($oldcategory)) {{$oldcategory == $cat->id ? 'selected' : ''}} @endif>{{$cat->title}}</option>
-                                            @endforeach
-                                        </select>
+                                    <label>دسته بندی</label>
+                                    <select name="category" class="form-control @if($oldcategory) border border-success @endif">
+                                        <option></option>
+                                        @foreach($category as $cat)
+                                            <option value="{{$cat->id}}" @if(isset($oldcategory)) {{$oldcategory == $cat->id ? 'selected' : ''}} @endif>{{$cat->title}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 @endif
                                 <div class="form-group col-3 col-6 col-md-3">

@@ -99,11 +99,11 @@ class myfilesController extends Controller
             }
 
             if($date1 != null and $date2 != null){
-                $files->whereBetween('created_at', [$date1, $date2]);
+                $files->whereBetween('updated_at', [$date1, $date2]);
             }elseif($date1 != null and $date2 == null){
-                $files->where('created_at', '>=', $date1);
+                $files->where('updated_at', '>=', $date1);
             }elseif($date1 == null and $date2 != null){
-                $files->where('created_at', '<=', $date2);
+                $files->where('updated_at', '<=', $date2);
             }
 
             if($rahn1 != null and $rahn2 != null){
@@ -139,17 +139,23 @@ class myfilesController extends Controller
                 $files->where('cat_id', $cat_id);
             }
 
-            $files = $files->orderBy('created_at', 'DESC')->paginate(12);
+            $files = $files->orderBy('updated_at', 'DESC')->paginate(12);
 
         }elseif ($request->route()->getName() == 'myfiles'){
-            $files = File::where('user_id', auth()->user()->id)
-
-                ->where(function($qyery) use($forosh){
-                    $qyery->where('forosh', $forosh)
-                        ->orWhereIn('sakht', [1,2]);
-                })
-                ->where('archive', $archive)
-                ->orderBy('created_at', 'DESC')->paginate(12);
+            if($forosh == 1) {
+                $files = File::where('user_id', auth()->user()->id)
+                    ->where(function ($qyery) use ($forosh) {
+                        $qyery->where('forosh', $forosh)
+                            ->orWhereIn('sakht', [1, 2]);
+                    })
+                    ->where('archive', $archive)
+                    ->orderBy('updated_at', 'DESC')->paginate(12);
+            } else {
+                $files = File::where('user_id', auth()->user()->id)
+                    ->where('forosh', 0)
+                    ->where('archive', $archive)
+                    ->orderBy('updated_at', 'DESC')->paginate(12);
+            }
         }elseif ($request->route()->getName() == 'mysearchfile'){
 
             $files = File::where(function ($query) use($forosh, $archive){
@@ -162,7 +168,7 @@ class myfilesController extends Controller
                     ->orWhere('family', $searchbox)
                     ->orWhere('address', 'LIKE', "%{$searchbox}%")
                     ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-            })->orderBy('created_at', 'DESC')->paginate(12);
+            })->orderBy('updated_at', 'DESC')->paginate(12);
         }
 
         $prices = Price::all('price_title', 'price_value');
@@ -172,7 +178,7 @@ class myfilesController extends Controller
         $now  = \verta();
         $metr = Meter::all();
         foreach ($files as $f){
-            $f->tarikh = verta($f->created_at);
+            $f->tarikh = verta($f->updated_at);
             $f->tarikh = $f->tarikh->formatDifference($now);
         }
 
