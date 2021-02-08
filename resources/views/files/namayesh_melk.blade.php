@@ -17,8 +17,8 @@
                     <div class="float-left mt-3 ml-4 text-bold text-left text-sm">
                         تاریخ ثبت:
                         <span>{{ $file->tarikh }}</span>
-                        <div>
-                            آخرین بروز رسانی
+                        <div class="bg-success rounded">
+                             بروز رسانی:
                             <span>{{ $file->lastUpdate }}</span>
                         </div>
                     </div>

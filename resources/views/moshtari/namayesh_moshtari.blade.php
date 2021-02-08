@@ -14,8 +14,17 @@
                         شماره مشتری:
                         <span> {{$customer->id}} </span>
                     </div>
-                    <span class="float-left mt-3 ml-4 text-bold text-sm">تاریخ:
-                  <span>{{$customer->tarikh}}</span>
+                    <!-- <span class="float-left mt-3 ml-4 text-bold text-sm">
+                        تاریخ:
+                    <span>{{$customer->tarikh}}</span> -->
+                    <div class="float-left mt-3 ml-4 text-bold text-left text-sm">
+                        تاریخ ثبت:
+                        <span>{{ $customer->tarikh }}</span>
+                        <div class="bg-success rounded">
+                         بروز رسانی:
+                            <span>{{ $customer->update }}</span>
+                        </div>
+                    </div>
                 </span>
                 </div>
 

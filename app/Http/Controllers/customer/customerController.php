@@ -174,7 +174,7 @@ class customerController extends Controller
                   $query->whereHas('user', function(Builder $query){
                               $query->where('role_id', 2);
                           })->orWhere('user_id', auth()->user()->id);
-                                                            })->orderBy('created_at', 'DESC')->paginate(12);
+                                                            })->orderBy('updated_at', 'DESC')->paginate(12);
 
         }
         elseif($request->route()->getName() == 'searchmoshtari'){
@@ -212,7 +212,7 @@ class customerController extends Controller
                                     $query->orWhere('phone', $searchbox)
                                         ->orWhere('family', 'LIKE', "%{$searchbox}%")
                                         ->orWhere('tozihat', 'LIKE', "%{$searchbox}%");
-                                })->orderBy('created_at', 'DESC')->paginate(12);
+                                })->orderBy('updated_at', 'DESC')->paginate(12);
             }
 
         }elseif($request->route()->getName() == 'filtermoshtari'){
@@ -234,11 +234,11 @@ class customerController extends Controller
             }
 
             if($date1 != null and $date2 != null){
-                $customers->whereBetween('created_at', [$date1, $date2]);
+                $customers->whereBetween('updated_at', [$date1, $date2]);
             }elseif($date1 != null and $date2 == null){
-                $customers->where('created_at', '>=', $date1);
+                $customers->where('updated_at', '>=', $date1);
             }elseif($date1 == null and $date2 != null){
-                $customers->where('created_at', '<=', $date2);
+                $customers->where('updated_at', '<=', $date2);
             }
 
             if($rahn1 != null and $rahn2 != null){
@@ -270,7 +270,7 @@ class customerController extends Controller
                     $query->whereHas('user', function(Builder $query){
                         $query->where('role_id', 2);
                     })->orWhere('user_id', auth()->user()->id);
-                })->orderBy('created_at', 'DESC')->paginate(12);
+                })->orderBy('updated_at', 'DESC')->paginate(12);
         }
 
         $customers->withPath('?forosh=' . $forosh);
@@ -316,6 +316,9 @@ class customerController extends Controller
         $customer = Customer::find($id);
         $customer->tarikh = Verta($customer->created_at);
         $customer->tarikh = $customer->tarikh->format('H:i j-n-Y');
+        $customer->update = Verta($customer->updated_at);
+        $customer->update = $customer->update->format('H:i j-n-Y');
+
         return view('moshtari.namayesh_moshtari', ['customer' => $customer]);
     }
 

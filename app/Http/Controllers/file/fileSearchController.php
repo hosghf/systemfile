@@ -111,11 +111,11 @@ class fileSearchController extends Controller
             }
 
             if($date1 != null and $date2 != null){
-                $files->whereBetween('created_at', [$date1, $date2]);
+                $files->whereBetween('updated_at', [$date1, $date2]);
             }elseif($date1 != null and $date2 == null){
-                $files->where('created_at', '>=', $date1);
+                $files->where('updated_at', '>=', $date1);
             }elseif($date1 == null and $date2 != null){
-                $files->where('created_at', '<=', $date2);
+                $files->where('updated_at', '<=', $date2);
             }
 
             if($rahn1 != null and $rahn2 != null){
